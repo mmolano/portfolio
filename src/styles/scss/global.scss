@@ -1,0 +1,8 @@
+@import 'components/variables/_var';
+@import 'components/mixins/_mixins';
+@import 'components/navigation';
+
+body {
+  background-color: $body-color;
+  color: $default-white;
+}

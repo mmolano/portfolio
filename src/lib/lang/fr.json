@@ -1,0 +1,12 @@
+{
+  "lang": {
+    "en": "Anglais",
+    "fr": "Français"
+  },
+  "nav": {
+    "projects": "Projets",
+    "contact": "Contact",
+    "about": "À propos",
+    "resume": "Curriculum"
+  }
+}

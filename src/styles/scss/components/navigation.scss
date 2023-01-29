@@ -1,0 +1,130 @@
+.navigator {
+  display: none;
+}
+
+.nav {
+  display: flex;
+  height: 70px;
+  justify-content: flex-end;
+}
+
+@include desktop {
+  .navigator {
+    display: initial;
+    color: $nav-elements;
+    & ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      &.nav-list {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        & .nav-selector {
+          margin: 15px 30px;
+          &.resume {
+            color: $nav-button;
+            border: 1px solid;
+            border-color: $nav-button;
+            border-radius: 20px;
+            padding: 10px 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .toggle-nav {
+    z-index: 2;
+    position: absolute;
+    display: grid;
+    height: 25px;
+    cursor: pointer;
+    top: 38px;
+    right: 45px;
+    & .toggle-style {
+      background: $default-white;
+      display: block;
+      height: 4px;
+      width: 35px;
+      border-radius: 5px;
+      &.top {
+        top: 18%;
+        &.rotate-on {
+          transition: all 1s ease;
+          transform: rotate(45deg);
+        }
+        &.rotate-off {
+          transition: all 1s ease;
+          transform: rotate(0deg);
+        }
+      }
+      &.middle {
+        top: 48%;
+        width: 30px;
+        &.rotate-on {
+          position: inherit;
+          top: 18%;
+          width: 34px;
+          transition: all 1s ease;
+          transform: rotate(-45deg);
+        }
+        &.rotate-off {
+          transition: all 1s ease;
+          transform: rotate(0deg);
+        }
+      }
+      &.bottom {
+        top: 78%;
+        width: 25px;
+        &.rotate-on {
+          opacity: 0;
+          animation: fadeOut 1s;
+        }
+        &.rotate-off {
+          opacity: 1;
+          transition: all 1s ease;
+          transform: translateX(0px);
+        }
+      }
+    }
+  }
+
+  .mobile-nav {
+    position: absolute;
+    background-color: $nav-toggle-color;
+    height: 100%;
+    width: 100%;
+    & .row {
+      display: grid;
+      place-items: center;
+      height: 100%;
+      & ul {
+        font-size: 1.5rem;
+        display: grid;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        justify-content: center;
+        align-content: center;
+        gap: 20px;
+        list-style: none;
+      }
+    }
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transition: all 1s ease;
+      transform: translateX(0px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+  }
+}
