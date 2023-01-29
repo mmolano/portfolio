@@ -16,17 +16,17 @@ export const Navigation = (): JSX.Element => {
             <div className="navigator">
                <div className="row">
                   <ul className="nav-list">
-                     <li className="nav-selector">{translation?.nav.projects}</li>
+                     <li className="nav-selector">{translation.nav.projects}</li>
                      {/* // TODO download resume here  */}
-                     <li className="nav-selector">{translation?.nav.contact}</li>
-                     <li className="nav-selector">{translation?.nav.about}</li>
-                     <li className="nav-selector resume">{translation?.nav.resume}</li>
+                     <li className="nav-selector">{translation.nav.contact}</li>
+                     <li className="nav-selector">{translation.nav.about}</li>
+                     <li className="nav-selector resume">{translation.nav.resume}</li>
                   </ul>
                </div>
-               <div className='TEMPORARY'>
-                  <button onClick={() => changeLanguage?.('fr')}>{translation?.lang.fr}</button>
-                  <button onClick={() => changeLanguage?.('en')}>{translation?.lang.en}</button>
-               </div>
+               {/* <div className='TEMPORARY'>
+                  <button onClick={() => lang !== 'fr' ? changeLanguage?.('fr') : ''}>{translation.lang.fr}</button>
+                  <button onClick={() => lang !== 'en' ? changeLanguage?.('en') : ''}>{translation.lang.en}</button>
+               </div> */}
             </div>
 
             {/* //TODO: animation here when showed  */}
