@@ -1,4 +1,4 @@
-import { Layout } from '@/components/Layout/Layout'
+import { Layout } from '@/components/layout/Layout'
 import { Slide } from '@/components/Slide'
 
 export default function Home(): JSX.Element {

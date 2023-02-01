@@ -1,4 +1,4 @@
-import { useStateContext } from '@/lib/context';
+import { useStateContext } from '@/context/AppContext';
 
 export const Navigation = (): JSX.Element => {
    const { show, setShow, lang, translation, changeLanguage } = useStateContext();

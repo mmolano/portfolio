@@ -1,9 +1,31 @@
-import { useStateContext } from "@/lib/context";
+import { useStateContext } from "@/context/AppContext";
+import { AboutIF, ProjectIF } from "@/lib/interface/lang";
+import { useState } from "react";
 
 export const Slide = () => {
    const { translation, currentSlide, setCurrentSlide } = useStateContext();
-   const slider = translation.projects
+   const [isSlide, setIsSlide] = useState(false);
 
+   const firstSlide: AboutIF[] = [
+      {
+         "title": 'About me',
+         "description": 'I\'m a french web developer working with different languages such as Laravel PHP, React, Vue.js & Typescript.',
+         "links": [
+            {
+               "name": "github",
+               "link": "https://github.com/mmolano",
+            },
+            {
+               "name": "linkedin",
+               "link": "https://linkedin.com/in/mimolano",
+            }
+         ]
+      }
+   ]
+
+   const slider = [...firstSlide, translation.projects];
+   
+   console.log(slider);
    let isTimeoutRunning = false;
 
    const scrollAnimate = (e: any) => {
@@ -31,19 +53,32 @@ export const Slide = () => {
 
    return (
       <>
-         <section className="container" onWheel={scrollAnimate}>
-            <h1>{slider[currentSlide].title}</h1>
-            <div>{slider[currentSlide].description}</div>
-            <div>{slider[currentSlide].tools}</div>
-            <div>{slider[currentSlide].date.start}</div>
-            <div>{slider[currentSlide].date.end}</div>
-
-         </section>
-         <div>
-            {Object.keys(slider).map((value, key) => (
-               <span key={key} className={`slide-points${key === currentSlide ? ' active' : ''}`}></span>
+         <section className="">
+            <h1>{slider[0].title}</h1>
+            <div>{slider[0].description}</div>
+            {slider[0].links.map((value, index) => (
+               <div key={index}>{value.name}: {value.link}</div>
             ))}
-         </div>
+         </section>
+
+         {
+            isSlide && (
+               <>
+                  <section className="container" onWheel={scrollAnimate}>
+                     <h1>{slider[1][currentSlide].title}</h1>
+                     <div>{slider[1][currentSlide].description}</div>
+                     <div>{slider[1][currentSlide].tools}</div>
+                     <div>{slider[1][currentSlide].date.start}</div>
+                     <div>{slider[1][currentSlide].date.end}</div>
+                  </section>
+                  <div>
+                     {Object.keys(slider[1]).map((value, key) => (
+                        <span key={key} className={`slide-points${key === currentSlide ? ' active' : ''}`}></span>
+                     ))}
+                  </div>
+               </>
+            )
+         }
       </>
    )
 }

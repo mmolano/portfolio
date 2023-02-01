@@ -1,5 +1,5 @@
-import { Navigation } from '@/components/Header/Navigation'
-import { StateContext } from '@/lib/context'
+import { Navigation } from '@/components/header/Navigation'
+import { StateContext } from '@/context/AppContext'
 
 import '@/styles/scss/global.scss'
 import { Roboto } from '@next/font/google'
@@ -10,6 +10,9 @@ const roboto = Roboto({
   weight: '400',
   subsets: ['latin'],
 })
+
+console.log('%c Coded by Miguel Molano ',
+  'background: #c0894f; color: #ffff; border-radius: 3px; padding: 0.5rem');
 
 export default function App({ Component, pageProps }: AppProps) {
   return (

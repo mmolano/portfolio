@@ -15,7 +15,7 @@ interface ProjectDate {
    end: string;
 }
 
-export interface Project {
+export interface ProjectIF {
    id: number;
    title: string;
    description: string;
@@ -23,8 +23,18 @@ export interface Project {
    date: ProjectDate,
 }
 
-export interface languageIF {
+export interface LanguageIF {
    nav: Nav;
    lang: Lang;
-   projects: Project[]
+   projects: ProjectIF[]
+}
+
+interface linksAbout {
+   name: string;
+   link: string;
+}
+export interface AboutIF {
+   title: string;
+   description: string;
+   links: linksAbout[],
 }

@@ -1,7 +1,7 @@
 import React, { useState, useContext, createContext } from 'react';
-import { ContextType, Lang } from './interface/context';
+import { ContextType, Lang } from '../lib/interface/context';
 
-const Context = createContext<ContextType>({
+const AppContext = createContext<ContextType>({
    lang: "en",
    translation: require('@/lib/lang/en.json'),
    currentSlide: 0
@@ -20,7 +20,7 @@ export const StateContext = ({ children }: { children: React.ReactNode }) => {
    };
 
    return (
-      <Context.Provider value={{
+      <AppContext.Provider value={{
          lang,
          setLang,
          show,
@@ -32,8 +32,8 @@ export const StateContext = ({ children }: { children: React.ReactNode }) => {
          setCurrentSlide
       }}>
          {children}
-      </Context.Provider>
+      </AppContext.Provider>
    )
 }
 
-export const useStateContext = () => useContext(Context);
+export const useStateContext = () => useContext(AppContext);
