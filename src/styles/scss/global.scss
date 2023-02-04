@@ -1,3 +1,5 @@
+@import 'components/fonts/_fonts';
+@import 'components/keyframes/_nav.scss';
 @import 'components/variables/_var';
 @import 'components/mixins/_mixins';
 @import 'components/navigation';
@@ -6,4 +8,8 @@
 body {
   background-color: $body-color;
   color: $default-white;
+}
+
+.main-content {
+  padding: 45px;
 }

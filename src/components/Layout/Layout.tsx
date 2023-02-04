@@ -6,6 +6,6 @@ type LayoutProps = {
 
 export const Layout = ({ children }: LayoutProps): JSX.Element => (
    <>
-      <div>{children}</div>
+      <div className="main-content">{children}</div>
    </>
 )

@@ -1,17 +1,36 @@
+nav {
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'studio-bold';
+  font-size: 20px;
+  padding: 45px;
+}
+
 .navigator {
   display: none;
 }
 
-.nav {
-  display: flex;
-  height: 70px;
-  justify-content: flex-end;
-}
-
 @include desktop {
   .navigator {
-    display: initial;
     color: $nav-elements;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    & .nav-title h1 {
+      font-family: 'fallecity-regular';
+      font-weight: 100;
+      letter-spacing: 8px;
+      & .nav-animate-title {
+        color: $element-color;
+        -webkit-animation: flickerAnimation 1.5s infinite;
+        -moz-animation: flickerAnimation 1.5s infinite;
+        -o-animation: flickerAnimation 1.5s infinite;
+        animation: flickerAnimation 1.5s infinite;
+      }
+    }
+    & .row {
+      display: flex;
+    }
     & ul {
       margin: 0;
       padding: 0;
@@ -22,11 +41,39 @@
         justify-content: flex-end;
         align-items: center;
         & .nav-selector {
+          position: relative;
           margin: 15px 30px;
+          &.active {
+            &::before {
+              content: '';
+              position: absolute;
+              background-color: $element-color;
+              height: 4px;
+              bottom: -7px;
+              right: 12%;
+              /* Firefox */
+              width: -moz-calc(100% - 32%);
+              /* WebKit */
+              width: -webkit-calc(100% - 32%);
+              /* Opera */
+              width: -o-calc(100% - 32%);
+              /* Standard */
+              width: calc(100% - 32%);
+            }
+          }
+          & span {
+            position: absolute;
+            font-size: 11px;
+            top: -14px;
+            right: 0px;
+            &.active {
+              color: $element-color;
+            }
+          }
           &.resume {
-            color: $nav-button;
+            color: $element-color;
             border: 1px solid;
-            border-color: $nav-button;
+            border-color: $element-color;
             border-radius: 20px;
             padding: 10px 30px;
           }
@@ -113,18 +160,6 @@
         gap: 20px;
         list-style: none;
       }
-    }
-  }
-
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-      transition: all 1s ease;
-      transform: translateX(0px);
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(50px);
     }
   }
 }
