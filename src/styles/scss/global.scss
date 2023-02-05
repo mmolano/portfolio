@@ -1,6 +1,7 @@
-@import 'components/fonts/_fonts';
-@import 'components/keyframes/_nav.scss';
 @import 'components/variables/_var';
+@import 'components/fonts/_fonts';
+@import 'components/keyframes/_nav';
+@import 'components/keyframes/_mouse';
 @import 'components/mixins/_mixins';
 @import 'components/navigation';
 @import 'components/slide';
@@ -10,6 +11,88 @@ body {
   color: $default-white;
 }
 
+html, body, #__next, section{
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes cursorAnim {
+  0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.cursor {
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid white;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  &.click-effect {
+    animation: cursorAnim 0.5s forwards;
+  }
+  &::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    background-color: $default-white;
+    border-radius: 200px;
+    opacity: 0.5;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+  }
+}
+
 .main-content {
   padding: 45px;
+}
+
+.widget-scroll {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  left: 0px;
+  right: 0px;
+  bottom: 35px;
+  margin: auto;
+  height: 55px;
+  width: 30px;
+  border-radius: 200px;
+  background: $body-color
+    linear-gradient(transparent 0%, transparent 50%, #ffff 50%, #ffff 100%);
+  background-size: 100% 200%;
+  animation: color-change 5.9s linear infinite,
+    position-animate 6s ease-out infinite;
+  &::after {
+    position: absolute;
+    content: '';
+    width: 87%;
+    height: 92%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border-radius: 200px;
+    background-color: $body-color;
+  }
+  & .widget-scroll-inside {
+    z-index: 1;
+    position: absolute;
+    top: 13%;
+    height: 7px;
+    width: 7px;
+    background-color: white;
+    border-radius: 20px;
+    animation: scroll-middle-mouse 2s infinite;
+  }
 }
