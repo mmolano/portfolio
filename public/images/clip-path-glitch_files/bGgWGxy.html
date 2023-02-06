@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://cdpn.io/mattgrosswork/fullpage/bGgWGxy?anon=true&view= -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  
+  <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+
+  <meta name="apple-mobile-web-app-title" content="CodePen">
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+  <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+
+
+  
+  <title>CodePen - Randomly generated clip-path (because reasons)</title>
+  
+  
+  
+  
+<style>
+div {
+  height: 90vh;
+  width: 90vw;
+  background: #333;
+
+  clip-path: var(--path);
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no">
+  <button>Generate</button>
+<div style="--path:polygon(0% 65%,0% 65%,0% 22%,85% 22%,85% 75%,86% 75%,86% 16%,72% 16%,72% 15%,26% 15%,26% 68%,95% 68%,95% 2%,51% 2%,51% 64%,13% 64%,13% 74%,52% 74%,52% 24%,69% 24%,69% 70%,3% 70%,3% 72%,35% 72%,35% 60%,89% 60%,89% 95%,27% 95%,27% 82%,36% 82%,36% 61%,83% 61%,83% 92%,37% 92%,37% 36%,48% 36%,48% 61%,59% 61%,59% 75%,48% 75%);"></div>
+    <script src="./stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+  
+      <script id="rendered-js">
+const target = document.querySelector("div");
+const button = document.querySelector("button");
+
+const generatePoints = () => {
+  const number = Math.floor(Math.random() * 60);
+  const points = [];
+  let x = 0;
+  let y = 0;
+
+  for (let i = 0; i < number; i++) {if (window.CP.shouldStopExecution(0)) break;
+    // Alternate between x and y
+    if (i % 2) {
+      x = Math.floor(Math.random() * 100);
+    } else {
+      y = Math.floor(Math.random() * 100);
+    }
+
+    points.push(`${x}% ${y}%`);
+  }window.CP.exitedLoop(0);
+
+  target.style.setProperty("--path", `polygon(${points.join(",")})`);
+
+  console.log(`clip-path: polygon(${points});`);
+};
+
+// Run on page load & when button is clicked
+generatePoints();
+button.addEventListener("click", generatePoints);
+//# sourceURL=pen.js
+    </script>
+
+  
+
+
+
+
+ 
+</body></html>

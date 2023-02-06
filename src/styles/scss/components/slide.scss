@@ -1,10 +1,72 @@
+.glitch {
+  position: relative;
+  animation: paths 5s step-end infinite;
+  &::after,
+  ::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 115%;
+    z-index: -1;
+  }
+  &::after {
+    top: 5px;
+    left: -10px;
+    color: $element-color;
+    animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+      font 7s step-end infinite, movement 8s step-end infinite;
+  }
+  &::before {
+    top: 10px;
+    left: 15px;
+    color: #e0287d;
+    animation: paths 5s step-end infinite, opacity 5s step-end infinite,
+      font 8s step-end infinite, movement 10s step-end infinite;
+  }
+}
+
+ul.glitch {
+  animation: paths 10s step-end infinite;
+  &::after,
+  ::before {
+    animation: paths 10s step-end infinite, opacity 10s step-end infinite,
+      font 14s step-end infinite, movement 16s step-end infinite;
+  }
+}
+
+@keyframes scale {
+  0% {
+    transform: rotate3d(55, 0, 0, 90deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate3d(55, 0, 0, 0deg);
+  }
+}
+
+.animate-out {
+  opacity: 0;
+}
+.animate-in {
+  animation: scale 1s ease;
+}
+
 @include desktop {
+  .three-box-container { 
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    right: 0;
+  }
   .first-element {
     & h2 {
       font-family: 'studio-regular';
       font-size: 42px;
     }
     & ul {
+      position: absolute !important;
       font-family: 'studio-medium-italic';
       list-style: none;
       font-size: 40px;

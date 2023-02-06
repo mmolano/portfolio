@@ -3,12 +3,12 @@ import { StateContext } from '@/context/AppContext'
 import '@/styles/scss/global.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { useRef } from 'react'
+import { useRef, useEffect } from 'react'
 
 const title = "{ Miguel.Dev }"
 
-console.log('%c Coded by Miguel Molano ',
-  'background: #c0894f; color: #ffff; border-radius: 3px; padding: 0.5rem');
+console.log('%c Coded with ❤️ by Miguel Molano',
+  'background: #7923AD; color: #ffff; border-radius: 3px; padding: 0.6rem;');
 
 
 const mouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -25,9 +25,20 @@ const mouseClick = (e: React.MouseEvent<HTMLDivElement>) => {
   }, 500);
 };
 
-
 export default function App({ Component, pageProps }: AppProps) {
   const cursorRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleMouseLeave = () => {
+      const cursor = document.querySelector('.cursor');
+      cursor!.setAttribute("style", `display: none;`);
+    };
+
+    window.addEventListener("mouseout", handleMouseLeave);
+
+    return () => {
+      window.removeEventListener("mouseout", handleMouseLeave);
+    };
+  }, []);
 
   return (
     <StateContext>
