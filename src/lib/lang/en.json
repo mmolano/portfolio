@@ -1,13 +1,28 @@
 {
   "lang": {
-    "en": "English",
-    "fr": "French"
+    "en": "En",
+    "fr": "Fr"
   },
   "nav": {
     "projects": "Projects",
     "contact": "Contact",
     "about": "About",
     "resume": "Resume"
+  },
+  "title": "Hi! Welcome to my portfolio",
+  "slideTitle": {
+    "title": "Hi! Welcome to",
+    "firstName": "Miguel",
+    "name": "Molano",
+    "type": "Web developer"
+  },
+  "projectSection": {
+    "title": "Projects",
+    "filter": "Filter by",
+    "front": "Front-end",
+    "back": "Back-end",
+    "working": "Working in progress",
+    "all": "All"
   },
   "projects": [
     {
@@ -68,13 +83,7 @@
       "id": 4,
       "title": "Fidensio database migration",
       "description": "This application is one of the project i made while working at a french company named Fidensio. This project is built using Laravel and was used to migrate the Fidensio database to be able to fully migrate to a different database used by the newly built API.",
-      "tools": [
-        "gitlab",
-        "laravel 8",
-        "php",
-        "laravel queues",
-        "mysql"
-      ],
+      "tools": ["gitlab", "laravel 8", "php", "laravel queues", "mysql"],
       "date": {
         "start": "2021-07",
         "end": "2021-08"
@@ -102,12 +111,7 @@
       "id": 6,
       "title": "Fidensio frontend",
       "description": "This application was built after freelancers started it. This application was using the newly built API. I had to work on error handlers, wrong typings and adding what was still missing for example modals and connection to the API",
-      "tools": [
-        "gitlab",
-        "vue.js",
-        "nuxt.js",
-        "axios"
-      ],
+      "tools": ["gitlab", "vue.js", "nuxt.js", "axios"],
       "date": {
         "start": "2021-07",
         "end": "2021-08 | WIP (not finished when i left)"

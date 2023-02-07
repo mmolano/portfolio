@@ -1,3 +1,23 @@
+// ---------------------------------------------------------------- Slide Element 1
+
+.first-element {
+  position: relative;
+  margin-top: 30px;
+  & ul {
+    position: relative;
+    width: max-content;
+    font-family: 'studio-medium-italic';
+    list-style: none;
+    @include fluid-type($min-width, $max-width, 20px, 40px);
+    & li {
+      margin-left: 30px;
+    }
+  }
+  & h2 {
+    @include fluid-type($min-width, $max-width, 30px, 70px);
+  }
+}
+
 .glitch {
   position: relative;
   animation: paths 5s step-end infinite;
@@ -33,46 +53,65 @@ ul.glitch {
   }
 }
 
-@keyframes scale {
-  0% {
-    transform: rotate3d(55, 0, 0, 90deg);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: rotate3d(55, 0, 0, 0deg);
-  }
-}
-
 .animate-out {
   opacity: 0;
 }
-.animate-in {
-  animation: scale 1s ease;
+
+@include desktop-nav {
+  .first-element {
+    margin-top: 200px;
+  }
+}
+
+@include mobile {
+  .first-element ul {
+    padding: 0;
+  }
+}
+
+@include small-mobile {
+  .first-element li {
+    margin-left: 13px !important;
+  }
 }
 
 @include desktop {
-  .three-box-container { 
+  .three-box-container {
     position: absolute;
     top: 0;
     height: 100%;
     width: 50%;
     right: 0;
   }
-  .first-element {
-    & h2 {
-      font-family: 'studio-regular';
-      font-size: 42px;
+}
+
+// ---------------------------------------------------------------- Slide Element 2
+
+.second-element {
+  p {
+    font-family: 'studio-regular-italic';
+  }
+}
+.projects-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  & .row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    & .project {
+      margin: 3px;
+      width: 300px;
+      height: 300px;
+      background-color: green;
     }
-    & ul {
-      position: absolute !important;
-      font-family: 'studio-medium-italic';
+  }
+  & .projects-filter {
+    & li {
       list-style: none;
-      font-size: 40px;
-      & li {
-        margin-left: 30px;
-      }
+      font-family: 'studio-light-italic';
+      padding: 30px 0px;
     }
   }
 }

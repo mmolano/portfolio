@@ -10,23 +10,43 @@
 body {
   background-color: $body-color;
   color: $default-white;
+  @include fluid-type($min-width, $max-width, $min-font, $max-font);
 }
 
-html, body, #__next, section{
+h2 {
+  @include fluid-type($min-width, $max-width, 30px, 96px);
+}
+
+html,
+body,
+.main-content {
+  font-family: 'studio-regular';
   height: 100%;
   width: 100%;
 }
 
+section {
+  padding: 45px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.main-app {
+  overflow: hidden;
+}
+
 @keyframes cursorAnim {
   0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(3);
-    }
-    100% {
-        transform: scale(1);
-    }
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(3);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .cursor {
@@ -55,17 +75,13 @@ html, body, #__next, section{
   }
 }
 
-.main-content {
-  padding: 45px;
-}
-
 .widget-scroll {
   position: absolute;
   display: flex;
   justify-content: center;
   left: 0px;
   right: 0px;
-  bottom: 35px;
+  bottom: -30px;
   margin: auto;
   height: 55px;
   width: 30px;

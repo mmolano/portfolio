@@ -1,12 +1,27 @@
 {
   "lang": {
-    "en": "Anglais",
-    "fr": "Français"
+    "en": "En",
+    "fr": "Fr"
   },
   "nav": {
     "projects": "Projets",
     "contact": "Contact",
     "about": "À propos",
     "resume": "Curriculum"
+  },
+  "title": "Hey! Bienvenue sur mon portfolio",
+  "slideTitle": {
+    "title": "Hey! Bienvenue sur",
+    "firstName": "Miguel",
+    "name": "Molano",
+    "type": "Développeur web"
+  },
+  "projectSection": {
+    "title": "Projets",
+    "filter": "Filtrer par",
+    "front": "Front-end",
+    "back": "Back-end",
+    "working": "En cours",
+    "all": "Tout"
   }
 }

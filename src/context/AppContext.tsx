@@ -1,15 +1,26 @@
 import React, { useState, useContext, createContext } from 'react';
 import { ContextType, Lang } from '../lib/interface/context';
 
+const language = function () {
+   if (typeof window !== 'undefined') {
+      if (localStorage.getItem('lang')) {
+         return localStorage.getItem('lang');
+      }
+      localStorage.setItem("lang", "en");
+      return localStorage.getItem('lang');
+   }
+}
+const currentLanguage = language();
+
 const AppContext = createContext<ContextType>({
-   lang: "en",
-   translation: require('@/lib/lang/en.json'),
+   lang: currentLanguage,
+   translation: require(`@/lib/lang/${currentLanguage}.json`),
    currentSlide: 0
 });
 
 export const StateContext = ({ children }: { children: React.ReactNode }) => {
-   const [lang, setLang] = useState<Lang>("en");
-   const [translation, setTranslation] = useState(require('@/lib/lang/en.json'));
+   const [lang, setLang] = useState(language);
+   const [translation, setTranslation] = useState(require(`@/lib/lang/${currentLanguage}.json`));
    const [show, setShow] = useState(false);
    const [currentSlide, setCurrentSlide] = useState(0);
 

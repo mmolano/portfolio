@@ -23,10 +23,29 @@ export interface ProjectIF {
    date: ProjectDate,
 }
 
+export interface SlideIF {
+   title: string;
+   firstName: string;
+   name: string;
+   type: string;
+}
+
+export interface ProjectSectionIF {
+   title: string;
+   filter: string;
+   front: string;
+   back: string;
+   working: string;
+   all: string;
+}
+
 export interface LanguageIF {
-   nav: Nav;
    lang: Lang;
-   projects: ProjectIF[]
+   nav: Nav;
+   title: string;
+   projectSection: ProjectSectionIF;
+   slideTitle: SlideIF;
+   projects: ProjectIF[];
 }
 
 interface linksAbout {
