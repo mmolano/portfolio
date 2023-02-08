@@ -158,6 +158,7 @@ button {
 @include mobile-nav {
   .toggle-nav {
     z-index: 2;
+    overflow: hidden;
     position: absolute;
     display: grid;
     cursor: pointer;

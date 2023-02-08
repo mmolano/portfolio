@@ -11,6 +11,6 @@ export interface ContextType {
    translation: LanguageIF;
    setTranslation?: React.Dispatch<React.SetStateAction<Record<string, unknown>>>;
    changeLanguage?: (lang: Lang) => void;
-   currentSlide: number;
-   setCurrentSlide?: React.Dispatch<React.SetStateAction<number>>;
+   hasMounted?: boolean;
+   setHasMounted?: React.Dispatch<React.SetStateAction<boolean>>;
 }

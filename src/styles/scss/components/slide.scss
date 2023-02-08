@@ -64,7 +64,8 @@ ul.glitch {
 }
 
 @include mobile {
-  .first-element ul {
+  .first-element ul,
+  .second-element ul {
     padding: 0;
   }
 }
@@ -72,6 +73,12 @@ ul.glitch {
 @include small-mobile {
   .first-element li {
     margin-left: 13px !important;
+  }
+  .row {
+    width: 100% !important;
+    & .card {
+      width: 280px;
+    }
   }
 }
 
@@ -85,13 +92,29 @@ ul.glitch {
   }
 }
 
+@media screen and (max-width: 906px) {
+  .row {
+    justify-content: center;
+  }
+}
+
 // ---------------------------------------------------------------- Slide Element 2
 
 .second-element {
   p {
     font-family: 'studio-regular-italic';
   }
+  li::after {
+    content: attr(data-value);
+    position: relative;
+    color: $element-color;
+    @include fluid-type($min-width, $max-width, 10px, 15px);
+    top: -17px;
+    right: 0;
+    left: 0;
+  }
 }
+
 .projects-container {
   display: flex;
   justify-content: space-around;
@@ -100,11 +123,17 @@ ul.glitch {
     display: flex;
     flex-wrap: wrap;
     width: 75%;
-    & .project {
+    & .card {
       margin: 3px;
       width: 300px;
       height: 300px;
-      background-color: green;
+      & h3 {
+        text-align: center;
+      }
+      & .project {
+        height: 230px;
+        background-color: green;
+      }
     }
   }
   & .projects-filter {
@@ -112,6 +141,10 @@ ul.glitch {
       list-style: none;
       font-family: 'studio-light-italic';
       padding: 30px 0px;
+      & button {
+        text-align: left;
+        position: relative;
+      }
     }
   }
 }

@@ -1,33 +1,30 @@
-import React, { useState, useContext, createContext } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { ContextType, Lang } from '../lib/interface/context';
 
-const language = function () {
-   if (typeof window !== 'undefined') {
-      if (localStorage.getItem('lang')) {
-         return localStorage.getItem('lang');
-      }
-      localStorage.setItem("lang", "en");
-      return localStorage.getItem('lang');
-   }
-}
-const currentLanguage = language();
-
 const AppContext = createContext<ContextType>({
-   lang: currentLanguage,
-   translation: require(`@/lib/lang/${currentLanguage}.json`),
-   currentSlide: 0
+   lang: "en",
+   translation: require('@/lib/lang/en.json'),
 });
 
 export const StateContext = ({ children }: { children: React.ReactNode }) => {
-   const [lang, setLang] = useState(language);
-   const [translation, setTranslation] = useState(require(`@/lib/lang/${currentLanguage}.json`));
-   const [show, setShow] = useState(false);
-   const [currentSlide, setCurrentSlide] = useState(0);
+   const [hasMounted, setHasMounted] = useState(false);
 
+   const [lang, setLang] = useState<Lang>("en");
+   const [translation, setTranslation] = useState(require('@/lib/lang/en.json'));
+   const [show, setShow] = useState(false);
+
+   useEffect(() => {
+      setHasMounted(true);
+   }, []);
 
    const changeLanguage = (lang: Lang) => {
       setLang(lang);
+      localStorage.setItem('lang', lang);
       setTranslation(require('@/lib/lang/' + lang + '.json'));
+   };
+
+   if (hasMounted && lang !== localStorage.getItem('lang')) {
+      changeLanguage(localStorage.getItem('lang') as Lang)
    };
 
    return (
@@ -39,8 +36,6 @@ export const StateContext = ({ children }: { children: React.ReactNode }) => {
          setTranslation,
          changeLanguage,
          setShow,
-         currentSlide,
-         setCurrentSlide
       }}>
          {children}
       </AppContext.Provider>

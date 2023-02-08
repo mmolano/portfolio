@@ -22,6 +22,107 @@
     "front": "Front-end",
     "back": "Back-end",
     "working": "En cours",
-    "all": "Tout"
-  }
+    "all": "Tout",
+    "show": "Voir projet"
+  },
+  "projects": [
+    {
+      "id": 1,
+      "title": "Application E-commerce | React.js",
+      "type": "Front | WIP",
+      "description": "C'est une application web e-commerce et user-friendly qui permet aux utilisateurs d'ajouter des produits à leurs paniers, de voir ces produits dans le panier et enfin de retirer ces produits. Ce processus utilise le moyen de paiement sécurisé Stripe. L'application utilise Auth0 pour authentifier les utilisateurs et Strapi pour le back-end",
+      "tools": [
+        "github",
+        "react.js",
+        "next.js",
+        "stripe",
+        "auth0",
+        "strapi",
+        "typescript"
+      ],
+      "date": {
+        "start": "2023-01-09",
+        "end": "En cours | Ajout de données"
+      }
+    },
+    {
+      "id": 2,
+      "title": "API de recettes | Laravel",
+      "type": "Back | WIP",
+      "description": "Ce projet est une application API REST qui permet aux consommateurs de l'API qui ont les droits correspondent de créer, lire, modifier et supprimer des recettes de cuisine. Le projet utilise PHPunit pour les tests, un système de log et un système de gestion des erreurs",
+      "tools": [
+        "github",
+        "laravel 9",
+        "php",
+        "phpunit",
+        "swagger",
+        "mysql",
+        "api rest"
+      ],
+      "date": {
+        "start": "2023-01-20",
+        "end": "En cours"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Fidensio | App partenaires",
+      "type": "Front | Back",
+      "description": "Cette application est l'un des projets que j'ai construit lorsque je travaillais pour Fidensio. Ce projet utilise Laravel, vue.js et stripe pour le paiement. Ce projet permet à l'un des partenaires de gérer les commandes depuis un dashboard et de notifié les utilisateurs lorsqu'une commande change de statut.",
+      "tools": [
+        "gitlab",
+        "laravel 8",
+        "php",
+        "api de Fidensio",
+        "stripe",
+        "mysql",
+        "vue.js"
+      ],
+      "date": {
+        "start": "2021-07",
+        "end": "2021-08"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Fidensio | migration DB",
+      "type": "Back",
+      "description": "Cette application est l'un des projet de Fidensio, il s'agit de migrer l'ancienne base de donnée vers la nouvelle en utilisant un système de queue afin de gérer d'éventuel problèmes lors de la migration.",
+      "tools": ["gitlab", "laravel 8", "php", "queues", "mysql"],
+      "date": {
+        "start": "2021-07",
+        "end": "2021-08"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Fidensio | API",
+      "type": "Back",
+      "description": "Ce projet à été fait avec le CTO de Fidensio et est l'un des plus gros projets. Cette application est une migration de Laravel 5 et php 7.4 vers une API rest en Laravel 8 et php 8. La nouvelle application front utilise Nuxt.js et fait des appels API sur cette application.",
+      "tools": [
+        "gitlab",
+        "laravel 8",
+        "php",
+        "laravel queues",
+        "mysql",
+        "phpunit",
+        "tdd"
+      ],
+      "date": {
+        "start": "2020-09",
+        "end": "2021-08 | WIP (not finished when i left)"
+      }
+    },
+    {
+      "id": 6,
+      "title": "Fidensio | Front-end",
+      "type": "Front",
+      "description": "Cette application à été conçue avec des freelancers. L'application utilise l'API de Fidensio afin d'obtenir les informations.",
+      "tools": ["gitlab", "vue.js", "nuxt.js", "axios"],
+      "date": {
+        "start": "2021-07",
+        "end": "2021-08 | Inconnue"
+      }
+    }
+  ]
 }

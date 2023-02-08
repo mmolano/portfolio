@@ -21,13 +21,15 @@
     "filter": "Filter by",
     "front": "Front-end",
     "back": "Back-end",
-    "working": "Working in progress",
-    "all": "All"
+    "working": "In progress",
+    "all": "All",
+    "show": "Show project"
   },
   "projects": [
     {
       "id": 1,
-      "title": "React.JS E-Commerce App",
+      "title": "E-Commerce | React.js",
+      "type": "Front | WIP",
       "description": "The react.js e-commerce app is a user-friendly e-commerce web application that allows users to add items to their cart, view items in the cart, and remove items from it through a secure checkout process utilizing Stripe for the payment. The app also features secure user authentication through Auth0 and Strapi to handle the data.",
       "tools": [
         "github",
@@ -45,7 +47,8 @@
     },
     {
       "id": 2,
-      "title": "Laravel recipe API",
+      "title": "Recipe API | Laravel",
+      "type": "Back | WIP",
       "description": "This Laravel project is a RESTful API that allows consumers that have the correct rights to create, read, update, and delete recipes. The project includes Tests with PHPunit, error handler and logs on errors",
       "tools": [
         "github",
@@ -63,7 +66,8 @@
     },
     {
       "id": 3,
-      "title": "Fidensio application for partners",
+      "type": "Front | Back",
+      "title": "Fidensio | for partners",
       "description": "This application is one of the project i made while working at a french company named Fidensio. This project is built using Laravel, stripe and vue.js and allows one of Fidensio's partners to handle orders (dashboard), send notifications to user once the status of the order has changed and to handle payment status.",
       "tools": [
         "gitlab",
@@ -81,9 +85,10 @@
     },
     {
       "id": 4,
-      "title": "Fidensio database migration",
+      "title": "Fidensio | DB migration",
+      "type": "Back",
       "description": "This application is one of the project i made while working at a french company named Fidensio. This project is built using Laravel and was used to migrate the Fidensio database to be able to fully migrate to a different database used by the newly built API.",
-      "tools": ["gitlab", "laravel 8", "php", "laravel queues", "mysql"],
+      "tools": ["gitlab", "laravel 8", "php", "queues", "mysql"],
       "date": {
         "start": "2021-07",
         "end": "2021-08"
@@ -91,8 +96,9 @@
     },
     {
       "id": 5,
-      "title": "Fidensio API",
-      "description": "This application was built with the CTO and was one of the biggest project i had to work on while working at Fidensio. This application was a migration from a Laravel 5 application to a Laravel 8 rest API. The new front application was built using Next.js to make calls to this API. ",
+      "title": "Fidensio | API",
+      "type": "Back",
+      "description": "This application was built with the CTO and was one of the biggest project i had to work on while working at Fidensio. This application was a migration from a Laravel 5 application to a Laravel 8 rest API. The new front application was built using Nuxt.js to make calls to this API. ",
       "tools": [
         "gitlab",
         "laravel 8",
@@ -109,7 +115,8 @@
     },
     {
       "id": 6,
-      "title": "Fidensio frontend",
+      "title": "Fidensio | Front-end",
+      "type": "Front",
       "description": "This application was built after freelancers started it. This application was using the newly built API. I had to work on error handlers, wrong typings and adding what was still missing for example modals and connection to the API",
       "tools": ["gitlab", "vue.js", "nuxt.js", "axios"],
       "date": {

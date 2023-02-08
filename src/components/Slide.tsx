@@ -1,25 +1,33 @@
 import { useStateContext } from '@/context/AppContext';
-import { SlideIF } from '@/lib/interface/lang';
-import React, { useState } from 'react';
+import { DevType, ProjectIF, SlideIF } from '@/lib/interface/lang';
+import React, { useEffect, useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import { Cube } from './Cube';
 
 export const Slide = () => {
-   const [glitch, setGlitch] = useState<boolean>(false);
    const { translation } = useStateContext();
-   const slideTitle = translation.slideTitle as SlideIF
+   const [glitch, setGlitch] = useState<boolean>(false);
+   const [projects, setProjects] = useState(translation.projects);
+   const slideTitle = translation.slideTitle as SlideIF;
+   const allProjects = translation.projects as ProjectIF[];
+   const frontProjects = translation.projects.filter(project => project.type.includes("Front"));
+   const backProjects = translation.projects.filter(project => project.type.includes("Back"));
+   const wipProjects = translation.projects.filter(project => project.type.includes("WIP"));
+
+   function changeProjects(value: any) {
+      setProjects(value);
+   }
 
    return (
       <>
          <section id="home" className="first-element">
-            {/* TODO fix typewriter after translation change */}
-            <h2 data-text="Hi! Welcome to my portfolio" className={glitch ? "glitch" : ''}>
+            <h2 data-text={`${translation.title}`} className={glitch ? "glitch" : ''}>
                <Typewriter
                   options={{
                      delay: 50,
                   }}
                   onInit={(typewriter) => {
-                     typewriter.typeString('Hi! Welcome to my portfolio')
+                     typewriter.typeString(`${translation.title}`)
                         .callFunction(() => {
                            setGlitch(true);
                         })
@@ -58,24 +66,22 @@ export const Slide = () => {
             <div className="projects-container">
                <div className="projects-filter">
                   <ul>
-                     <li>{translation.projectSection.front}</li>
-                     <li>{translation.projectSection.back}</li>
-                     <li>{translation.projectSection.working}</li>
-                     <li>{translation.projectSection.all}</li>
+                     <li data-value={frontProjects.length}><button onClick={() => changeProjects(frontProjects)}>{translation.projectSection.front}</button></li>
+                     <li data-value={backProjects.length}><button onClick={() => changeProjects(backProjects)}>{translation.projectSection.back}</button></li>
+                     <li data-value={wipProjects.length}><button onClick={() => changeProjects(wipProjects)}>{translation.projectSection.working}</button></li>
+                     <li data-value={allProjects.length}><button onClick={() => changeProjects(allProjects)}>{translation.projectSection.all}</button></li>
                   </ul>
                </div>
                <div className="row">
-                  {/* TODO add loop on json project */}
-                  <div className="project">
-                  </div>
-                  <div className="project">
-                  </div>
-                  <div className="project">
-                  </div>
-                  <div className="project">
-                  </div>
-                  <div className="project">
-                  </div>
+                  {
+                     Object.entries(projects).map(([key, value]) => (
+                        <div key={key} className="card">
+                           <div className="project">
+                           </div>
+                           <h3>{value.title}</h3>
+                        </div>
+                     ))
+                  }
                </div>
             </div>
          </section>

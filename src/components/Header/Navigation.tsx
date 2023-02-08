@@ -1,15 +1,18 @@
 import { useStateContext } from '@/context/AppContext';
+import { Lang } from '@/lib/interface/context';
 import Link from 'next/link';
 import { useEffect } from 'react';
 
+
 export const Navigation = (): JSX.Element => {
    const { show, setShow, lang, translation, changeLanguage } = useStateContext();
-   
-   useEffect(() => {
-      localStorage.setItem("lang", lang);
-   }, [lang]);
 
-   //TODO: store lang in cookie
+   function changeLang(language: Lang): void {
+      //TODO: put Loader
+      changeLanguage?.(language);
+      window.location.reload()
+   }
+
    return (
       <>
          <nav>
@@ -29,17 +32,16 @@ export const Navigation = (): JSX.Element => {
                   <div className="nav-lang-selector">
                      <p>Lang: {`{`}</p>
                      <div>
-                        <button onClick={() => lang !== 'fr' ? changeLanguage?.('fr') : ''}>{translation.lang.fr}</button>
+                        <button onClick={() => lang !== 'fr' ? changeLang('fr') : ''}>{translation.lang.fr}</button>
                      </div>
                      <span>|</span>
                      <div>
-                        <button onClick={() => lang !== 'en' ? changeLanguage?.('en') : ''}>{translation.lang.en}</button>
+                        <button onClick={() => lang !== 'en' ? changeLang('en') : ''}>{translation.lang.en}</button>
                      </div>
                      <p>{`}`}</p>
                   </div>
                </div>
             </div>
-
 
             <div onClick={() => setShow?.(!show)} className={`toggle-nav ${show ? 'is-toggled' : ''}`}>
                <span className={`toggle-style one `}></span>
@@ -51,6 +53,8 @@ export const Navigation = (): JSX.Element => {
                <span className={`toggle-style seven `}></span>
                <span className={`toggle-style eight `}></span>
                <span className={`toggle-style nine `}></span>
+               <span className={`test`}></span>
+               <span className={`test`}></span>
             </div>
             {/* //TODO: animation here when showed  */}
             {
@@ -64,9 +68,9 @@ export const Navigation = (): JSX.Element => {
                         </ul>
                         <div className="nav-lang-selector">
                            <span>Lang: {`{`}</span>
-                           <button onClick={() => lang !== 'fr' ? changeLanguage?.('fr') : ''}>{translation.lang.fr}</button>
+                           <button onClick={() => lang !== 'fr' ? changeLang('fr') : ''}>{translation.lang.fr}</button>
                            <span>|</span>
-                           <button onClick={() => lang !== 'en' ? changeLanguage?.('en') : ''}>{translation.lang.en}</button>
+                           <button onClick={() => lang !== 'en' ? changeLang('en') : ''}>{translation.lang.en}</button>
                            <span>{`}`}</span>
                         </div>
                      </div>

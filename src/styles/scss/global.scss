@@ -13,14 +13,19 @@ body {
   @include fluid-type($min-width, $max-width, $min-font, $max-font);
 }
 
+h3 {
+  @include fluid-type($min-width, $max-width, $min-font, 18px);
+}
+
 h2 {
   @include fluid-type($min-width, $max-width, 30px, 96px);
+  font-family: "studio-medium-italic";
 }
 
 html,
 body,
 .main-content {
-  font-family: 'studio-regular';
+  font-family: "studio-regular";
   height: 100%;
   width: 100%;
 }
@@ -35,17 +40,8 @@ html {
 
 .main-app {
   overflow: hidden;
-}
-
-@keyframes cursorAnim {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(3);
-  }
-  100% {
-    transform: scale(1);
+  &.burger-toggled {
+    overflow: hidden;
   }
 }
 
@@ -75,13 +71,23 @@ html {
   }
 }
 
+@keyframes slide-in-up {
+  from {
+    bottom: -50px;
+    opacity: 0;
+  }
+  to {
+    bottom: -30px;
+    opacity: 1;
+  }
+}
+
 .widget-scroll {
   position: absolute;
   display: flex;
   justify-content: center;
   left: 0px;
   right: 0px;
-  bottom: -30px;
   margin: auto;
   height: 55px;
   width: 30px;
@@ -89,7 +95,7 @@ html {
   background: $body-color
     linear-gradient(transparent 0%, transparent 50%, #ffff 50%, #ffff 100%);
   background-size: 100% 200%;
-  animation: color-change 5.9s linear infinite,
+  animation: color-change 5.9s linear infinite, slide-in-up 1.5s ease-in forwards,
     position-animate 6s ease-out infinite;
   &::after {
     position: absolute;

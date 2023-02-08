@@ -15,9 +15,12 @@ interface ProjectDate {
    end: string;
 }
 
+export type DevType = "Back" | "Front" | "Front | Back" | "Front | WIP" | "Back | WIP" | "WIP";
+
 export interface ProjectIF {
    id: number;
    title: string;
+   type: DevType,
    description: string;
    tools: string[],
    date: ProjectDate,

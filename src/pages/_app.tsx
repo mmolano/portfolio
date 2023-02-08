@@ -3,7 +3,7 @@ import { StateContext } from '@/context/AppContext'
 import '@/styles/scss/global.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { useRef, useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 const title = "Miguel.dev()"
 
