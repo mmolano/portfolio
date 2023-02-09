@@ -1,10 +1,14 @@
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Layout } from '@/components/layouts/Layout';
-import { Products } from '@/components/Products';
+import { Cube } from '@/components/three/Cube';
 import { useStateContext } from '@/context/AppContext';
 import { ProjectIF, SlideIF } from '@/lib/interface/lang';
+import dynamic from 'next/dynamic';
 import React, { useState } from 'react';
 import Typewriter from 'typewriter-effect';
+
+
+const Products = dynamic(() => import('@/components/Products'));
 
 export default function Home(): JSX.Element {
   const { translation, lang } = useStateContext();
@@ -53,9 +57,7 @@ export default function Home(): JSX.Element {
             {'}'}
           </ul>
           <div className="three-box-container">
-            {/* TODO here component
-               <Cube /> 
-               */}
+            <Cube />
           </div>
 
           <div className="widget-scroll">

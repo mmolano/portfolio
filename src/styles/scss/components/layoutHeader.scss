@@ -5,14 +5,14 @@ nav {
   width: 100%;
   justify-content: flex-end;
   font-family: 'studio-bold';
-  font-size: 20px;
+  font-size: 18px;
   &.sticky {
     position: fixed;
     top: 0;
     width: 100%;
   }
   & .navigator {
-    padding: 45px;
+    padding: 28px 45px;
   }
 }
 
@@ -54,16 +54,6 @@ nav {
 
 .navigator {
   display: none;
-}
-
-button {
-  border: none;
-  background: none;
-  color: $default-white;
-  font-family: 'studio-bold';
-  font-size: 20px;
-  margin: 0px 5px;
-  cursor: pointer;
 }
 
 @include desktop-nav {
@@ -127,7 +117,7 @@ button {
         }
         & span {
           position: absolute;
-          font-size: 11px;
+          font-size: 9px;
           top: -14px;
           right: 0px;
           &.active {
