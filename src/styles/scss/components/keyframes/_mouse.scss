@@ -87,3 +87,14 @@
     transform: scale(1);
   }
 }
+
+@keyframes slide-in-up {
+  from {
+    bottom: -50px;
+    opacity: 0;
+  }
+  to {
+    bottom: -30px;
+    opacity: 1;
+  }
+}

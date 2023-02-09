@@ -1,0 +1,17 @@
+@keyframes animate-border {
+  0% {
+    background-size: 0 0, 0 0, 0 0, 0 0;
+  }
+  25% {
+    background-size: 100% 2, 0 0, 0 0, 0 0;
+  }
+  50% {
+    background-size: 100% 2, 2 100%, 0 0, 0 0;
+  }
+  75% {
+    background-size: 100% 2, 2 100%, 100% 2, 0 0;
+  }
+  100% {
+    background-size: 100% 2, 2 100%, 100% 2, 2 100%;
+  }
+}

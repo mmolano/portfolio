@@ -25,6 +25,16 @@
     "all": "Tout",
     "show": "Voir projet"
   },
+  "contactSection": {
+    "title": "Contact",
+    "links": "Liens",
+    "mailMe": "Contactez-moi !",
+    "inputName": "Nom",
+    "inputMail": "Email",
+    "inputSubject": "Sujet",
+    "inputTextArea": "Mon message à propos de pizzas ...",
+    "button": "Envoyer un message !"
+  },
   "projects": [
     {
       "id": 1,

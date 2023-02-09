@@ -1,0 +1,28 @@
+@keyframes fill-button {
+  from {
+    background-position: 0 50%, 100% 0, 100% 100%, 0 100%;
+    background-size: 100% 0, 1px 100%, 100% 1px, 1px 100%;
+  }
+  to {
+    background-position: 0 100%, 100% 0, 100% 100%, 0 100%;
+    background-size: 100% 100%, 1px 100%, 100% 1px, 1px 100%;
+  }
+}
+
+@keyframes scan-effect {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0;
+  }
+  25% {
+    background-position: 100% 2, 0 0, 0 0, 0 0;
+  }
+  50% {
+    background-position: 100% 2, 2 100%, 0 0, 0 0;
+  }
+  75% {
+    background-position: 100% 2, 2 100%, 100% 2, 0 0;
+  }
+  100% {
+    background-position: 100% 2, 2 100%, 100% 2, 2 100%;
+  }
+}

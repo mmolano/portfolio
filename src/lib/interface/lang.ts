@@ -42,11 +42,23 @@ export interface ProjectSectionIF {
    all: string;
 }
 
+export interface ContactSectionIF {
+   title: string;
+   links: string;
+   mailMe: string;
+   inputName: string;
+   inputMail: string;
+   inputSubject: string;
+   inputTextArea: string;
+   button: string;
+}
+
 export interface LanguageIF {
    lang: Lang;
    nav: Nav;
    title: string;
    projectSection: ProjectSectionIF;
+   contactSection: ContactSectionIF;
    slideTitle: SlideIF;
    projects: ProjectIF[];
 }
@@ -58,5 +70,5 @@ interface linksAbout {
 export interface AboutIF {
    title: string;
    description: string;
-   links: linksAbout[],
+   links: linksAbout[];
 }

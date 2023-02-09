@@ -1,4 +1,4 @@
-import { Navigation } from '@/components/header/Navigation'
+import { LayoutHeader } from '@/components/layouts/LayoutHeader'
 import { StateContext } from '@/context/AppContext'
 import '@/styles/scss/global.scss'
 import type { AppProps } from 'next/app'
@@ -49,7 +49,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Navigation />
+        <LayoutHeader />
         <Component {...pageProps} />
       </div>
       <div className="cursor"></div>

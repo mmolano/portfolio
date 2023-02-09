@@ -1,10 +1,8 @@
 import { useStateContext } from '@/context/AppContext';
 import { Lang } from '@/lib/interface/context';
 import Link from 'next/link';
-import { useEffect } from 'react';
 
-
-export const Navigation = (): JSX.Element => {
+export const LayoutHeader = (): JSX.Element => {
    const { show, setShow, lang, translation, changeLanguage } = useStateContext();
 
    function changeLang(language: Lang): void {

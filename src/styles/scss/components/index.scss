@@ -101,9 +101,6 @@ ul.glitch {
 // ---------------------------------------------------------------- Slide Element 2
 
 .second-element {
-  p {
-    font-family: 'studio-regular-italic';
-  }
   li::after {
     content: attr(data-value);
     position: relative;
