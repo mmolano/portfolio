@@ -10,6 +10,24 @@
   }
 }
 
+@keyframes underline-nav {
+  from {
+    transform: translateX(calc((-80px + 12%) * 2));
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes opacity-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 // ----------------------------------------------------------------
 @keyframes flickerAnimation {
   0% {

@@ -5,6 +5,8 @@
 @import 'components/keyframes/_mouse';
 @import 'components/keyframes/_inputs';
 @import 'components/keyframes/_buttons';
+@import 'components/keyframes/_text';
+@import 'components/keyframes/_sections';
 @import 'components/mixins/_mixins';
 @import 'components/layoutHeader';
 @import 'components/index';
@@ -36,20 +38,27 @@ h2 {
   font-family: 'studio-medium-italic';
 }
 
-h4 {
+h4,
+input,
+textarea {
   font-family: 'studio-regular-italic';
+}
+
+b {
+  font-family: 'studio-semi-bold-italic';
 }
 
 html,
 body,
 .main-content {
-  font-family: 'studio-regular';
+  font-family: 'studio-light-italic';
   height: 100%;
   width: 100%;
 }
 
 section {
   padding: 45px;
+  margin-bottom: 90px;
 }
 
 html {
@@ -63,7 +72,7 @@ textarea {
   background-color: $input-color;
   border: 2px solid $body-color;
   margin: 0px 5px;
-  color: white;
+  color: $classic-yellow-white;
   outline: none;
   box-shadow: none;
   resize: none;
@@ -102,9 +111,9 @@ button[type='submit'] {
   &:focus {
     animation: scan-effect 0.5s ease-out;
     background-image: linear-gradient(to right, $element-color, $light-blue),
-    linear-gradient(to bottom, $element-color, $light-blue),
-    linear-gradient(to right, $element-color, $light-blue),
-    linear-gradient(to bottom, $element-color, $light-blue);
+      linear-gradient(to bottom, $element-color, $light-blue),
+      linear-gradient(to right, $element-color, $light-blue),
+      linear-gradient(to bottom, $element-color, $light-blue);
     background-position: 0 100%, 100% 0, 100% 100%, 0 100%;
     background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
     background-repeat: no-repeat;
@@ -132,7 +141,7 @@ form {
 .cursor {
   width: 30px;
   height: 30px;
-  border: 1.5px solid white;
+  border: 1.5px solid $default-white;
   border-radius: 50%;
   position: absolute;
   pointer-events: none;
@@ -166,7 +175,12 @@ form {
   width: 30px;
   border-radius: 200px;
   background: $body-color
-    linear-gradient(transparent 0%, transparent 50%, #ffff 50%, #ffff 100%);
+    linear-gradient(
+      transparent 0%,
+      transparent 50%,
+      $default-white 50%,
+      $default-white 100%
+    );
   background-size: 100% 200%;
   animation: color-change 5.9s linear infinite,
     slide-in-up 1.5s ease-in forwards, position-animate 6s ease-out infinite;
@@ -187,8 +201,40 @@ form {
     top: 13%;
     height: 7px;
     width: 7px;
-    background-color: white;
+    background-color: $default-white;
     border-radius: 20px;
     animation: scroll-middle-mouse 2s infinite;
+  }
+}
+
+.contact-right-container {
+  & li {
+    padding-left: 25px;
+  }
+  & ul.contact-ul-pizza {
+    margin-left: 30px;
+  }
+}
+
+button span:hover {
+  background: linear-gradient(
+    to left,
+    rgb(150, 150, 150),
+    $default-white,
+    $default-white
+  );
+  animation: animate-text-color 1.6s linear infinite;
+  background-size: 200%;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+#projects,
+#contact {
+  opacity: 0;
+  overflow-y: auto;
+  &.animate {
+    animation: fade-in-three 1.5s forwards;
   }
 }

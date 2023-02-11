@@ -74,7 +74,7 @@ nav {
     justify-content: space-between;
     width: 100%;
     & .nav-title h1 {
-      font-family: 'fallecity-regular';
+      font-size: 19px;
       font-weight: 100;
       letter-spacing: 8px;
       & .nav-animate-title {
@@ -94,11 +94,21 @@ nav {
       flex-direction: row;
       justify-content: flex-end;
       align-items: center;
+      & li:nth-child(1).active::before {
+        animation: opacity-reveal 1s forwards;
+      }
+      & li:nth-child(2).active::before {
+        animation: opacity-reveal 0.6s forwards, underline-nav 0.6s forwards;
+      }
       & .nav-selector {
         position: relative;
         margin: 15px 30px;
+        max-width: 85px;
+        text-align: right;
         &.active {
           &::before {
+            opacity: 0;
+            transition: 1s all;
             content: '';
             position: absolute;
             background-color: $element-color;
@@ -117,11 +127,21 @@ nav {
         }
         & span {
           position: absolute;
-          font-size: 9px;
+          font-size: 11px;
           top: -14px;
           right: 0px;
-          &.active {
-            color: $element-color;
+          &:before {
+            position: absolute;
+            width: 0;
+            content: attr(data-value);
+            background: $element-color;
+            transition: 1s;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          &.active:before {
+            width: 100%;
           }
         }
         &.resume {

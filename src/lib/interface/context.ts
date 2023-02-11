@@ -13,4 +13,6 @@ export interface ContextType {
    changeLanguage?: (lang: Lang) => void;
    hasMounted?: boolean;
    setHasMounted?: React.Dispatch<React.SetStateAction<boolean>>;
+   projectsRef?: any;
+   contactRef?: any;
 }

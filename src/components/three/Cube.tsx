@@ -2,16 +2,17 @@ import { Box, Edges } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import React, { useRef } from 'react';
+import { Mesh } from 'three';
 
 const OuterCube = () => {
-   const ref = useRef();
+   const cubeRef = useRef<Mesh>();
    useFrame((state) => {
-      ref.current!.rotation.y = state.clock.getElapsedTime() / 2;
+      cubeRef.current!.rotation.y = state.clock.getElapsedTime() / 2;
    });
 
    return (
       <>
-         <mesh ref={ref} scale={[1, 1, 1]} position={[1, -2, 2]} >
+         <mesh ref={cubeRef} scale={[1, 1, 1]} position={[1, -2, 2]} >
             <boxGeometry />
             <meshBasicMaterial color={[6, 0.5, 2]} />
             <Edges

@@ -1,6 +1,6 @@
 import { ProjectIF } from "@/lib/interface/lang"
 
-const Products = ({ value }: { value: ProjectIF }) => {
+export const Products = ({ value }: { value: ProjectIF }) => {
    return (
       <>
          <div className="card">
@@ -11,5 +11,3 @@ const Products = ({ value }: { value: ProjectIF }) => {
       </>
    )
 } 
-
-export default Products

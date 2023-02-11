@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState, useRef } from 'react';
 import { ContextType, Lang } from '../lib/interface/context';
 
 const AppContext = createContext<ContextType>({
@@ -12,6 +12,9 @@ export const StateContext = ({ children }: { children: React.ReactNode }) => {
    const [lang, setLang] = useState<Lang>("en");
    const [translation, setTranslation] = useState(require('@/lib/lang/en.json'));
    const [show, setShow] = useState(false);
+
+   const projectsRef = useRef<HTMLDivElement>(null);
+   const contactRef = useRef(null);
 
    useEffect(() => {
       setHasMounted(true);
@@ -36,6 +39,8 @@ export const StateContext = ({ children }: { children: React.ReactNode }) => {
          setTranslation,
          changeLanguage,
          setShow,
+         projectsRef,
+         contactRef,
       }}>
          {children}
       </AppContext.Provider>
