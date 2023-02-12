@@ -1,25 +1,51 @@
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Layout } from '@/components/layouts/Layout';
 import { Products } from '@/components/Products';
+import { Cube } from '@/components/three/Cube';
 import { useStateContext } from '@/context/AppContext';
 import { ProjectIF, SlideIF } from '@/lib/interface/lang';
-import React, { useState } from 'react';
+import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import Typewriter from 'typewriter-effect';
-import { Cube } from '@/components/three/Cube';
 
 export default function Home(): JSX.Element {
   const { translation, lang, projectsRef, contactRef } = useStateContext();
+
   const [glitch, setGlitch] = useState<boolean>(false);
   const [projects, setProjects] = useState(translation.projects);
+  const [newHeight, setNewHeight] = useState<string | number>('100%');
+  const [newProject, setNewProject] = useState(translation.projects);
+
+  const rowRef = useRef<HTMLDivElement>(null);
   const slideTitle = translation.slideTitle as SlideIF;
   const allProjects = translation.projects as ProjectIF[];
+
   const frontProjects = translation.projects.filter(project => project.type.includes("Front"));
   const backProjects = translation.projects.filter(project => project.type.includes("Back"));
   const wipProjects = translation.projects.filter(project => project.type.includes("WIP"));
-  const [newProject, setNewProject] = useState(translation.projects);
+
   
+  
+  const calculateWidth = useCallback(() => {
+    const elementWidth = 303;
+    const elementHeight = 303;
+
+    const rowWidth = rowRef.current!.offsetWidth;
+    const elementsPerLine = Math.floor(rowWidth / elementWidth);
+
+    const elementsCount = newProject.length;
+    const linesCount = Math.ceil(elementsCount / elementsPerLine);
+
+    const rowHeight = linesCount * elementHeight;
+    setNewHeight(rowHeight);
+  }, [newProject.length]);
+
+  useLayoutEffect(() => {
+    calculateWidth();
+  }, [newProject, calculateWidth]);
+
   function changeProjects(value: any) {
     setNewProject(value);
+    calculateWidth();
     setTimeout(() => {
       setProjects(value);
     }, 1000)
@@ -98,7 +124,7 @@ export default function Home(): JSX.Element {
                 </li>
               </ul>
             </div>
-            <div className="row">
+            <div ref={rowRef} className="row" style={{ height: newHeight, transition: 'height 1.1s ease-in-out' }}>
               {
                 Object.entries(projects).map(([key, value]) => (
                   <Products value={value} key={key} classValue={!newProject.includes(value) ? 'product-exit' : 'product-enter'} />

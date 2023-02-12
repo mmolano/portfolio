@@ -1,9 +1,9 @@
-import { LayoutHeader } from '@/components/layouts/LayoutHeader';
-import { StateContext } from '@/context/AppContext';
-import '@/styles/scss/global.scss';
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import { useEffect, useRef } from 'react';
+import { LayoutHeader } from '@/components/layouts/LayoutHeader'
+import { StateContext } from '@/context/AppContext'
+import '@/styles/scss/global.scss'
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
+import { useEffect, useRef } from 'react'
 
 const title = "Miguel.dev()"
 
