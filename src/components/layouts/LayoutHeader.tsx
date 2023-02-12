@@ -49,7 +49,6 @@ export const LayoutHeader = (): JSX.Element => {
                </div>
                <div className="row">
                   <ul className="nav-list">
-                     {/* // TODO make this part base on where we are in the website and add transition animation  */}
                      <li className={`nav-selector ${activeSection === 'projects' ? 'active' : ''} `}><span data-value="01" className={activeSection === 'projects' ? 'active' : ''}>01</span>{`//`} <Link scroll={false} href={"/#projects"}>{translation.nav.projects}</Link></li>
                      <li className={`nav-selector ${activeSection === 'contact' ? 'active' : ''}`}><span data-value="02" className={activeSection === 'contact' ? 'active' : ''}>02</span>{`//`} <Link scroll={false} href={"/#contact"}>{translation.nav.contact}</Link></li>
                      <li className={`nav-selector ${activeSection === 'about' ? 'active' : ''}`}><span data-value="03" className={activeSection === 'about' ? 'active' : ''}>03</span>{`//`} <Link scroll={false} href={"/#about"}>{translation.nav.about}</Link></li>

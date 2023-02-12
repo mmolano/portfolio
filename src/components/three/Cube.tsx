@@ -5,7 +5,7 @@ import React, { useRef } from 'react';
 import { Mesh } from 'three';
 
 const OuterCube = () => {
-   const cubeRef = useRef<Mesh>();
+   const cubeRef = useRef<Mesh>(null);;
    useFrame((state) => {
       cubeRef.current!.rotation.y = state.clock.getElapsedTime() / 2;
    });

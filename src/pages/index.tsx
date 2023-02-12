@@ -16,10 +16,15 @@ export default function Home(): JSX.Element {
   const frontProjects = translation.projects.filter(project => project.type.includes("Front"));
   const backProjects = translation.projects.filter(project => project.type.includes("Back"));
   const wipProjects = translation.projects.filter(project => project.type.includes("WIP"));
-
+  const [newProject, setNewProject] = useState(translation.projects);
+  
   function changeProjects(value: any) {
-    setProjects(value);
+    setNewProject(value);
+    setTimeout(() => {
+      setProjects(value);
+    }, 1000)
   }
+
   return (
     <>
       <Layout>
@@ -68,23 +73,35 @@ export default function Home(): JSX.Element {
             <div className="projects-filter">
               <ul>
                 <li data-value={frontProjects.length}>
-                  <button onClick={() => changeProjects(frontProjects)}><span>{translation.projectSection.front}</span></button>
+                  <button onClick={() => {
+                    changeProjects(frontProjects)
+                  }
+                  }><span>{translation.projectSection.front}</span></button>
                 </li>
                 <li data-value={backProjects.length}>
-                  <button onClick={() => changeProjects(backProjects)}><span>{translation.projectSection.back}</span></button>
+                  <button onClick={() => {
+                    changeProjects(backProjects)
+                  }
+                  }><span>{translation.projectSection.back}</span></button>
                 </li>
                 <li data-value={wipProjects.length}>
-                  <button onClick={() => changeProjects(wipProjects)}><span>{translation.projectSection.working}</span></button>
+                  <button onClick={() => {
+                    changeProjects(wipProjects)
+                  }
+                  }><span>{translation.projectSection.working}</span></button>
                 </li>
                 <li data-value={allProjects.length}>
-                  <button onClick={() => changeProjects(allProjects)}><span>{translation.projectSection.all}</span></button>
+                  <button onClick={() => {
+                    changeProjects(allProjects)
+                  }
+                  }><span>{translation.projectSection.all}</span></button>
                 </li>
               </ul>
             </div>
             <div className="row">
               {
                 Object.entries(projects).map(([key, value]) => (
-                  <Products value={value} key={key} />
+                  <Products value={value} key={key} classValue={!newProject.includes(value) ? 'product-exit' : 'product-enter'} />
                 ))
               }
             </div>
