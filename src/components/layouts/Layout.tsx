@@ -1,10 +1,8 @@
 import type { ReactNode } from 'react';
 
-type LayoutProps = {
-   readonly children: ReactNode;
-};
 
-export const Layout = ({ children }: LayoutProps): JSX.Element => (
+
+export const Layout = ({ children }: { children: ReactNode }): JSX.Element => (
    <>
       <div className="main-content">
          {children}

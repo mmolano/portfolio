@@ -78,13 +78,18 @@
 
 @keyframes cursorAnim {
   0% {
-    transform: scale(1);
+    height: 30px;
+    width: 30px;
   }
   50% {
-    transform: scale(3);
+    height: 50px;
+    width: 50px;
+    left: -6px;
+    top: -7px
   }
   100% {
-    transform: scale(1);
+    height: 30px;
+    width: 30px;
   }
 }
 

@@ -53,7 +53,6 @@ body,
 .main-content {
   font-family: 'studio-light-italic';
   height: 100%;
-  width: 100%;
 }
 
 section {
@@ -139,11 +138,13 @@ form {
 }
 
 .cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 30px;
   height: 30px;
   border: 1.5px solid $default-white;
   border-radius: 50%;
-  position: absolute;
   pointer-events: none;
   &.click-effect {
     animation: cursorAnim 0.5s forwards;

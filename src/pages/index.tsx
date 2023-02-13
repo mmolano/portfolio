@@ -10,21 +10,20 @@ import Typewriter from 'typewriter-effect';
 export default function Home(): JSX.Element {
   const { translation, lang, projectsRef, contactRef } = useStateContext();
 
-  const [glitch, setGlitch] = useState<boolean>(false);
-  const [projects, setProjects] = useState(translation.projects);
-  const [newHeight, setNewHeight] = useState<string | number>('100%');
-  const [newProject, setNewProject] = useState(translation.projects);
+  const allProjects = translation.projects as ProjectIF[];
+  const slideTitle = translation.slideTitle as SlideIF;
 
   const rowRef = useRef<HTMLDivElement>(null);
-  const slideTitle = translation.slideTitle as SlideIF;
-  const allProjects = translation.projects as ProjectIF[];
 
-  const frontProjects = translation.projects.filter(project => project.type.includes("Front"));
-  const backProjects = translation.projects.filter(project => project.type.includes("Back"));
-  const wipProjects = translation.projects.filter(project => project.type.includes("WIP"));
+  const [glitch, setGlitch] = useState<boolean>(false);
+  const [projects, setProjects] = useState(allProjects);
+  const [newProject, setNewProject] = useState(allProjects);
+  const [newHeight, setNewHeight] = useState<string | number>('100%');
 
-  
-  
+  const frontProjects = allProjects.filter(project => project.type.includes("Front"));
+  const backProjects = allProjects.filter(project => project.type.includes("Back"));
+  const wipProjects = allProjects.filter(project => project.type.includes("WIP"));
+
   const calculateWidth = useCallback(() => {
     const elementWidth = 303;
     const elementHeight = 303;
@@ -43,7 +42,7 @@ export default function Home(): JSX.Element {
     calculateWidth();
   }, [newProject, calculateWidth]);
 
-  function changeProjects(value: any) {
+  function changeProjects(value: ProjectIF[]) {
     setNewProject(value);
     calculateWidth();
     setTimeout(() => {
@@ -55,7 +54,7 @@ export default function Home(): JSX.Element {
     <>
       <Layout>
         <section id="home" className="first-element">
-          <h2 data-text={`${translation.title}`} className={glitch ? "glitch" : ''}>
+          <h1 data-text={`${translation.title}`} className={glitch ? "glitch" : ''}>
             <Typewriter
               options={{
                 delay: 50,
@@ -68,7 +67,7 @@ export default function Home(): JSX.Element {
                   .start();
               }}
             />
-          </h2>
+          </h1>
           <ul data-text={`
                   <li>&quot;title&quot; : &quot;Hi! Welcome&quot;</li>
                   <li>&quot;firstName&quot; : &quot;Miguel&quot;</li>

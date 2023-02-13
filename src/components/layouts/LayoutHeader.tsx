@@ -44,7 +44,7 @@ export const LayoutHeader = (): JSX.Element => {
             <div className="navigator">
                <div className="nav-title">
                   <Link scroll={false} href={'/#home'}>
-                     <h1>Miguel<span className="nav-animate-title">.</span>Dev<span className="nav-animate-title"> _</span></h1>
+                     <h2>Miguel<span className="nav-animate-title">.</span>Dev<span className="nav-animate-title"> _</span></h2>
                   </Link>
                </div>
                <div className="row">

@@ -1,10 +1,14 @@
 import { ContactSectionIF } from "@/lib/interface/lang"
 import { InputBase } from "../inputs/InputBase"
 import { InputTextArea } from "../inputs/InputTextArea"
-import { useState } from "react"
+import { FormEvent, useState } from "react"
+import { DoubleInput } from "../inputs/DoubleInput"
+import { ContactFormContext } from "@/context/ContactFormContext"
+import { useContactContext } from "@/context/ContactFormContext"
 
 export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
-   const [hover, setHover] = useState(false);
+   const [hover, setHover] = useState<boolean>(false);
+   const { tasks } = useContactContext()
 
    const handleMouseEnter = () => {
       setTimeout(() => {
@@ -12,26 +16,39 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
       }, 500)
    };
 
-   const handleMouseLeave = () => {
-      setHover(false);
-   };
+
+   const handleMouseLeave = () => setHover(false);
+
+   function handleSubmit(e: FormEvent<HTMLFormElement>) {
+      e.preventDefault();
+   }
+
+   function handleDisable(): boolean {
+      return !tasks.mail || !tasks.message || !tasks.subject || !tasks.name;
+   }
+
+
    return (
-      <>
-         <form method="POST">
-            <div className="double-input">
-               <InputBase placeholder={value.inputName} />
-               <InputBase placeholder={value.inputMail} />
-            </div>
-            <InputBase placeholder={value.inputSubject} />
-            <InputTextArea placeholder={value.inputTextArea} />
-            <button onMouseEnter={handleMouseEnter}
+      <ContactFormContext>
+         <form onSubmit={(e) => {
+            handleSubmit(e);
+         }}>
+            <DoubleInput>
+               <InputBase placeholder={value.inputName} type="name" />
+               <InputBase placeholder={value.inputMail} type="mail" />
+            </DoubleInput>
+            <InputBase placeholder={value.inputSubject} type="subject" />
+            <InputTextArea placeholder={value.inputTextArea} type="message" />
+            <button
+               onMouseEnter={handleMouseEnter}
                onMouseLeave={handleMouseLeave}
                type="submit"
                className={hover ? "active-animation" : "out-animation"}
+               disabled={handleDisable()}
             >
                {value.button}
             </button>
          </form>
-      </>
+      </ContactFormContext>
    )
 }
