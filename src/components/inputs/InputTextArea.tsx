@@ -1,8 +1,8 @@
 import { FormIF } from "@/lib/interface/contactContext"
 import { useContactContext } from "@/context/ContactFormContext"
 
-export const InputTextArea = ({ placeholder, type }: { placeholder: string, type: keyof FormIF }) => {
-   const { dispatch, tasks } = useContactContext();
+export const InputTextArea = ({ placeholder, type }: { placeholder: string, type: keyof Omit<FormIF, 'errors'> }) => {
+   const { dispatch, inputs } = useContactContext();
    
    return (
       <>
@@ -12,9 +12,9 @@ export const InputTextArea = ({ placeholder, type }: { placeholder: string, type
                type: `modify-${type}`,
                value: e.target.value
             })}
-            value={tasks[type]}
+            name={type}
+            value={inputs[type]}
             placeholder={placeholder}
-            required
          />
       </>
    )

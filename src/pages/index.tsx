@@ -3,12 +3,13 @@ import { Layout } from '@/components/layouts/Layout';
 import { Products } from '@/components/Products';
 import { Cube } from '@/components/three/Cube';
 import { useStateContext } from '@/context/AppContext';
+import { ContactFormContext } from '@/context/ContactFormContext';
 import { ProjectIF, SlideIF } from '@/lib/interface/lang';
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import Typewriter from 'typewriter-effect';
 
 export default function Home(): JSX.Element {
-  const { translation, lang, projectsRef, contactRef } = useStateContext();
+  const { translation, lang, projectsRef, contactRef, aboutRef } = useStateContext();
 
   const allProjects = translation.projects as ProjectIF[];
   const slideTitle = translation.slideTitle as SlideIF;
@@ -135,7 +136,9 @@ export default function Home(): JSX.Element {
         <section id="contact" ref={contactRef} className="third-element">
           <h2>{translation.contactSection.title}</h2>
           <div className="container">
-            <ContactForm value={translation.contactSection} />
+            <ContactFormContext>
+              <ContactForm value={translation.contactSection} />
+            </ContactFormContext>
             <div className="contact-right-container">
               <ul>
                 <span>{`<a href="mailto:miguel.molanopro@gmail.com">`}</span>
@@ -150,13 +153,25 @@ export default function Home(): JSX.Element {
               <ul className="contact-ul-pizza">
                 <span>{`<ul className="pizza-li">`}</span>
                 <li>
-                  <a target="_blank" rel="noreferrer" href="https://github.com/mmolano">{`<li>`}GitHub{`</li>`}</a>
+                  <a target="_blank" rel="noreferrer" href="https://github.com/mmolano">{`<li>`}<b>GitHub</b>{`</li>`}</a>
                 </li>
                 <li>
-                  <a target="_blank" rel="noreferrer" href={`https://www.linkedin.com/in/mimolano${lang !== 'fr' ? '/?locale=en_US' : ''}`}>{`<li>`}LinkedIn{`</li>`}</a>
+                  <a target="_blank" rel="noreferrer" href={`https://www.linkedin.com/in/mimolano${lang !== 'fr' ? '/?locale=en_US' : ''}`}>{`<li>`}<b>LinkedIn</b>{`</li>`}</a>
                 </li>
                 <span>{`</ul>`}</span>
               </ul>
+            </div>
+          </div>
+        </section>
+        <section id="about" ref={aboutRef} className="fourth-element">
+          <h2>{translation.aboutSection.title}</h2>
+          <div className="container">
+            <div className="split-width">
+              <p>{translation.aboutSection.content}</p>
+              <span>Let’s make pizzas together!</span>
+            </div>
+            <div className="three-box-container">
+              {/* TODO */}
             </div>
           </div>
         </section>

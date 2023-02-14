@@ -53,12 +53,18 @@ export interface ContactSectionIF {
    button: string;
 }
 
+export interface AboutSectionIF {
+   title: string;
+   content: string;
+}
+
 export interface LanguageIF {
    lang: Lang;
    nav: Nav;
    title: string;
    projectSection: ProjectSectionIF;
    contactSection: ContactSectionIF;
+   aboutSection: AboutSectionIF;
    slideTitle: SlideIF;
    projects: ProjectIF[];
 }

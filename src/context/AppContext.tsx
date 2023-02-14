@@ -11,10 +11,11 @@ export const StateContext = ({ children }: { children: React.ReactNode }) => {
 
    const [lang, setLang] = useState<Lang>("en");
    const [translation, setTranslation] = useState(require('@/lib/lang/en.json'));
-   const [show, setShow] = useState(false);
+   const [showNav, setShowNav] = useState(false);
 
    const projectsRef = useRef<HTMLDivElement>(null);
-   const contactRef = useRef(null);
+   const contactRef = useRef<HTMLDivElement>(null);
+   const aboutRef = useRef<HTMLDivElement>(null);
 
    useEffect(() => {
       setHasMounted(true);
@@ -34,13 +35,14 @@ export const StateContext = ({ children }: { children: React.ReactNode }) => {
       <AppContext.Provider value={{
          lang,
          setLang,
-         show,
+         showNav,
          translation,
          setTranslation,
          changeLanguage,
-         setShow,
+         setShowNav,
          projectsRef,
          contactRef,
+         aboutRef
       }}>
          {children}
       </AppContext.Provider>

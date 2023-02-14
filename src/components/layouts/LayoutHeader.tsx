@@ -1,11 +1,14 @@
 import { useStateContext } from '@/context/AppContext';
 import { Lang } from '@/lib/interface/context';
 import Link from 'next/link';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 export const LayoutHeader = (): JSX.Element => {
-   const { show, setShow, lang, translation, changeLanguage, projectsRef, contactRef } = useStateContext();
+   const { showNav, setShowNav, lang, translation, changeLanguage, projectsRef, contactRef, aboutRef } = useStateContext();
    const [activeSection, setActiveSection] = useState<string>('');
+   const [isAnimating, setIsAnimating] = useState<boolean>(false);
+   const mobileRef = useRef<HTMLDivElement>(null);
+
 
    function changeLang(language: Lang): void {
       //TODO: put Loader
@@ -14,25 +17,50 @@ export const LayoutHeader = (): JSX.Element => {
    }
 
    const handleScroll = useCallback(() => {
-      const projectsPosition = projectsRef.current?.getBoundingClientRect().top;
-      const contactPosition = contactRef.current?.getBoundingClientRect().top;
+      const projectsPosition = projectsRef?.current?.getBoundingClientRect().top;
+      const contactPosition = contactRef?.current?.getBoundingClientRect().top;
+      const aboutPosition = aboutRef?.current?.getBoundingClientRect().top;
 
-      if (projectsPosition || contactPosition) {
-         if (projectsPosition < 100 && contactPosition > 1) {
-            if (!projectsRef.current.classList.contains('animate')) {
-               projectsRef.current.classList.add('animate');
+      if (projectsPosition || contactPosition || aboutPosition) {
+         if (projectsPosition! < 100 && contactPosition! > 1) {
+            if (!projectsRef?.current?.classList.contains('animate')) {
+               projectsRef?.current?.classList.add('animate');
             }
             setActiveSection('projects');
-         } else if (contactPosition < 1) {
-            if (!contactRef.current.classList.contains('animate')) {
-               contactRef.current.classList.add('animate');
+         } else if (contactPosition! < 1 && aboutPosition! > 1) {
+            if (!contactRef?.current?.classList.contains('animate')) {
+               contactRef?.current?.classList.add('animate');
             }
             setActiveSection('contact');
+         } else if (aboutPosition! < 1) {
+            if (!aboutRef?.current?.classList.contains('animate')) {
+               aboutRef?.current?.classList.add('animate');
+            }
+            setActiveSection('about');
          } else {
             setActiveSection('');
          }
       }
-   }, [projectsRef, contactRef]);
+   }, [projectsRef, contactRef, aboutRef]);
+
+   const handleActiveNav = () => {
+      if (isAnimating) {
+         return;
+      }
+
+      document.querySelector('body')?.classList.toggle('no-scroll');
+      mobileRef.current?.classList.toggle('close-nav');
+
+      if (!showNav) {
+         setShowNav?.(true);
+      } else {
+         setIsAnimating(true);
+         setTimeout(() => {
+            setShowNav?.(false);
+            setIsAnimating(false);
+         }, 2000);
+      }
+   }
 
    useEffect(() => {
       window.addEventListener('scroll', handleScroll);
@@ -49,9 +77,9 @@ export const LayoutHeader = (): JSX.Element => {
                </div>
                <div className="row">
                   <ul className="nav-list">
-                     <li className={`nav-selector ${activeSection === 'projects' ? 'active' : ''} `}><span data-value="01" className={activeSection === 'projects' ? 'active' : ''}>01</span>{`//`} <Link scroll={false} href={"/#projects"}>{translation.nav.projects}</Link></li>
-                     <li className={`nav-selector ${activeSection === 'contact' ? 'active' : ''}`}><span data-value="02" className={activeSection === 'contact' ? 'active' : ''}>02</span>{`//`} <Link scroll={false} href={"/#contact"}>{translation.nav.contact}</Link></li>
-                     <li className={`nav-selector ${activeSection === 'about' ? 'active' : ''}`}><span data-value="03" className={activeSection === 'about' ? 'active' : ''}>03</span>{`//`} <Link scroll={false} href={"/#about"}>{translation.nav.about}</Link></li>
+                     <li className={`nav-selector ${activeSection === 'projects' ? 'active' : ''} `}><span data-value="01" className={activeSection === 'projects' ? 'active' : ''}>01</span>{`//`} <Link scroll={false} href="/#projects">{translation.nav.projects}</Link></li>
+                     <li className={`nav-selector ${activeSection === 'contact' ? 'active' : ''}`}><span data-value="02" className={activeSection === 'contact' ? 'active' : ''}>02</span>{`//`} <Link scroll={false} href="/#contact">{translation.nav.contact}</Link></li>
+                     <li className={`nav-selector ${activeSection === 'about' ? 'active' : ''}`}><span data-value="03" className={activeSection === 'about' ? 'active' : ''}>03</span>{`//`} <Link scroll={false} href="/#about">{translation.nav.about}</Link></li>
                   </ul>
                   <div className="nav-lang-selector">
                      <p>Lang: {`{`}</p>
@@ -67,28 +95,28 @@ export const LayoutHeader = (): JSX.Element => {
                </div>
             </div>
 
-            <div onClick={() => setShow?.(!show)} className={`toggle-nav ${show ? 'is-toggled' : ''}`}>
-               <span className={`toggle-style one `}></span>
-               <span className={`toggle-style two `}></span>
-               <span className={`toggle-style three `}></span>
-               <span className={`toggle-style four `}></span>
-               <span className={`toggle-style five `}></span>
-               <span className={`toggle-style six `}></span>
-               <span className={`toggle-style seven `}></span>
-               <span className={`toggle-style eight `}></span>
-               <span className={`toggle-style nine `}></span>
-               <span className={`test`}></span>
-               <span className={`test`}></span>
+            <div onClick={() => handleActiveNav()} className={`burger ${showNav ? 'is-toggled' : ''}`} >
+               <div className={`toggle-nav`}>
+                  <span className={`toggle-style one `}></span>
+                  <span className={`toggle-style two `}></span>
+                  <span className={`toggle-style three `}></span>
+                  <span className={`toggle-style four `}></span>
+                  <span className={`toggle-style five `}></span>
+                  <span className={`toggle-style six `}></span>
+                  <span className={`toggle-style seven `}></span>
+                  <span className={`toggle-style eight `}></span>
+                  <span className={`toggle-style nine `}></span>
+               </div>
             </div>
             {/* //TODO: animation here when showed  */}
             {
-               show && (
-                  <div className="mobile-nav">
+               showNav && (
+                  <div ref={mobileRef} className="mobile-nav">
                      <div className="row">
                         <ul className="nav-list">
-                           <li className="nav-selector active"><a href="#projects">{`//`} {translation.nav.projects}</a></li>
-                           <li className="nav-selector"><a href="#contact">{`//`} {translation.nav.contact}</a></li>
-                           <li className="nav-selector"><a href="#about">{`//`} {translation.nav.about}</a></li>
+                           <li className="nav-selector"><Link onClick={() => handleActiveNav()} scroll={false} href="/#projects">{`//`} {translation.nav.projects}</Link></li>
+                           <li className="nav-selector"><Link onClick={() => handleActiveNav()} scroll={false} href="/#contact">{`//`} {translation.nav.contact}</Link></li>
+                           <li className="nav-selector"><Link onClick={() => handleActiveNav()} scroll={false} href="/#about">{`//`} {translation.nav.about}</Link></li>
                         </ul>
                         <div className="nav-lang-selector">
                            <span>Lang: {`{`}</span>

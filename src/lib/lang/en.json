@@ -35,6 +35,10 @@
     "inputTextArea": "My awesome message about pizzas...",
     "button": "Send Message!"
   },
+  "aboutSection": {
+    "title": "About",
+    "content": "Hi, my name is Miguel Molano, i’m a web developer from France. I have an interest for UI & UX, front-end development, back-end development and of course pizzas because there isn't anything better than eating a delicious pizza to finish the day"
+  },
   "projects": [
     {
       "id": 1,

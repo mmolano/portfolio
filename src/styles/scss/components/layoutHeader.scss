@@ -157,25 +157,28 @@ nav {
 }
 
 @include mobile-nav {
-  .toggle-nav {
+  .burger {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
     z-index: 2;
-    overflow: hidden;
     position: absolute;
-    display: grid;
-    cursor: pointer;
     top: 38px;
     right: 45px;
+    width: 50px;
+    height: 50px;
+  }
+  .toggle-nav {
+    display: grid;
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 5px;
-    animation: rotate-burger-out 0.37s;
+    animation: rotate-burger-out 0.37s ease-in-out forwards;
     & .two {
       --translateX: 0px;
       --translateY: 14px;
-      animation: animate-circle-out 0.37s;
-    }
-    & .eight {
-      --translateX: 0px;
-      --translateY: -14px;
       animation: animate-circle-out 0.37s;
     }
     & .four {
@@ -188,21 +191,10 @@ nav {
       --translateY: 0px;
       animation: animate-circle-out 0.37s;
     }
-    &:hover,
-    .is-toggled {
-      animation: rotate-burger-in 0.7s forwards;
-      & .two {
-        animation: animate-circle-in 0.37s forwards;
-      }
-      & .eight {
-        animation: animate-circle-in 0.37s forwards;
-      }
-      & .four {
-        animation: animate-circle-in 0.37s forwards;
-      }
-      & .six {
-        animation: animate-circle-in 0.37s forwards;
-      }
+    & .eight {
+      --translateX: 0px;
+      --translateY: -14px;
+      animation: animate-circle-out 0.37s;
     }
     & .toggle-style {
       background: $default-white;
@@ -214,10 +206,43 @@ nav {
       background-color: unset;
     }
   }
-
+  .burger:hover {
+    .toggle-nav {
+      animation: rotate-burger-in 0.7s forwards;
+      & .two {
+        animation: animate-circle-in 0.37s forwards;
+      }
+      & .four {
+        animation: animate-circle-in 0.37s forwards;
+      }
+      & .six {
+        animation: animate-circle-in 0.37s forwards;
+      }
+      & .eight {
+        animation: animate-circle-in 0.37s forwards;
+      }
+    }
+  }
+  .burger.is-toggled {
+    & .two,
+    .eight,
+    .four,
+    .six {
+      opacity: 0;
+      transition: 0.7s;
+    }
+    &:hover {
+      & .two,
+      .eight,
+      .four,
+      .six {
+        opacity: 1;
+      }
+    }
+  }
   .mobile-nav {
     z-index: 1;
-    position: absolute;
+    position: fixed;
     background-color: $nav-toggle-color;
     height: 100%;
     width: 100%;
@@ -242,5 +267,45 @@ nav {
         bottom: 35px;
       }
     }
+  }
+}
+
+@keyframes slide-in-nav {
+  from {
+    transform: translateX(-45%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out-nav {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-45%);
+    opacity: 0;
+  }
+}
+
+.mobile-nav {
+  animation: fade-in-three 0.3s linear forwards;
+  & .nav-selector {
+    &:nth-child(1) {
+      animation: slide-in-nav 2s forwards;
+    }
+    &:nth-child(2) {
+      animation: slide-in-nav 2s forwards;
+    }
+    &:nth-child(3) {
+      animation: slide-in-nav 2s forwards;
+    }
+  }
+  &.close-nav {
+    animation: slide-out-nav 2s forwards;
   }
 }

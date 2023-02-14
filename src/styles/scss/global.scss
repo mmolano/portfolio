@@ -12,10 +12,14 @@
 @import 'components/index';
 @import 'components/form';
 
+//TODO: move keyframes to each corresponding scss 
 body {
   background-color: $body-color;
   color: $default-white;
   @include fluid-type($min-width, $max-width, $min-font, $max-font);
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 a {
