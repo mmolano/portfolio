@@ -16,42 +16,6 @@ nav {
   }
 }
 
-@keyframes animate-circle-in {
-  from {
-    transform: translate(0px, 0px);
-  }
-  to {
-    transform: translate(var(--translateX), var(--translateY));
-  }
-}
-
-@keyframes animate-circle-out {
-  from {
-    transform: translate(var(--translateX), var(--translateY));
-  }
-  to {
-    transform: translate(0px, 0px);
-  }
-}
-
-@keyframes rotate-burger-in {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(90deg);
-  }
-}
-
-@keyframes rotate-burger-out {
-  from {
-    transform: rotate(90deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
 .navigator {
   display: none;
 }
@@ -156,6 +120,24 @@ nav {
   }
 }
 
+@keyframes scale-0-1 {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scale-1-0-rotate {
+  from {
+    transform: scale(1) rotate(0deg);
+  }
+  to {
+    transform: scale(0) rotate(180deg);
+  }
+}
+
 @include mobile-nav {
   .burger {
     display: flex;
@@ -167,6 +149,12 @@ nav {
     right: 45px;
     width: 50px;
     height: 50px;
+    & .two,
+    .eight,
+    .four,
+    .six {
+      transition: 0.4s;
+    }
   }
   .toggle-nav {
     display: grid;
@@ -239,6 +227,36 @@ nav {
         opacity: 1;
       }
     }
+    & .toggle-close-style {
+      display: flex;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      & span {
+        width: 5px;
+        height: 35px;
+        border: 1px solid $default-white;
+        border-radius: 25px;
+        &:nth-child(1) {
+          animation: scale-1-0-rotate 2.3s linear forwards;
+        }
+        &:nth-child(2) {
+          position: absolute;
+          rotate: 90deg;
+          animation: scale-1-0-rotate 2.3s linear forwards;
+        }
+      }
+      &.close-toggler span {
+        &:nth-child(1) {
+          animation: scale-0-1 1s ease-in-out forwards;
+        }
+        &:nth-child(2) {
+          animation: scale-0-1 1s ease-in-out forwards;
+        }
+      }
+    }
   }
   .mobile-nav {
     z-index: 1;
@@ -267,28 +285,6 @@ nav {
         bottom: 35px;
       }
     }
-  }
-}
-
-@keyframes slide-in-nav {
-  from {
-    transform: translateX(-45%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
-
-@keyframes slide-out-nav {
-  from {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(-45%);
-    opacity: 0;
   }
 }
 

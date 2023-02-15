@@ -145,3 +145,60 @@ ul.glitch {
     }
   }
 }
+
+@media only screen and (max-width: 580px) {
+  .projects-container .row {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .projects-container .row .card {
+    width: 250px;
+  }
+}
+
+// ---------------------------------------------------------------- Slide Element 3
+
+.container,
+form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  flex-wrap: wrap;
+  & ul {
+    overflow-wrap: break-word;
+  }
+}
+
+form {
+  justify-content: space-evenly;
+  width: 50%;
+  margin-bottom: 40px;
+  & button {
+    margin-left: 7px !important;
+    margin-top: 10px !important;
+  }
+}
+
+.double-input {
+  display: flex;
+  & input {
+    width: calc(50% - 14px);
+  }
+}
+
+@media screen and (max-width: 1003px) {
+  .container {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  form,
+  .contact-right-container {
+    width: 100%;
+  }
+}

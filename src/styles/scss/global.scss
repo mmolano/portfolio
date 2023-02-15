@@ -10,7 +10,6 @@
 @import 'components/mixins/_mixins';
 @import 'components/layoutHeader';
 @import 'components/index';
-@import 'components/form';
 
 //TODO: move keyframes to each corresponding scss 
 body {
@@ -250,4 +249,10 @@ button span:hover {
 
 .product-exit {
   animation: outer 1s forwards;
+}
+
+@include small-mobile {
+  section {
+    padding: 25px;
+  }
 }

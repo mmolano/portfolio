@@ -5,7 +5,7 @@ import { Cube } from '@/components/three/Cube';
 import { useStateContext } from '@/context/AppContext';
 import { ContactFormContext } from '@/context/ContactFormContext';
 import { ProjectIF, SlideIF } from '@/lib/interface/lang';
-import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import React, { useCallback, useLayoutEffect, useRef, useState, useEffect } from 'react';
 import Typewriter from 'typewriter-effect';
 
 export default function Home(): JSX.Element {
@@ -29,19 +29,29 @@ export default function Home(): JSX.Element {
     const elementWidth = 303;
     const elementHeight = 303;
 
+    //TODO: change width on small devices
     const rowWidth = rowRef.current!.offsetWidth;
     const elementsPerLine = Math.floor(rowWidth / elementWidth);
-
     const elementsCount = newProject.length;
     const linesCount = Math.ceil(elementsCount / elementsPerLine);
-
     const rowHeight = linesCount * elementHeight;
-    setNewHeight(rowHeight);
+
+    setNewHeight(rowHeight + 'px');
+    console.log(linesCount, elementsCount, elementsPerLine, rowWidth, elementWidth)
   }, [newProject.length]);
 
   useLayoutEffect(() => {
     calculateWidth();
   }, [newProject, calculateWidth]);
+
+  useEffect(() => {
+    function handleResize() {
+      calculateWidth();
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [calculateWidth]);
 
   function changeProjects(value: ProjectIF[]) {
     setNewProject(value);

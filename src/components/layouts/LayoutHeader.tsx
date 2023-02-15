@@ -8,6 +8,7 @@ export const LayoutHeader = (): JSX.Element => {
    const [activeSection, setActiveSection] = useState<string>('');
    const [isAnimating, setIsAnimating] = useState<boolean>(false);
    const mobileRef = useRef<HTMLDivElement>(null);
+   const closerRef = useRef<HTMLDivElement>(null);
 
 
    function changeLang(language: Lang): void {
@@ -50,6 +51,7 @@ export const LayoutHeader = (): JSX.Element => {
 
       document.querySelector('body')?.classList.toggle('no-scroll');
       mobileRef.current?.classList.toggle('close-nav');
+      closerRef.current?.classList.toggle('close-toggler');
 
       if (!showNav) {
          setShowNav?.(true);
@@ -96,19 +98,22 @@ export const LayoutHeader = (): JSX.Element => {
             </div>
 
             <div onClick={() => handleActiveNav()} className={`burger ${showNav ? 'is-toggled' : ''}`} >
-               <div className={`toggle-nav`}>
-                  <span className={`toggle-style one `}></span>
-                  <span className={`toggle-style two `}></span>
-                  <span className={`toggle-style three `}></span>
-                  <span className={`toggle-style four `}></span>
-                  <span className={`toggle-style five `}></span>
-                  <span className={`toggle-style six `}></span>
-                  <span className={`toggle-style seven `}></span>
-                  <span className={`toggle-style eight `}></span>
-                  <span className={`toggle-style nine `}></span>
+               <div className="toggle-nav">
+                  <span className="toggle-style one"></span>
+                  <span className="toggle-style two"></span>
+                  <span className="toggle-style three"></span>
+                  <span className="toggle-style four"></span>
+                  <span className="toggle-style five"></span>
+                  <span className="toggle-style six"></span>
+                  <span className="toggle-style seven"></span>
+                  <span className="toggle-style eight"></span>
+                  <span className="toggle-style nine"></span>
+                  <div ref={closerRef} className="toggle-close-style">
+                     <span></span>
+                     <span></span>
+                  </div>
                </div>
             </div>
-            {/* //TODO: animation here when showed  */}
             {
                showNav && (
                   <div ref={mobileRef} className="mobile-nav">
