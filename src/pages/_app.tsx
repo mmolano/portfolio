@@ -3,7 +3,7 @@ import { StateContext } from '@/context/AppContext'
 import '@/styles/scss/global.scss'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect, useCallback } from 'react'
 
 const title: string = "Miguel.dev()";
 const url: string = process.env.NEXT_PUBLIC_URL!;
@@ -40,7 +40,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <StateContext>
-      <div className="main-app"
+      <main className="main-app"
         onMouseLeave={handleMouseOut}
         onMouseEnter={handleMouseIn}
         onMouseMove={handleMouseMove}
@@ -64,13 +64,14 @@ export default function App({ Component, pageProps }: AppProps) {
         </Head>
         <LayoutHeader />
         <Component {...pageProps} />
-      </div>
+      </main>
       <div
         ref={cursorRef}
         style={{
           display: `${isOutside ? 'none' : 'inherit'}`,
           transform: `translate(${position.x - 20}px, ${position.y - 20}px)`,
-        }} className="cursor"></div>
+        }} className="cursor">
+      </div>
     </StateContext>
   )
 }

@@ -1,3 +1,6 @@
+import React, { useCallback, useLayoutEffect, useRef, useState, useEffect } from 'react';
+import Typewriter, { TypewriterClass } from 'typewriter-effect';
+
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Layout } from '@/components/layouts/Layout';
 import { Products } from '@/components/Products';
@@ -5,8 +8,9 @@ import { Cube } from '@/components/three/Cube';
 import { useStateContext } from '@/context/AppContext';
 import { ContactFormContext } from '@/context/ContactFormContext';
 import { ProjectIF, SlideIF } from '@/lib/interface/lang';
-import React, { useCallback, useLayoutEffect, useRef, useState, useEffect } from 'react';
-import Typewriter from 'typewriter-effect';
+import { LinkRef } from '@/components/links/LinkRef';
+import { Button } from '@/components/buttons/Button';
+
 
 export default function Home(): JSX.Element {
   const { translation, lang, projectsRef, contactRef, aboutRef } = useStateContext();
@@ -26,18 +30,20 @@ export default function Home(): JSX.Element {
   const wipProjects = allProjects.filter(project => project.type.includes("WIP"));
 
   const calculateWidth = useCallback(() => {
-    const elementWidth = 303;
-    const elementHeight = 303;
-
-    //TODO: change width on small devices
     const rowWidth = rowRef.current!.offsetWidth;
+    let elementWidth = 303;
+    let elementHeight = 303;
+
+    if (rowWidth < elementWidth) {
+      elementWidth = 250;
+    }
+
     const elementsPerLine = Math.floor(rowWidth / elementWidth);
     const elementsCount = newProject.length;
     const linesCount = Math.ceil(elementsCount / elementsPerLine);
     const rowHeight = linesCount * elementHeight;
 
-    setNewHeight(rowHeight + 'px');
-    console.log(linesCount, elementsCount, elementsPerLine, rowWidth, elementWidth)
+    setNewHeight(`${rowHeight}px`);
   }, [newProject.length]);
 
   useLayoutEffect(() => {
@@ -53,13 +59,21 @@ export default function Home(): JSX.Element {
     return () => window.removeEventListener("resize", handleResize);
   }, [calculateWidth]);
 
-  function changeProjects(value: ProjectIF[]) {
+  const changeProjects = useCallback((value: ProjectIF[]) => {
     setNewProject(value);
     calculateWidth();
     setTimeout(() => {
       setProjects(value);
-    }, 1000)
-  }
+    }, 1000);
+  }, [calculateWidth]);
+
+  const handleTypewriterInit = useCallback((typewriter: TypewriterClass) => {
+    typewriter.typeString(translation.title)
+      .callFunction(() => {
+        setGlitch(true);
+      })
+      .start();
+  }, [translation.title]);
 
   return (
     <>
@@ -67,26 +81,20 @@ export default function Home(): JSX.Element {
         <section id="home" className="first-element">
           <h1 data-text={`${translation.title}`} className={glitch ? "glitch" : ''}>
             <Typewriter
-              options={{
-                delay: 50,
-              }}
-              onInit={(typewriter) => {
-                typewriter.typeString(`${translation.title}`)
-                  .callFunction(() => {
-                    setGlitch(true);
-                  })
-                  .start();
-              }}
+              options={{ delay: 50 }}
+              onInit={handleTypewriterInit}
             />
           </h1>
-          <ul data-text={`
-                  <li>&quot;title&quot; : &quot;Hi! Welcome&quot;</li>
-                  <li>&quot;firstName&quot; : &quot;Miguel&quot;</li>
-                  <li>&quot;name&quot; : &quot;Molano&quot;</li>
-                  <li>&quot;type&quot; : &quot;Web Developer&quot;</li>
-                  Error could not load HTML 
-                  `}
-            className={glitch ? "animate-in glitch" : 'animate-out'}>
+          <ul className={`glitch ${glitch ? "animate-in" : "animate-out"}`}
+            data-text=
+            {`
+              <li>&quot;title&quot; : &quot;Hi! Welcome&quot;</li>
+              <li>&quot;firstName&quot; : &quot;Miguel&quot;</li>
+              <li>&quot;name&quot; : &quot;Molano&quot;</li>
+              <li>&quot;type&quot; : &quot;Web Developer&quot;</li>
+              Error could not load HTML 
+            `}
+          >
             <span>{'{'}</span>
             {
               Object.entries(slideTitle).map(([key, value]) => (
@@ -109,28 +117,28 @@ export default function Home(): JSX.Element {
             <div className="projects-filter">
               <ul>
                 <li data-value={frontProjects.length}>
-                  <button onClick={() => {
+                  <Button onClick={() => {
                     changeProjects(frontProjects)
                   }
-                  }><span>{translation.projectSection.front}</span></button>
+                  }><span>{translation.projectSection.front}</span></Button>
                 </li>
                 <li data-value={backProjects.length}>
-                  <button onClick={() => {
+                  <Button onClick={() => {
                     changeProjects(backProjects)
                   }
-                  }><span>{translation.projectSection.back}</span></button>
+                  }><span>{translation.projectSection.back}</span></Button>
                 </li>
                 <li data-value={wipProjects.length}>
-                  <button onClick={() => {
+                  <Button onClick={() => {
                     changeProjects(wipProjects)
                   }
-                  }><span>{translation.projectSection.working}</span></button>
+                  }><span>{translation.projectSection.working}</span></Button>
                 </li>
                 <li data-value={allProjects.length}>
-                  <button onClick={() => {
+                  <Button onClick={() => {
                     changeProjects(allProjects)
                   }
-                  }><span>{translation.projectSection.all}</span></button>
+                  }><span>{translation.projectSection.all}</span></Button>
                 </li>
               </ul>
             </div>
@@ -153,9 +161,9 @@ export default function Home(): JSX.Element {
               <ul>
                 <span>{`<a href="mailto:miguel.molanopro@gmail.com">`}</span>
                 <li>
-                  <a href="mailto:miguel.molanopro@gmail.com">
+                  <LinkRef isOutSite={true} href="mailto:miguel.molanopro@gmail.com">
                     <b>{translation.contactSection.mailMe}</b>
-                  </a>
+                  </LinkRef>
                 </li>
                 <span>{`<a/>`}</span>
               </ul>
@@ -163,10 +171,10 @@ export default function Home(): JSX.Element {
               <ul className="contact-ul-pizza">
                 <span>{`<ul className="pizza-li">`}</span>
                 <li>
-                  <a target="_blank" rel="noreferrer" href="https://github.com/mmolano">{`<li>`}<b>GitHub</b>{`</li>`}</a>
+                  <LinkRef target="_blank" rel="noreferrer" href="https://github.com/mmolano">{`<li>`}<b>GitHub</b>{`</li>`}</LinkRef>
                 </li>
                 <li>
-                  <a target="_blank" rel="noreferrer" href={`https://www.linkedin.com/in/mimolano${lang !== 'fr' ? '/?locale=en_US' : ''}`}>{`<li>`}<b>LinkedIn</b>{`</li>`}</a>
+                  <LinkRef target="_blank" rel="noreferrer" href={`https://www.linkedin.com/in/mimolano${lang !== 'fr' ? '/?locale=en_US' : ''}`}>{`<li>`}<b>LinkedIn</b>{`</li>`}</LinkRef>
                 </li>
                 <span>{`</ul>`}</span>
               </ul>

@@ -6,7 +6,7 @@ const AppContext = createContext<ContextType>({
    translation: require('@/lib/lang/en.json'),
 });
 
-export const StateContext = ({ children }: { children: React.ReactNode }) => {
+export const StateContext = ({ children }: { children: Readonly<React.ReactNode> }) => {
    const [hasMounted, setHasMounted] = useState(false);
 
    const [lang, setLang] = useState<Lang>("en");
@@ -42,7 +42,7 @@ export const StateContext = ({ children }: { children: React.ReactNode }) => {
          setShowNav,
          projectsRef,
          contactRef,
-         aboutRef
+         aboutRef,
       }}>
          {children}
       </AppContext.Provider>

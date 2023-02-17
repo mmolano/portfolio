@@ -11,7 +11,7 @@
 @import 'components/layoutHeader';
 @import 'components/index';
 
-//TODO: move keyframes to each corresponding scss 
+//TODO: move keyframes to each corresponding scss
 body {
   background-color: $body-color;
   color: $default-white;
@@ -133,6 +133,15 @@ form {
   flex-direction: column;
 }
 
+#projects,
+#contact {
+  opacity: 0;
+  overflow-y: auto;
+  &.animate {
+    animation: fade-in-three 1.5s forwards;
+  }
+}
+
 .main-app {
   overflow: hidden;
   &.burger-toggled {
@@ -140,6 +149,45 @@ form {
   }
 }
 
+@keyframes animate-hover {
+  from {
+    background-color: none;
+  }
+  to {
+    height: 50px;
+    width: 50px;
+    left: -7px;
+    top: -7px;
+    background-color: $classic-yellow-white-opacity;
+    border: 1.5px solid $classic-yellow-white-opacity;
+  }
+}
+
+@keyframes animate-hover-out {
+  from {
+    height: 50px;
+    width: 50px;
+    left: -7px;
+    top: -7px;
+    background-color: var(--color-hover);
+    border: 1.5px solid var(--color-hover);
+  }
+  to {
+    background-color: none;
+  }
+}
+
+.cursor-circle {
+  height: 24px;
+  width: 24px;
+  border-radius: 24px;
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999999;
+}
 .cursor {
   position: fixed;
   top: 0;
@@ -149,6 +197,21 @@ form {
   border: 1.5px solid $default-white;
   border-radius: 50%;
   pointer-events: none;
+  &.hover-leave {
+    --color-hover: $light-blue;
+  }
+  &.button-hover,
+  &.hover-leaver {
+    --color-hover: $classic-yellow-white-opacity;
+  }
+  &.button-hover,
+  &.href-hover,
+  &.hover-leaver {
+    animation: animate-hover 0.3s ease-in-out forwards;
+  }
+  &.button-out {
+    animation: animate-hover-out 0.3s ease-in-out forwards;
+  }
   &.click-effect {
     animation: cursorAnim 0.5s forwards;
   }
@@ -232,15 +295,6 @@ button span:hover {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-}
-
-#projects,
-#contact {
-  opacity: 0;
-  overflow-y: auto;
-  &.animate {
-    animation: fade-in-three 1.5s forwards;
-  }
 }
 
 .product-enter {

@@ -116,6 +116,7 @@ ul.glitch {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  overflow: hidden;
   & .row {
     display: flex;
     flex-wrap: wrap;

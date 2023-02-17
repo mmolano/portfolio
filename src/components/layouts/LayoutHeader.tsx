@@ -2,6 +2,8 @@ import { useStateContext } from '@/context/AppContext';
 import { Lang } from '@/lib/interface/context';
 import Link from 'next/link';
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { Button } from '../buttons/Button';
+import { LinkRef } from '../links/LinkRef';
 
 export const LayoutHeader = (): JSX.Element => {
    const { showNav, setShowNav, lang, translation, changeLanguage, projectsRef, contactRef, aboutRef } = useStateContext();
@@ -22,34 +24,35 @@ export const LayoutHeader = (): JSX.Element => {
       const contactPosition = contactRef?.current?.getBoundingClientRect().top;
       const aboutPosition = aboutRef?.current?.getBoundingClientRect().top;
 
-      if (projectsPosition || contactPosition || aboutPosition) {
-         if (projectsPosition! < 100 && contactPosition! > 1) {
-            if (!projectsRef?.current?.classList.contains('animate')) {
-               projectsRef?.current?.classList.add('animate');
-            }
-            setActiveSection('projects');
-         } else if (contactPosition! < 1 && aboutPosition! > 1) {
-            if (!contactRef?.current?.classList.contains('animate')) {
-               contactRef?.current?.classList.add('animate');
-            }
-            setActiveSection('contact');
-         } else if (aboutPosition! < 1) {
-            if (!aboutRef?.current?.classList.contains('animate')) {
-               aboutRef?.current?.classList.add('animate');
-            }
-            setActiveSection('about');
-         } else {
-            setActiveSection('');
-         }
+      if (projectsPosition! < 100 && contactPosition! > 1) {
+         setActiveSection('projects');
+         projectsRef?.current?.classList.add('animate');
+         contactRef?.current?.classList.remove('animate');
+         aboutRef?.current?.classList.remove('animate');
+      } else if (contactPosition! < 1 && aboutPosition! > 1) {
+         setActiveSection('contact');
+         contactRef?.current?.classList.add('animate');
+         projectsRef?.current?.classList.remove('animate');
+         aboutRef?.current?.classList.remove('animate');
+      } else if (aboutPosition! < 1) {
+         setActiveSection('about');
+         aboutRef?.current?.classList.add('animate');
+         projectsRef?.current?.classList.remove('animate');
+         contactRef?.current?.classList.remove('animate');
+      } else {
+         setActiveSection('');
+         projectsRef?.current?.classList.remove('animate');
+         contactRef?.current?.classList.remove('animate');
+         aboutRef?.current?.classList.remove('animate');
       }
    }, [projectsRef, contactRef, aboutRef]);
 
-   const handleActiveNav = () => {
+   const toggleNav = useCallback(() => {
       if (isAnimating) {
          return;
       }
-
-      document.querySelector('body')?.classList.toggle('no-scroll');
+      const body = document.querySelector('body');
+      body?.classList.toggle('no-scroll');
       mobileRef.current?.classList.toggle('close-nav');
       closerRef.current?.classList.toggle('close-toggler');
 
@@ -62,7 +65,7 @@ export const LayoutHeader = (): JSX.Element => {
             setIsAnimating(false);
          }, 2000);
       }
-   }
+   }, [isAnimating, setShowNav, showNav]);
 
    useEffect(() => {
       window.addEventListener('scroll', handleScroll);
@@ -73,31 +76,31 @@ export const LayoutHeader = (): JSX.Element => {
          <nav>
             <div className="navigator">
                <div className="nav-title">
-                  <Link scroll={false} href={'/#home'}>
+                  <LinkRef scroll={false} href={'/#home'}>
                      <h2>Miguel<span className="nav-animate-title">.</span>Dev<span className="nav-animate-title"> _</span></h2>
-                  </Link>
+                  </LinkRef>
                </div>
                <div className="row">
                   <ul className="nav-list">
-                     <li className={`nav-selector ${activeSection === 'projects' ? 'active' : ''} `}><span data-value="01" className={activeSection === 'projects' ? 'active' : ''}>01</span>{`//`} <Link scroll={false} href="/#projects">{translation.nav.projects}</Link></li>
-                     <li className={`nav-selector ${activeSection === 'contact' ? 'active' : ''}`}><span data-value="02" className={activeSection === 'contact' ? 'active' : ''}>02</span>{`//`} <Link scroll={false} href="/#contact">{translation.nav.contact}</Link></li>
-                     <li className={`nav-selector ${activeSection === 'about' ? 'active' : ''}`}><span data-value="03" className={activeSection === 'about' ? 'active' : ''}>03</span>{`//`} <Link scroll={false} href="/#about">{translation.nav.about}</Link></li>
+                     <li className={`nav-selector ${activeSection === 'projects' ? 'active' : ''} `}><span data-value="01" className={activeSection === 'projects' ? 'active' : ''}>01</span>{`//`} <LinkRef scroll={false} href="/#projects">{translation.nav.projects}</LinkRef></li>
+                     <li className={`nav-selector ${activeSection === 'contact' ? 'active' : ''}`}><span data-value="02" className={activeSection === 'contact' ? 'active' : ''}>02</span>{`//`} <LinkRef scroll={false} href="/#contact">{translation.nav.contact}</LinkRef></li>
+                     <li className={`nav-selector ${activeSection === 'about' ? 'active' : ''}`}><span data-value="03" className={activeSection === 'about' ? 'active' : ''}>03</span>{`//`} <LinkRef scroll={false} href="/#about">{translation.nav.about}</LinkRef></li>
                   </ul>
                   <div className="nav-lang-selector">
                      <p>Lang: {`{`}</p>
                      <div>
-                        <button onClick={() => lang !== 'fr' ? changeLang('fr') : ''}>{translation.lang.fr}</button>
+                        <Button onClick={() => lang !== 'fr' ? changeLang('fr') : ''}>{translation.lang.fr}</Button>
                      </div>
                      <span>|</span>
                      <div>
-                        <button onClick={() => lang !== 'en' ? changeLang('en') : ''}>{translation.lang.en}</button>
+                        <Button onClick={() => lang !== 'en' ? changeLang('en') : ''}>{translation.lang.en}</Button>
                      </div>
                      <p>{`}`}</p>
                   </div>
                </div>
             </div>
 
-            <div onClick={() => handleActiveNav()} className={`burger ${showNav ? 'is-toggled' : ''}`} >
+            <div onClick={() => toggleNav()} className={`burger ${showNav ? 'is-toggled' : ''}`} >
                <div className="toggle-nav">
                   <span className="toggle-style one"></span>
                   <span className="toggle-style two"></span>
@@ -119,15 +122,15 @@ export const LayoutHeader = (): JSX.Element => {
                   <div ref={mobileRef} className="mobile-nav">
                      <div className="row">
                         <ul className="nav-list">
-                           <li className="nav-selector"><Link onClick={() => handleActiveNav()} scroll={false} href="/#projects">{`//`} {translation.nav.projects}</Link></li>
-                           <li className="nav-selector"><Link onClick={() => handleActiveNav()} scroll={false} href="/#contact">{`//`} {translation.nav.contact}</Link></li>
-                           <li className="nav-selector"><Link onClick={() => handleActiveNav()} scroll={false} href="/#about">{`//`} {translation.nav.about}</Link></li>
+                           <li className="nav-selector"><LinkRef onClick={() => toggleNav()} scroll={false} href="/#projects">{`//`} {translation.nav.projects}</LinkRef></li>
+                           <li className="nav-selector"><LinkRef onClick={() => toggleNav()} scroll={false} href="/#contact">{`//`} {translation.nav.contact}</LinkRef></li>
+                           <li className="nav-selector"><LinkRef onClick={() => toggleNav()} scroll={false} href="/#about">{`//`} {translation.nav.about}</LinkRef></li>
                         </ul>
                         <div className="nav-lang-selector">
                            <span>Lang: {`{`}</span>
-                           <button onClick={() => lang !== 'fr' ? changeLang('fr') : ''}>{translation.lang.fr}</button>
+                           <Button onClick={() => lang !== 'fr' ? changeLang('fr') : ''}>{translation.lang.fr}</Button>
                            <span>|</span>
-                           <button onClick={() => lang !== 'en' ? changeLang('en') : ''}>{translation.lang.en}</button>
+                           <Button onClick={() => lang !== 'en' ? changeLang('en') : ''}>{translation.lang.en}</Button>
                            <span>{`}`}</span>
                         </div>
                      </div>

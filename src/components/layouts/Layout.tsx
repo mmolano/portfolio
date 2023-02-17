@@ -1,8 +1,4 @@
-import type { ReactNode } from 'react';
-
-
-
-export const Layout = ({ children }: { children: ReactNode }): JSX.Element => (
+export const Layout = ({ children }: { children: Readonly<React.ReactNode> }): JSX.Element => (
    <>
       <div className="main-content">
          {children}

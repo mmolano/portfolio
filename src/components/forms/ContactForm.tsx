@@ -1,13 +1,14 @@
+import { useContactContext } from "@/context/ContactFormContext"
 import { ContactSectionIF } from "@/lib/interface/lang"
+import axios from "axios"
+import { FormEvent, useState } from "react"
+import { FormButton } from "../buttons/FormButton"
+import { DoubleInput } from "../inputs/DoubleInput"
 import { InputBase } from "../inputs/InputBase"
 import { InputTextArea } from "../inputs/InputTextArea"
-import { FormEvent, useState } from "react"
-import { DoubleInput } from "../inputs/DoubleInput"
-import { useContactContext } from "@/context/ContactFormContext"
-import axios from "axios"
 
 export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
-   const [hover, setHover] = useState<boolean>(false);
+   const [hoverAnimation, setHoverAnimation] = useState<boolean>(false);
    const { inputs, dispatch } = useContactContext()
 
    const name = inputs.name;
@@ -17,11 +18,11 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
 
    const handleMouseEnter = () => {
       setTimeout(() => {
-         setHover(true);
+         setHoverAnimation(true);
       }, 500)
    };
 
-   const handleMouseLeave = () => setHover(false);
+   const handleMouseLeave = () => setHoverAnimation(false);
 
    function handleSubmit(e: FormEvent<HTMLFormElement>) {
       e.preventDefault();
@@ -87,14 +88,14 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
          <InputBase placeholder={value.inputSubject} type="subject" />
          <label htmlFor="message"></label>
          <InputTextArea placeholder={value.inputTextArea} type="message" />
-         <button
+         <FormButton
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             type="submit"
-            className={hover ? "active-animation" : "out-animation"}
+            className={hoverAnimation ? "active-animation" : "out-animation"}
          >
             {value.button}
-         </button>
+         </FormButton>
       </form>
    )
 }
