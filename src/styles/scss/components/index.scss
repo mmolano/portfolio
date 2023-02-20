@@ -130,7 +130,13 @@ ul.glitch {
       }
       & .project {
         height: 230px;
-        background-color: green;
+        text-align: center;
+        & img {
+          width: 40%;
+          aspect-ratio: 3/2;
+          object-fit: contain;
+          mix-blend-mode: color-burn;
+        }
       }
     }
   }

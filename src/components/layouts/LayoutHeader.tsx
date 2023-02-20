@@ -27,23 +27,14 @@ export const LayoutHeader = (): JSX.Element => {
       if (projectsPosition! < 100 && contactPosition! > 1) {
          setActiveSection('projects');
          projectsRef?.current?.classList.add('animate');
-         contactRef?.current?.classList.remove('animate');
-         aboutRef?.current?.classList.remove('animate');
       } else if (contactPosition! < 1 && aboutPosition! > 1) {
          setActiveSection('contact');
          contactRef?.current?.classList.add('animate');
-         projectsRef?.current?.classList.remove('animate');
-         aboutRef?.current?.classList.remove('animate');
       } else if (aboutPosition! < 1) {
          setActiveSection('about');
          aboutRef?.current?.classList.add('animate');
-         projectsRef?.current?.classList.remove('animate');
-         contactRef?.current?.classList.remove('animate');
       } else {
          setActiveSection('');
-         projectsRef?.current?.classList.remove('animate');
-         contactRef?.current?.classList.remove('animate');
-         aboutRef?.current?.classList.remove('animate');
       }
    }, [projectsRef, contactRef, aboutRef]);
 

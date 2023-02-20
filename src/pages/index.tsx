@@ -78,7 +78,7 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Layout>
-        <section id="home" className="first-element">
+        <section id="home" className="first-element animate">
           <h1 data-text={`${translation.title}`} className={glitch ? "glitch" : ''}>
             <Typewriter
               options={{ delay: 50 }}

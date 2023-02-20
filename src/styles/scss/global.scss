@@ -58,7 +58,8 @@ body,
   height: 100%;
 }
 
-section {
+section,
+footer {
   padding: 45px;
   margin-bottom: 90px;
 }
@@ -133,10 +134,12 @@ form {
   flex-direction: column;
 }
 
+#home,
 #projects,
-#contact {
+#project,
+#contact,
+#about {
   opacity: 0;
-  overflow-y: auto;
   &.animate {
     animation: fade-in-three 1.5s forwards;
   }
@@ -308,5 +311,35 @@ button span:hover {
 @include small-mobile {
   section {
     padding: 25px;
+  }
+}
+
+// ---------------------------------------------------------------- Project pages
+
+.breadcrumb {
+  margin-bottom: 40px;
+  & li {
+    font-family: 'studio-ultra-light-italic';
+    display: inline;
+    margin: 0 !important;
+    @include fluid-type($min-width, $max-width, $min-font, $max-font);
+    &:not(:nth-child(1))::before {
+      padding: 8px;
+      color: $default-white;
+      content: '>';
+    }
+    &:nth-last-child(1)::before,
+    &:nth-last-child(1) {
+      color: $element-color;
+    }
+  }
+}
+
+footer {
+  margin-bottom: 10px;
+  font-family: 'studio-medium-italic';
+  & ul {
+    display: flex;
+    justify-content: space-between;
   }
 }
