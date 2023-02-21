@@ -37,7 +37,8 @@
   },
   "aboutSection": {
     "title": "À propos",
-    "content": "Hey, je m'appelle Miguel Molano, je suis un développeur web français avec un intérêt pour l'UX & l'UI, le developpement front-end, le back-end et les pizzas car il n'y a rien de mieux qu'une bonne pizza pour finir une journée..."
+    "content": "Hey, je m'appelle Miguel Molano, je suis un développeur web français avec un intérêt pour l'UX & l'UI, le developpement front-end, le back-end et les pizzas car il n'y a rien de mieux qu'une bonne pizza pour finir une journée...",
+    "resume": "Curriculum"
   },
   "projectPage": {
     "start": "Date de début",

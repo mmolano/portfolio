@@ -1,5 +1,3 @@
-import EmailAddress from "../helpers/Class/EmailAddress";
-
 interface Nav {
    projects: string,
    contact: string,
@@ -50,7 +48,7 @@ export interface ContactSectionIF {
    links: string,
    mailMe: string,
    inputName: string,
-   inputMail: EmailAddress,
+   inputMail: string,
    inputSubject: string,
    inputTextArea: string,
    button: string,
@@ -59,6 +57,7 @@ export interface ContactSectionIF {
 export interface AboutSectionIF {
    title: string,
    content: string,
+   resume: string,
 }
 
 export interface ProjectPageIF {

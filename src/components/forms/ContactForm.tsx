@@ -1,28 +1,20 @@
 import { useContactContext } from "@/context/ContactFormContext"
+import EmailAddress from "@/lib/helpers/Class/EmailAddress"
 import { ContactSectionIF } from "@/lib/interface/lang"
 import axios from "axios"
 import { FormEvent, useState } from "react"
-import { FormButton } from "../buttons/FormButton"
+import { MainButton } from "../buttons/MainButton"
 import { DoubleInput } from "../inputs/DoubleInput"
 import { InputBase } from "../inputs/InputBase"
 import { InputTextArea } from "../inputs/InputTextArea"
 
 export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
-   const [hoverAnimation, setHoverAnimation] = useState<boolean>(false);
    const { inputs, dispatch } = useContactContext()
 
    const name = inputs.name;
    const subject = inputs.subject;
    const email = inputs.mail;
    const message = inputs.message;
-
-   const handleMouseEnter = () => {
-      setTimeout(() => {
-         setHoverAnimation(true);
-      }, 500)
-   };
-
-   const handleMouseLeave = () => setHoverAnimation(false);
 
    function handleSubmit(e: FormEvent<HTMLFormElement>) {
       e.preventDefault();
@@ -48,25 +40,29 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
          });
       }
 
-      const data = {
-         name,
-         subject,
-         email,
-         message
-      };
-
       try {
-         axios.post('/api/contact', {
-            headers: {
-               'Accept': 'application/json, text/plain, */*',
-               'Content-Type': 'application/json'
-            },
-            data: data,
-         })
-      } catch {
-         dispatch({
-            type: 'set-error', payload: 'An error occurred while submitting the form.'
-         })
+         const verifyMail = new EmailAddress(inputs.mail)
+         const verifiedMail = verifyMail.emailValue;
+         const data = {
+            name,
+            subject,
+            verifiedMail,
+            message
+         };
+      } catch (error) {
+         if (error instanceof Error) {
+            dispatch({
+               type: 'set-error',
+               value: error.message,
+               which: 'mail'
+            });
+         } else {
+            dispatch({
+               type: 'set-error',
+               value: 'An error occurred while validating the email address',
+               which: 'mail'
+            });
+         }
       }
 
    }
@@ -86,16 +82,12 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
             <InputBase placeholder={value.inputMail} type="mail" />
          </DoubleInput>
          <InputBase placeholder={value.inputSubject} type="subject" />
-         <label htmlFor="message"></label>
          <InputTextArea placeholder={value.inputTextArea} type="message" />
-         <FormButton
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+         <MainButton
             type="submit"
-            className={hoverAnimation ? "active-animation" : "out-animation"}
          >
             {value.button}
-         </FormButton>
+         </MainButton>
       </form>
    )
 }

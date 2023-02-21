@@ -3,7 +3,6 @@ import { LinkRef } from '@/components/links/LinkRef';
 import { useStateContext } from '@/context/AppContext';
 import { ProjectIF, ProjectPageIF } from '@/lib/interface/lang';
 import { useRouter } from 'next/router';
-import { useCallback } from 'react';
 
 
 export default function Product(): JSX.Element {
@@ -37,7 +36,7 @@ export default function Product(): JSX.Element {
                <div className="breadcrumb">
                   <ul>
                      <li><LinkRef href="/">Home</LinkRef></li>
-                     <li><LinkRef href={`/project/${slug}`}>Projects</LinkRef></li>
+                     <li><LinkRef href={`/#projects`}>Projects</LinkRef></li>
                      <li><LinkRef href={`/project/${slug}`}>{project.title}</LinkRef></li>
                   </ul>
                </div>

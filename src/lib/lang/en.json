@@ -37,7 +37,8 @@
   },
   "aboutSection": {
     "title": "About",
-    "content": "Hi, my name is Miguel Molano, i’m a web developer from France. I have an interest for UI & UX, front-end development, back-end development and of course pizzas because there isn't anything better than eating a delicious pizza to finish the day"
+    "content": "Hi, my name is Miguel Molano, i’m a web developer from France. I have an interest for UI & UX, front-end development, back-end development and of course pizzas because there isn't anything better than eating a delicious pizza to finish the day",
+    "resume": "Resume"
   },
   "projectPage": {
     "start": "Starting date",

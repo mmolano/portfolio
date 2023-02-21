@@ -1,7 +1,5 @@
-import React, { createContext, useContext, useState, useReducer } from 'react';
 import { ErrorContactIF, FormIF } from '@/lib/interface/contactContext';
-
-
+import React, { createContext, useContext, useReducer } from 'react';
 
 const initialValues: FormIF = {
    name: '',
@@ -24,33 +22,33 @@ export const ContactFormContext = ({ children }: { children: React.ReactNode }) 
 
 
    function inputReducer(state: any, action: { type: string; value: any; which?: string }) {
-      switch (action.type) {
-         case 'modify-name': {
-            return { ...state, name: action.value };
-         };
-         case 'modify-subject': {
-            return { ...state, subject: action.value };
-         };
-         case 'modify-message': {
-            return { ...state, message: action.value };
-         };
+      const { type, value, which } = action;
+
+      switch (type) {
+         case 'modify-name':
+         case 'modify-subject':
+         case 'modify-message':
          case 'modify-mail': {
-            return { ...state, mail: action.value };
-         };
-         case 'set-error': {
-            if (state.errors && state.errors.some((error: ErrorContactIF) => error.id === action.which)) {
-               return state;
-            } else {
-               return {
-                  ...state,
-                  errors: state.errors
-                     ? [...state.errors, { id: action.which, message: action.value }]
-                     : [{ id: action.which, message: action.value }]
-               };
+            const id = type.split('-')[1];
+
+            if (state.errors) {
+               const updatedErrors = state.errors.filter((error: ErrorContactIF) => error.id !== id);
+               return { ...state, [id]: value, errors: updatedErrors };
             }
-         };
+
+            return { ...state, [id]: value };
+         }
+         case 'set-error': {
+            if (state.errors && state.errors.some((error: ErrorContactIF) => error.id === which)) {
+               return state;
+            }
+
+            const newError = { id: which, message: value };
+            const errors = state.errors ? [...state.errors, newError] : [newError];
+            return { ...state, errors };
+         }
          default: {
-            throw Error('Unknown action: ' + action.type);
+            throw Error('Unknown action: ' + type);
          }
       }
    }

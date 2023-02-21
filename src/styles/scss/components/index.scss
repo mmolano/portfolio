@@ -80,6 +80,12 @@ ul.glitch {
       width: 280px;
     }
   }
+  form .double-input {
+    flex-direction: column;
+    & .flex-inputs {
+      width: 100%;
+    }
+  }
 }
 
 @include desktop {
@@ -192,8 +198,28 @@ form {
 
 .double-input {
   display: flex;
-  & input {
-    width: calc(50% - 14px);
+  & .flex-inputs {
+    width: 50%;
+  }
+}
+
+.flex-inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1;
+  transition: flex 0.4s ease-in-out;
+}
+
+.input-error {
+  color: $error-color;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  &.animate-in {
+    animation: error-slide 1s forwards;
+  }
+  &.animate-out {
+    animation: error-slide-out 1s forwards;
   }
 }
 
@@ -207,5 +233,13 @@ form {
   form,
   .contact-right-container {
     width: 100%;
+  }
+}
+
+// ---------------------------------------------------------------- About section
+
+.fourth-element {
+  & .span-color {
+    color: $element-color;
   }
 }

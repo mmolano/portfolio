@@ -15,3 +15,26 @@
     background-size: 100% 2, 2 100%, 100% 2, 2 100%;
   }
 }
+
+@keyframes error-slide {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 100%;
+    margin: 8px;
+  }
+}
+
+@keyframes error-slide-out {
+  from {
+    height: 20px;
+    margin: 8px;
+  }
+  to {
+    margin: 0px;
+    height: 0px;
+    opacity: 0;
+    visibility: hidden;
+  }
+}

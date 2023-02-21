@@ -26,3 +26,31 @@
     background-position: 100% 2, 2 100%, 100% 2, 2 100%;
   }
 }
+
+@keyframes animate-hover {
+  from {
+    background-color: none;
+  }
+  to {
+    height: 50px;
+    width: 50px;
+    left: -7px;
+    top: -7px;
+    background-color: $classic-yellow-white-opacity;
+    border: 1.5px solid $classic-yellow-white-opacity;
+  }
+}
+
+@keyframes animate-hover-out {
+  from {
+    height: 50px;
+    width: 50px;
+    left: -7px;
+    top: -7px;
+    background-color: var(--color-hover);
+    border: 1.5px solid var(--color-hover);
+  }
+  to {
+    background-color: none;
+  }
+}

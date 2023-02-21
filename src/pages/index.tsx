@@ -1,15 +1,16 @@
-import React, { useCallback, useLayoutEffect, useRef, useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 
+import { Button } from '@/components/buttons/Button';
+import { MainButton } from '@/components/buttons/MainButton';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Layout } from '@/components/layouts/Layout';
+import { LinkRef } from '@/components/links/LinkRef';
 import { Products } from '@/components/Products';
 import { Cube } from '@/components/three/Cube';
 import { useStateContext } from '@/context/AppContext';
 import { ContactFormContext } from '@/context/ContactFormContext';
 import { ProjectIF, SlideIF } from '@/lib/interface/lang';
-import { LinkRef } from '@/components/links/LinkRef';
-import { Button } from '@/components/buttons/Button';
 
 
 export default function Home(): JSX.Element {
@@ -181,12 +182,18 @@ export default function Home(): JSX.Element {
             </div>
           </div>
         </section>
-        <section id="about" ref={aboutRef} className="fourth-element">
+        <section id="about" ref={aboutRef} className="fourth-element animate">
           <h2>{translation.aboutSection.title}</h2>
           <div className="container">
             <div className="split-width">
               <p>{translation.aboutSection.content}</p>
-              <span>Let’s make pizzas together!</span>
+              <p><span className="span-color">Let’s make pizzas together!</span></p>
+              <MainButton
+                type="button"
+              >
+                {/* TODO: up Resume online and download from that url */}
+                {translation.aboutSection.resume}
+              </MainButton>
             </div>
             <div className="three-box-container">
               {/* TODO */}
