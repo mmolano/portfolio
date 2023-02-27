@@ -9,39 +9,50 @@ import { InputBase } from "../inputs/InputBase"
 import { InputTextArea } from "../inputs/InputTextArea"
 
 export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
-   const { inputs, dispatch } = useContactContext()
+   const { inputs, dispatch } = useContactContext();
 
-   const name = inputs.name;
-   const subject = inputs.subject;
-   const email = inputs.mail;
-   const message = inputs.message;
+   const { name, subject, mail, message, errors } = inputs;
 
-   function handleSubmit(e: FormEvent<HTMLFormElement>) {
+   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
       e.preventDefault();
 
-      if (!inputs.name) {
+      if (!name) {
          dispatch({
             type: 'set-error', value: 'Name is required', which: 'name'
          });
+      } else if (name.length <= 2) {
+         dispatch({
+            type: 'set-error', value: 'Name must be at least 2 letters', which: 'name'
+         });
       }
-      if (!inputs.subject) {
+      if (!subject) {
          dispatch({
             type: 'set-error', value: 'Subject is required', which: 'subject'
          });
+      } else if (subject.length <= 2) {
+         dispatch({
+            type: 'set-error', value: 'Subject is too short', which: 'subject'
+         });
       }
-      if (!inputs.message) {
+      if (!message) {
          dispatch({
             type: 'set-error', value: 'Message is required', which: 'message'
          });
+      } else if (message.length <= 10) {
+         dispatch({
+            type: 'set-error', value: 'Your message is too short, message must be at least 10 letters', which: 'message'
+         });
       }
-      if (!inputs.mail) {
+      if (!mail) {
          dispatch({
             type: 'set-error', value: 'Email is required', which: 'mail'
          });
       }
 
+      if (inputs.errors && inputs.errors.length > 0) return;
+
       try {
-         const verifyMail = new EmailAddress(inputs.mail)
+         const verifyMail = new EmailAddress(mail)
          const verifiedMail = verifyMail.emailValue;
          const data = {
             name,
@@ -49,6 +60,21 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
             verifiedMail,
             message
          };
+
+         await axios({
+            headers: { 'Content-Type': 'application/json' },
+            method: 'post',
+            url: '/api/contact/sendMail',
+            data: JSON.stringify(data)
+         })
+            .then(res => {
+               dispatch({ type: 'reset-all' });
+               console.log(res, 'nop');
+            })
+            .catch(error => {
+               dispatch({ type: 'reset-all' });
+               console.log(error, 'hi');
+            });
       } catch (error) {
          if (error instanceof Error) {
             dispatch({
@@ -56,12 +82,14 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
                value: error.message,
                which: 'mail'
             });
+            return;
          } else {
             dispatch({
                type: 'set-error',
                value: 'An error occurred while validating the email address',
                which: 'mail'
             });
+            return;
          }
       }
 

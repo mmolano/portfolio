@@ -1,5 +1,5 @@
-import { ErrorContactIF, FormIF } from '@/lib/interface/contactContext';
-import React, { createContext, useContext, useReducer } from 'react';
+import { ContactContext, ErrorContactIF, FormIF } from '@/lib/interface/contactContext';
+import React, { createContext, useContext, useReducer, useState } from 'react';
 
 const initialValues: FormIF = {
    name: '',
@@ -9,9 +9,9 @@ const initialValues: FormIF = {
    errors: [],
 }
 
-const ContactContext = createContext({
+const ContactContext = createContext<ContactContext>({
    inputs: initialValues,
-   dispatch: (value: any) => { }
+   dispatch: (value: any) => { },
 });
 
 export const ContactFormContext = ({ children }: { children: React.ReactNode }) => {
@@ -19,7 +19,6 @@ export const ContactFormContext = ({ children }: { children: React.ReactNode }) 
       inputReducer,
       initialValues
    );
-
 
    function inputReducer(state: any, action: { type: string; value: any; which?: string }) {
       const { type, value, which } = action;
@@ -47,6 +46,9 @@ export const ContactFormContext = ({ children }: { children: React.ReactNode }) 
             const errors = state.errors ? [...state.errors, newError] : [newError];
             return { ...state, errors };
          }
+         case 'reset-all': {
+            return { ...state, name: '', message: '', subject: '', mail: '', errors: [] };
+         }
          default: {
             throw Error('Unknown action: ' + type);
          }
@@ -56,7 +58,7 @@ export const ContactFormContext = ({ children }: { children: React.ReactNode }) 
    return (
       <ContactContext.Provider value={{
          dispatch,
-         inputs
+         inputs,
       }}>
          {children}
       </ContactContext.Provider>

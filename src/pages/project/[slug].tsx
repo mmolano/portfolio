@@ -5,7 +5,7 @@ import { ProjectIF, ProjectPageIF } from '@/lib/interface/lang';
 import { useRouter } from 'next/router';
 
 
-export default function Product(): JSX.Element {
+export default function Project(): JSX.Element {
    const { translation } = useStateContext();
    const router = useRouter();
    const { slug } = router.query;
@@ -46,7 +46,6 @@ export default function Product(): JSX.Element {
                      <p>{page.start}: {project.date.start}</p>
                      <p>{page.end}: {project.date.end}</p>
                   </article>
-                  {/* TODO: link correct 3D element */}
                </div>
             </section>
             <footer>

@@ -71,6 +71,7 @@ html {
 
 input,
 textarea {
+  z-index: 3;
   padding: 13px;
   @include fluid-type($min-width, $max-width, $min-font, 18px);
   background-color: $input-color;

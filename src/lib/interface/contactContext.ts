@@ -10,3 +10,8 @@ export type FormIF = {
    mail: string,
    errors?: ErrorContactIF[],
 }
+
+export type ContactContext = {
+   inputs: FormIF,
+   dispatch: (value: any) => void,
+}

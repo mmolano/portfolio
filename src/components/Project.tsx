@@ -2,7 +2,7 @@ import { ProjectIF } from "@/lib/interface/lang";
 import Image from "next/image";
 import { LinkRef } from "./links/LinkRef";
 
-export const Products = ({ value, classValue }: { value: ProjectIF, classValue: string }) => {
+export const Project = ({ value, classValue }: { value: ProjectIF, classValue: string }) => {
    function getImageForValue(slug: string): string {
       switch (true) {
          case slug.includes('fidensio'):

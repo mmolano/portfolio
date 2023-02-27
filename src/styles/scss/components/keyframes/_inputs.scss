@@ -17,11 +17,14 @@
 }
 
 @keyframes error-slide {
-  from {
-    height: 0%;
+  0% {
+    transform: translate(5px, 30px);
   }
-  to {
-    height: 100%;
+  40% {
+    transform: translate(-3px, -7px);
+  }
+  100% {
+    transform: translate(10px, -2px);
     margin: 8px;
   }
 }

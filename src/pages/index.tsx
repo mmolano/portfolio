@@ -6,11 +6,12 @@ import { MainButton } from '@/components/buttons/MainButton';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Layout } from '@/components/layouts/Layout';
 import { LinkRef } from '@/components/links/LinkRef';
-import { Products } from '@/components/Products';
-import { Cube } from '@/components/three/Cube';
+import { Project } from '@/components/Project';
 import { useStateContext } from '@/context/AppContext';
 import { ContactFormContext } from '@/context/ContactFormContext';
 import { ProjectIF, SlideIF } from '@/lib/interface/lang';
+import { H2Stretch } from '@/components/titles/H2Stretch';
+import { WaveCube } from '@/components/three/WaveCube';
 
 
 export default function Home(): JSX.Element {
@@ -25,6 +26,7 @@ export default function Home(): JSX.Element {
   const [projects, setProjects] = useState(allProjects);
   const [newProject, setNewProject] = useState(allProjects);
   const [newHeight, setNewHeight] = useState<string | number>('100%');
+  const [activeFilter, setActiveFilter] = useState<string>('all');
 
   const frontProjects = allProjects.filter(project => project.type.includes("Front"));
   const backProjects = allProjects.filter(project => project.type.includes("Back"));
@@ -60,9 +62,10 @@ export default function Home(): JSX.Element {
     return () => window.removeEventListener("resize", handleResize);
   }, [calculateWidth]);
 
-  const changeProjects = useCallback((value: ProjectIF[]) => {
+  const changeProjects = useCallback((value: ProjectIF[], type: string) => {
     setNewProject(value);
     calculateWidth();
+    setActiveFilter(type);
     setTimeout(() => {
       setProjects(value);
     }, 1000);
@@ -105,55 +108,55 @@ export default function Home(): JSX.Element {
             <span>{'}'}</span>
           </ul>
           <div className="three-box-container">
-            <Cube />
+            <WaveCube />
           </div>
           <div className="widget-scroll">
             <div className="widget-scroll-inside"></div>
           </div>
         </section>
         <section id="projects" ref={projectsRef} className="second-element">
-          <h2>{translation.projectSection.title}</h2>
+          <H2Stretch>{translation.projectSection.title}</H2Stretch>
           <h4>{translation.projectSection.filter} : </h4>
           <div className="projects-container">
             <div className="projects-filter">
               <ul>
                 <li data-value={frontProjects.length}>
                   <Button onClick={() => {
-                    changeProjects(frontProjects)
+                    changeProjects(frontProjects, 'front')
                   }
-                  }><span>{translation.projectSection.front}</span></Button>
+                  }><span className={activeFilter === "front" ? 'active' : ''}>{translation.projectSection.front}</span></Button>
                 </li>
                 <li data-value={backProjects.length}>
                   <Button onClick={() => {
-                    changeProjects(backProjects)
+                    changeProjects(backProjects, 'back')
                   }
-                  }><span>{translation.projectSection.back}</span></Button>
+                  }><span className={activeFilter === "back" ? 'active' : ''}>{translation.projectSection.back}</span></Button>
                 </li>
                 <li data-value={wipProjects.length}>
                   <Button onClick={() => {
-                    changeProjects(wipProjects)
+                    changeProjects(wipProjects, 'wip')
                   }
-                  }><span>{translation.projectSection.working}</span></Button>
+                  }><span className={activeFilter === "wip" ? 'active' : ''}>{translation.projectSection.working}</span></Button>
                 </li>
                 <li data-value={allProjects.length}>
                   <Button onClick={() => {
-                    changeProjects(allProjects)
+                    changeProjects(allProjects, 'all')
                   }
-                  }><span>{translation.projectSection.all}</span></Button>
+                  }><span className={activeFilter === "all" ? 'active' : ''}>{translation.projectSection.all}</span></Button>
                 </li>
               </ul>
             </div>
             <div ref={rowRef} className="row" style={{ height: newHeight, transition: 'height 1.1s ease-in-out' }}>
               {
                 Object.entries(projects).map(([key, value]) => (
-                  <Products value={value} key={key} classValue={!newProject.includes(value) ? 'product-exit' : 'product-enter'} />
+                  <Project value={value} key={key} classValue={!newProject.includes(value) ? 'product-exit' : 'product-enter'} />
                 ))
               }
             </div>
           </div>
         </section>
         <section id="contact" ref={contactRef} className="third-element">
-          <h2>{translation.contactSection.title}</h2>
+          <H2Stretch>{translation.contactSection.title}</H2Stretch>
           <div className="container">
             <ContactFormContext>
               <ContactForm value={translation.contactSection} />
@@ -183,7 +186,7 @@ export default function Home(): JSX.Element {
           </div>
         </section>
         <section id="about" ref={aboutRef} className="fourth-element animate">
-          <h2>{translation.aboutSection.title}</h2>
+          <H2Stretch>{translation.aboutSection.title}</H2Stretch>
           <div className="container">
             <div className="split-width">
               <p>{translation.aboutSection.content}</p>

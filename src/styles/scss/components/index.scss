@@ -88,7 +88,7 @@ ul.glitch {
   }
 }
 
-@include desktop {
+@media screen and (min-width: 1570px) {
   .three-box-container {
     position: absolute;
     top: 0;
@@ -118,6 +118,19 @@ ul.glitch {
   }
 }
 
+.stretch-letters {
+  display: inline-block;
+  transition: 0.4s;
+  &.--animating {
+    -webkit-transform: scale(1.2, 1.4);
+    -moz-transform: scale(1.2, 1.4);
+    -ms-transform: scale(1.2, 1.4);
+    -o-transform: scale(1.2, 1.4);
+    transform: scale(1.2, 1.4);
+    transition: 0.4s;
+  }
+}
+
 .projects-container {
   display: flex;
   justify-content: space-around;
@@ -131,6 +144,11 @@ ul.glitch {
       margin: 3px;
       width: 300px;
       height: 300px;
+      transition: 0.5s;
+      &:hover {
+        scale: 1.1;
+        transition: scale 0.5s;
+      }
       & h3 {
         text-align: center;
       }
@@ -147,13 +165,32 @@ ul.glitch {
     }
   }
   & .projects-filter {
+    & ul {
+      padding-left: 30px;
+      border-left: 1px solid $default-white;
+    }
     & li {
+      position: relative;
       list-style: none;
       padding: 30px 0px;
+      &::before {
+        position: absolute;
+        content: '';
+        width: 28px;
+        height: 1px;
+        color: #fff;
+        left: -30px;
+        top: 43px;
+        display: block;
+        background-color: $default-white;
+      }
       & button {
         font-family: 'studio-light-italic';
         text-align: left;
         position: relative;
+        & span.active {
+          color: $element-color
+        }
       }
     }
   }
@@ -212,11 +249,12 @@ form {
 }
 
 .input-error {
+  z-index: 2;
   color: $error-color;
   opacity: 1;
   transition: opacity 0.5s ease;
   &.animate-in {
-    animation: error-slide 1s forwards;
+    animation: error-slide 1.3s forwards;
   }
   &.animate-out {
     animation: error-slide-out 1s forwards;

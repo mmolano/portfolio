@@ -6,9 +6,10 @@ type buttonProps = {
    type: buttonType;
    className?: string;
    children: Readonly<React.ReactNode>;
+   disabled?: boolean;
 }
 
-export const MainButton = ({ type, className, children }: buttonProps): JSX.Element => {
+export const MainButton = ({ type, className, children, disabled }: buttonProps): JSX.Element => {
    const [hoverAnimation, setHoverAnimation] = useState<boolean>(false);
    const classValue = className ? className : "";
    const hoverClass = hoverAnimation ? " active-animation" : " out-animation"
@@ -27,7 +28,9 @@ export const MainButton = ({ type, className, children }: buttonProps): JSX.Elem
 
    return (
       <>
-         <button type={type} onMouseEnter={() => {
+         <button
+            disabled={disabled}
+            type={type} onMouseEnter={() => {
             handleMouseEnter()
          }} onMouseLeave={() => {
             handleMouseLeave()
