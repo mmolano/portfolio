@@ -6,7 +6,7 @@
   & ul {
     position: relative;
     width: max-content;
-    font-family: 'studio-medium-italic';
+    font-family: $medium-italic-font;
     list-style: none;
     @include fluid-type($min-width, $max-width, 20px, 40px);
     & li {
@@ -14,6 +14,7 @@
     }
   }
   & h1 {
+    font-family: $regular-font;
     @include fluid-type($min-width, $max-width, 30px, 70px);
   }
 }
@@ -173,19 +174,8 @@ ul.glitch {
       position: relative;
       list-style: none;
       padding: 30px 0px;
-      &::before {
-        position: absolute;
-        content: '';
-        width: 28px;
-        height: 1px;
-        color: #fff;
-        left: -30px;
-        top: 43px;
-        display: block;
-        background-color: $default-white;
-      }
       & button {
-        font-family: 'studio-light-italic';
+        font-family: $light-italic-font;
         text-align: left;
         position: relative;
         & span.active {

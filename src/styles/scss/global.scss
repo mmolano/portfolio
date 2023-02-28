@@ -10,6 +10,7 @@
 @import 'components/mixins/_mixins';
 @import 'components/layoutHeader';
 @import 'components/index';
+@import 'components/loader';
 
 //TODO: move keyframes to each corresponding scss
 body {
@@ -17,6 +18,7 @@ body {
   color: $default-white;
   cursor: default;
   @include fluid-type($min-width, $max-width, $min-font, $max-font);
+
   &.no-scroll {
     overflow: hidden;
   }
@@ -39,23 +41,23 @@ h3 {
 
 h2 {
   @include fluid-type($min-width, $max-width, 30px, 90px);
-  font-family: 'studio-medium-italic';
+  font-family: $medium-italic-font;
 }
 
 h4,
 input,
 textarea {
-  font-family: 'studio-regular-italic';
+  font-family: $regular-font;
 }
 
 b {
-  font-family: 'studio-semi-bold-italic';
+  font-family: $semibold-italic-font;
 }
 
 html,
 body,
 .main-content {
-  font-family: 'studio-light-italic';
+  font-family: $light-italic-font;
   height: 100%;
 }
 
@@ -81,6 +83,7 @@ textarea {
   box-shadow: none;
   resize: none;
   margin: 5px;
+
   &:focus {
     animation: animate-border 0.7s;
     background-image: linear-gradient(to right, $element-color, $light-blue),
@@ -97,7 +100,7 @@ button {
   border: none;
   background: none;
   color: $default-white;
-  font-family: 'studio-bold';
+  font-family: $bold-font;
   font-size: 18px;
   margin: 0px 5px;
   cursor: pointer;
@@ -108,10 +111,12 @@ button[type='submit'],
   width: 200px;
   padding: 20px;
   border: 2px solid $element-color;
-  font-family: 'studio-light-italic';
+  font-family: $light-italic-font;
+
   &:focus {
     outline: none;
   }
+
   &:hover,
   &:focus {
     animation: scan-effect 0.5s ease-out;
@@ -123,6 +128,7 @@ button[type='submit'],
     background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
     background-repeat: no-repeat;
   }
+
   &.active-animation {
     animation: fill-button 1s forwards;
   }
@@ -142,6 +148,7 @@ form {
 #contact,
 #about {
   opacity: 0;
+
   &.animate {
     animation: fade-in-three 1.5s forwards;
   }
@@ -149,6 +156,7 @@ form {
 
 .main-app {
   overflow: hidden;
+
   &.burger-toggled {
     overflow: hidden;
   }
@@ -165,6 +173,7 @@ form {
   pointer-events: none;
   z-index: 99999999;
 }
+
 .cursor {
   position: fixed;
   top: 0;
@@ -174,24 +183,30 @@ form {
   border: 1.5px solid $default-white;
   border-radius: 50%;
   pointer-events: none;
+
   &.hover-leave {
     --color-hover: $light-blue;
   }
+
   &.button-hover,
   &.hover-leaver {
     --color-hover: $classic-yellow-white-opacity;
   }
+
   &.button-hover,
   &.href-hover,
   &.hover-leaver {
     animation: animate-hover 0.3s ease-in-out forwards;
   }
+
   &.button-out {
     animation: animate-hover-out 0.3s ease-in-out forwards;
   }
+
   &.click-effect {
     animation: cursorAnim 0.5s forwards;
   }
+
   &::after {
     content: '';
     width: 5px;
@@ -218,16 +233,14 @@ form {
   height: 55px;
   width: 30px;
   border-radius: 200px;
-  background: $body-color
-    linear-gradient(
-      transparent 0%,
+  background: $body-color linear-gradient(transparent 0%,
       transparent 50%,
       $default-white 50%,
-      $default-white 100%
-    );
+      $default-white 100%);
   background-size: 100% 200%;
   animation: color-change 5.9s linear infinite,
     slide-in-up 1.5s ease-in forwards, position-animate 6s ease-out infinite;
+
   &::after {
     position: absolute;
     content: '';
@@ -239,6 +252,7 @@ form {
     border-radius: 200px;
     background-color: $body-color;
   }
+
   & .widget-scroll-inside {
     z-index: 1;
     position: absolute;
@@ -255,18 +269,17 @@ form {
   & li {
     padding-left: 25px;
   }
+
   & ul.contact-ul-pizza {
     margin-left: 30px;
   }
 }
 
 button span:hover {
-  background: linear-gradient(
-    to left,
-    rgb(150, 150, 150),
-    $default-white,
-    $default-white
-  );
+  background: linear-gradient(to left,
+      rgb(150, 150, 150),
+      $default-white,
+      $default-white);
   animation: animate-text-color 1.6s linear infinite;
   background-size: 200%;
   -webkit-text-fill-color: transparent;
@@ -292,16 +305,19 @@ button span:hover {
 
 .breadcrumb {
   margin-bottom: 40px;
+
   & li {
-    font-family: 'studio-ultra-light-italic';
+    font-family: $ultra-light-italic-font;
     display: inline;
     margin: 0 !important;
     @include fluid-type($min-width, $max-width, $min-font, $max-font);
+
     &:not(:nth-child(1))::before {
       padding: 8px;
       color: $default-white;
       content: '>';
     }
+
     &:nth-last-child(1)::before,
     &:nth-last-child(1) {
       color: $element-color;
@@ -311,7 +327,8 @@ button span:hover {
 
 footer {
   margin-bottom: 10px;
-  font-family: 'studio-medium-italic';
+  font-family: $medium-italic-font;
+
   & ul {
     display: flex;
     justify-content: space-between;

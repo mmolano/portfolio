@@ -13,9 +13,8 @@ import { ProjectIF, SlideIF } from '@/lib/interface/lang';
 import { H2Stretch } from '@/components/titles/H2Stretch';
 import { WaveCube } from '@/components/three/WaveCube';
 
-
 export default function Home(): JSX.Element {
-  const { translation, lang, projectsRef, contactRef, aboutRef } = useStateContext();
+  const { translation, lang, projectsRef, contactRef, aboutRef, isLoading, setIsLoading } = useStateContext();
 
   const allProjects = translation.projects as ProjectIF[];
   const slideTitle = translation.slideTitle as SlideIF;
@@ -27,6 +26,7 @@ export default function Home(): JSX.Element {
   const [newProject, setNewProject] = useState(allProjects);
   const [newHeight, setNewHeight] = useState<string | number>('100%');
   const [activeFilter, setActiveFilter] = useState<string>('all');
+  const [typewriterInstance, setTypewriterInstance] = useState<TypewriterClass | null>(null);
 
   const frontProjects = allProjects.filter(project => project.type.includes("Front"));
   const backProjects = allProjects.filter(project => project.type.includes("Back"));
@@ -49,6 +49,7 @@ export default function Home(): JSX.Element {
     setNewHeight(`${rowHeight}px`);
   }, [newProject.length]);
 
+  // TODO: SSR FIX 
   useLayoutEffect(() => {
     calculateWidth();
   }, [newProject, calculateWidth]);
@@ -72,12 +73,21 @@ export default function Home(): JSX.Element {
   }, [calculateWidth]);
 
   const handleTypewriterInit = useCallback((typewriter: TypewriterClass) => {
-    typewriter.typeString(translation.title)
-      .callFunction(() => {
-        setGlitch(true);
-      })
-      .start();
+    typewriter
+    .typeString(translation.title)
+    .callFunction(() => {
+      setGlitch(true);
+    })
+    .start();
+    setTypewriterInstance(typewriter);
   }, [translation.title]);
+
+  useEffect(() => {
+    if (typewriterInstance) {
+      typewriterInstance.deleteAll().typeString(translation.title).start();
+    }
+  }, [translation.title]);
+
 
   return (
     <>
@@ -85,7 +95,7 @@ export default function Home(): JSX.Element {
         <section id="home" className="first-element animate">
           <h1 data-text={`${translation.title}`} className={glitch ? "glitch" : ''}>
             <Typewriter
-              options={{ delay: 50 }}
+              options={{ delay: 90 }}
               onInit={handleTypewriterInit}
             />
           </h1>

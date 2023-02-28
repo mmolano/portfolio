@@ -1,22 +1,23 @@
 import { useStateContext } from '@/context/AppContext';
 import { Lang } from '@/lib/interface/context';
-import Link from 'next/link';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { Button } from '../buttons/Button';
 import { LinkRef } from '../links/LinkRef';
 
 export const LayoutHeader = (): JSX.Element => {
-   const { showNav, setShowNav, lang, translation, changeLanguage, projectsRef, contactRef, aboutRef } = useStateContext();
+   const { showNav, setShowNav, isLoading, setIsLoading, lang, translation, changeLanguage, projectsRef, contactRef, aboutRef } = useStateContext();
    const [activeSection, setActiveSection] = useState<string>('');
    const [isAnimating, setIsAnimating] = useState<boolean>(false);
    const mobileRef = useRef<HTMLDivElement>(null);
    const closerRef = useRef<HTMLDivElement>(null);
 
 
-   function changeLang(language: Lang): void {
-      //TODO: put Loader
+   function changeLang(language: Lang) {
+      setIsLoading?.(true);
       changeLanguage?.(language);
-      window.location.reload()
+      setTimeout(() => {
+         setIsLoading?.(false);
+      }, 4000)
    }
 
    const handleScroll = useCallback(() => {
@@ -73,9 +74,9 @@ export const LayoutHeader = (): JSX.Element => {
                </div>
                <div className="row">
                   <ul className="nav-list">
-                     <li className={`nav-selector ${activeSection === 'projects' ? 'active' : ''} `}><span data-value="01" className={activeSection === 'projects' ? 'active' : ''}>01</span>{`//`} <LinkRef scroll={false} href="/#projects">{translation.nav.projects}</LinkRef></li>
-                     <li className={`nav-selector ${activeSection === 'contact' ? 'active' : ''}`}><span data-value="02" className={activeSection === 'contact' ? 'active' : ''}>02</span>{`//`} <LinkRef scroll={false} href="/#contact">{translation.nav.contact}</LinkRef></li>
-                     <li className={`nav-selector ${activeSection === 'about' ? 'active' : ''}`}><span data-value="03" className={activeSection === 'about' ? 'active' : ''}>03</span>{`//`} <LinkRef scroll={false} href="/#about">{translation.nav.about}</LinkRef></li>
+                     <li className={`nav-selector ${activeSection === 'projects' ? 'active' : ''} `}><span data-value="01" className={activeSection === 'projects' ? 'active' : ''}>01</span><LinkRef scroll={false} href="/#projects">{`//`} {translation.nav.projects}</LinkRef></li>
+                     <li className={`nav-selector ${activeSection === 'contact' ? 'active' : ''}`}><span data-value="02" className={activeSection === 'contact' ? 'active' : ''}>02</span><LinkRef scroll={false} href="/#contact">{`//`} {translation.nav.contact}</LinkRef></li>
+                     <li className={`nav-selector ${activeSection === 'about' ? 'active' : ''}`}><span data-value="03" className={activeSection === 'about' ? 'active' : ''}>03</span><LinkRef scroll={false} href="/#about">{`//`} {translation.nav.about}</LinkRef></li>
                   </ul>
                   <div className="nav-lang-selector">
                      <p>Lang: {`{`}</p>

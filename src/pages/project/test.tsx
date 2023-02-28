@@ -1,9 +1,9 @@
-import { WaveCube } from "@/components/three/WaveCube";
+import { Loader } from "@/components/Loader";
 
-export default function Project(): JSX.Element {
+export default function Test() {
    return (
       <>
-         <WaveCube />
+         <Loader />
       </>
    )
 }

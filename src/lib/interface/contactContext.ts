@@ -11,7 +11,13 @@ export type FormIF = {
    errors?: ErrorContactIF[],
 }
 
+type Action = {
+   type: 'modify-name' | 'modify-subject' | 'modify-message' | 'modify-mail' | 'set-error' | 'reset-all';
+   value: any;
+   which?: string;
+};
+
 export type ContactContext = {
    inputs: FormIF,
-   dispatch: (value: any) => void,
+   dispatch: (action: Action) => void;
 }

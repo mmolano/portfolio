@@ -11,11 +11,11 @@ const initialValues: FormIF = {
 
 const ContactContext = createContext<ContactContext>({
    inputs: initialValues,
-   dispatch: (value: any) => { },
+   dispatch: (value: any) => {},
 });
 
 export const ContactFormContext = ({ children }: { children: React.ReactNode }) => {
-   const [inputs, dispatch] = useReducer<React.Reducer<FormIF, any>>(
+   const [inputs, dispatch] = useReducer<React.Reducer<FormIF, { type: string; value: any; which?: string }>>(
       inputReducer,
       initialValues
    );

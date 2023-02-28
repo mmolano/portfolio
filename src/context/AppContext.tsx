@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, useRef } from 'react';
+import React, { createContext, useContext, useEffect, useReducer, useRef, useState } from 'react';
 import { ContextType, Lang } from '../lib/interface/context';
 
 const AppContext = createContext<ContextType>({
@@ -7,11 +7,12 @@ const AppContext = createContext<ContextType>({
 });
 
 export const StateContext = ({ children }: { children: Readonly<React.ReactNode> }) => {
-   const [hasMounted, setHasMounted] = useState(false);
-
    const [lang, setLang] = useState<Lang>("en");
+   const [isLoading, setIsLoading] = useState<boolean>(true);
+   const [showNav, setShowNav] = useState<boolean>(false);
+   const [hasMounted, setHasMounted] = useState<boolean>(false);
    const [translation, setTranslation] = useState(require('@/lib/lang/en.json'));
-   const [showNav, setShowNav] = useState(false);
+
 
    const projectsRef = useRef<HTMLDivElement>(null);
    const contactRef = useRef<HTMLDivElement>(null);
@@ -19,6 +20,14 @@ export const StateContext = ({ children }: { children: Readonly<React.ReactNode>
 
    useEffect(() => {
       setHasMounted(true);
+
+      const timeoutId = setTimeout(() => {
+         setIsLoading(false);
+      }, 4000);
+
+      return () => {
+         clearTimeout(timeoutId);
+      };
    }, []);
 
    const changeLanguage = (lang: Lang) => {
@@ -43,6 +52,8 @@ export const StateContext = ({ children }: { children: Readonly<React.ReactNode>
          projectsRef,
          contactRef,
          aboutRef,
+         isLoading,
+         setIsLoading
       }}>
          {children}
       </AppContext.Provider>

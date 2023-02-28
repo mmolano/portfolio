@@ -21,15 +21,23 @@ export const H2Stretch: React.FC<Props> = ({ children }) => {
          }, 400);
       };
 
-      return text.split("").map((letter, index) => (
-         <span
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            className="stretch-letters"
-            key={index}>
-            {letter}
-         </span>
-      ));
+      const letters = text.split("").map((letter, index) => {
+         if (letter === " ") {
+            return <span key={index}>&nbsp;</span>;
+         } else {
+            return (
+               <span
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
+                  className="stretch-letters"
+                  key={index}>
+                  {letter}
+               </span>
+            );
+         }
+      });
+
+      return letters;
    }
 
    return (

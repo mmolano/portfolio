@@ -1,7 +1,7 @@
 $body-color: #141419;
 $nav-toggle-color: #212128;
 $nav-elements: hsl(214, 33%, 88%);
-$element-color: #7923ad;
+$element-color: #B191FF;
 $default-white: #fff;
 $input-color: #28283D;
 $light-blue: #6363f9;
@@ -15,3 +15,14 @@ $min-width: 320px;
 $max-width: 1200px;
 $min-font: 16px;
 $max-font: 21px;
+
+// ---------------------------------------------------------------- fonts family
+
+$bold-font: 'studio-bold';
+$regular-font: 'studio-regular',
+'Roboto';
+$semibold-italic-font: 'studio-semi-bold-italic';
+$medium-italic-font: 'studio-medium-italic',
+'Roboto';
+$light-italic-font: 'studio-light-italic';
+$ultra-light-italic-font: 'studio-ultra-light-italic';

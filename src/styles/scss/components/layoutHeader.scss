@@ -4,7 +4,7 @@ nav {
   position: fixed;
   width: 100%;
   justify-content: flex-end;
-  font-family: 'studio-bold';
+  font-family: $regular-font;
   font-size: 18px;
   &.sticky {
     position: fixed;
@@ -67,7 +67,7 @@ nav {
       & .nav-selector {
         position: relative;
         margin: 15px 30px;
-        max-width: 85px;
+        max-width: 95px;
         text-align: right;
         &.active {
           &::before {
@@ -76,7 +76,7 @@ nav {
             content: '';
             position: absolute;
             background-color: $element-color;
-            height: 4px;
+            height: 2px;
             bottom: -7px;
             right: 12%;
             /* Firefox */
