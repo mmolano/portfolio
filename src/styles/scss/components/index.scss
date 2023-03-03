@@ -123,6 +123,7 @@ ul.glitch {
   display: inline-block;
   transition: 0.4s;
   &.--animating {
+    color: $element-color;
     -webkit-transform: scale(1.2, 1.4);
     -moz-transform: scale(1.2, 1.4);
     -ms-transform: scale(1.2, 1.4);

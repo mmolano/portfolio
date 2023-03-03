@@ -3,7 +3,7 @@ import { useContactContext } from "@/context/ContactFormContext"
 import { ChangeEvent } from "react";
 import { InputError } from "./InputError";
 
-export const InputTextArea = ({ placeholder, type }: { placeholder: string, type: keyof Omit<FormIF, 'errors'> }) => {
+export const InputTextArea = ({ placeholder, type, disabled }: { placeholder: string, type: keyof Omit<FormIF, 'errors'>, disabled?: boolean }) => {
    const { dispatch, inputs } = useContactContext();
 
    function handleOnChangeDispatch(e: ChangeEvent<HTMLTextAreaElement>) {
@@ -23,6 +23,7 @@ export const InputTextArea = ({ placeholder, type }: { placeholder: string, type
                name={type}
                value={inputs[type]}
                placeholder={placeholder}
+               disabled={disabled}
             />
          </div>
       </>

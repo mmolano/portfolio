@@ -3,7 +3,7 @@ import { Loader } from "@/components/Loader";
 export default function Test() {
    return (
       <>
-         <Loader />
+         <p>test page</p>
       </>
    )
 }

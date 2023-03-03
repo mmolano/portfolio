@@ -12,7 +12,12 @@
 @import 'components/index';
 @import 'components/loader';
 
-//TODO: move keyframes to each corresponding scss
+:root {
+  --toastify-color-success: #B191FF !important;
+  --toastify-color-error: #EF233C !important;
+  --toastify-spinner-color: #B191FF !important;
+}
+
 body {
   background-color: $body-color;
   color: $default-white;
@@ -37,6 +42,11 @@ ul {
 
 h3 {
   @include fluid-type($min-width, $max-width, $min-font, 16px);
+}
+
+code {
+  display: grid;
+  @include fluid-type($min-width, $max-width, $min-font, 26px);
 }
 
 h2 {
@@ -94,6 +104,11 @@ textarea {
     background-size: 100% 2px, 2px 100%, 100% 2px, 2px 100%;
     background-repeat: no-repeat;
   }
+
+  &:disabled {
+    color: #7a7474;
+    background-color: #262626;
+  }
 }
 
 button {
@@ -104,6 +119,10 @@ button {
   font-size: 18px;
   margin: 0px 5px;
   cursor: pointer;
+
+  &:disabled {
+    pointer-events: none;
+  }
 }
 
 button[type='submit'],
@@ -117,7 +136,7 @@ button[type='submit'],
     outline: none;
   }
 
-  &:hover,
+  &:hover:not(:disabled),
   &:focus {
     animation: scan-effect 0.5s ease-out;
     background-image: linear-gradient(to right, $element-color, $light-blue),

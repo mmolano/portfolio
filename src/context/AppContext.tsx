@@ -33,7 +33,11 @@ export const StateContext = ({ children }: { children: Readonly<React.ReactNode>
    const changeLanguage = (lang: Lang) => {
       setLang(lang);
       localStorage.setItem('lang', lang);
-      setTranslation(require('@/lib/lang/' + lang + '.json'));
+      try {
+         setTranslation(require('@/lib/lang/' + lang + '.json'));
+      } catch (err) {
+         setTranslation(require('@/lib/lang/en.json'));
+      }
    };
 
    if (hasMounted && lang !== localStorage.getItem('lang')) {

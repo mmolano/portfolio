@@ -15,10 +15,15 @@ export const MainButton = ({ type, className, children, disabled }: buttonProps)
    const hoverClass = hoverAnimation ? " active-animation" : " out-animation"
 
    const handleMouseEnter = () => {
-      document.getElementsByClassName('cursor')[0].classList.add('button-hover');
-      setTimeout(() => {
-         setHoverAnimation(true);
-      }, 500)
+      const cursorDiv = document.getElementsByClassName('cursor')[0];
+      if (disabled) {
+         cursorDiv.classList.add('disabled-hover');
+      } else {
+         cursorDiv.classList.add('button-hover');
+         setTimeout(() => {
+            setHoverAnimation(true);
+         }, 500)
+      }
    };
 
    const handleMouseLeave = () => {

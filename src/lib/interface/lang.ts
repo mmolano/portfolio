@@ -52,6 +52,7 @@ export interface ContactSectionIF {
    inputSubject: string,
    inputTextArea: string,
    button: string,
+   submit: string,
 }
 
 export interface AboutSectionIF {

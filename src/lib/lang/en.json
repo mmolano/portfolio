@@ -33,7 +33,8 @@
     "inputMail": "Email",
     "inputSubject": "Subject",
     "inputTextArea": "My awesome message about pizzas...",
-    "button": "Send Message!"
+    "button": "Send Message!",
+    "submit": "Sending..."
   },
   "aboutSection": {
     "title": "About",

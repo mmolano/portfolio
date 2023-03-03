@@ -1,6 +1,6 @@
 import { noiseShader } from "@/lib/glsl/noise";
-import { Canvas } from "@react-three/fiber";
-import React, { useEffect, useState } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import React, { useState } from "react";
 import * as THREE from "three";
 
 interface LayerShaderUniforms {
@@ -107,10 +107,10 @@ function Box() {
 
    requestAnimationFrame(update);
 
-   useEffect(() => {
+   useFrame(() => {
       const box = createBoxObject(layerShaderUniforms);
       setBox(box);
-   }, []);
+   });
 
    return (
       <mesh position={[0, 0, 4]} rotation={[0.7, 0.7, 0.1]} castShadow>

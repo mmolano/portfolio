@@ -3,7 +3,7 @@ import { FormIF } from "@/lib/interface/contactContext";
 import { ChangeEvent } from "react";
 import { InputError } from "./InputError";
 
-export const InputBase = ({ placeholder, type }: { placeholder: string, type: keyof Omit<FormIF, 'errors'> }) => {
+export const InputBase = ({ placeholder, type, disabled }: { placeholder: string, type: keyof Omit<FormIF, 'errors'>, disabled?: boolean}) => {
    const { dispatch, inputs } = useContactContext();
    
    function handleOnChangeDispatch(e: ChangeEvent<HTMLInputElement>) { 
@@ -24,6 +24,7 @@ export const InputBase = ({ placeholder, type }: { placeholder: string, type: ke
                value={inputs[type]}
                name={type}
                placeholder={placeholder}
+               disabled={disabled}
             />
          </div>
       </>

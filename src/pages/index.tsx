@@ -1,8 +1,7 @@
-import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Typewriter, { TypewriterClass } from 'typewriter-effect';
 
 import { Button } from '@/components/buttons/Button';
-import { MainButton } from '@/components/buttons/MainButton';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { Layout } from '@/components/layouts/Layout';
 import { LinkRef } from '@/components/links/LinkRef';
@@ -49,8 +48,7 @@ export default function Home(): JSX.Element {
     setNewHeight(`${rowHeight}px`);
   }, [newProject.length]);
 
-  // TODO: SSR FIX 
-  useLayoutEffect(() => {
+  useEffect(() => {
     calculateWidth();
   }, [newProject, calculateWidth]);
 
@@ -87,7 +85,6 @@ export default function Home(): JSX.Element {
       typewriterInstance.deleteAll().typeString(translation.title).start();
     }
   }, [translation.title]);
-
 
   return (
     <>
@@ -201,12 +198,6 @@ export default function Home(): JSX.Element {
             <div className="split-width">
               <p>{translation.aboutSection.content}</p>
               <p><span className="span-color">Let’s make pizzas together!</span></p>
-              <MainButton
-                type="button"
-              >
-                {/* TODO: up Resume online and download from that url */}
-                {translation.aboutSection.resume}
-              </MainButton>
             </div>
             <div className="three-box-container">
               {/* TODO */}
