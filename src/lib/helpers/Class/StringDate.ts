@@ -4,16 +4,16 @@ import 'moment/locale/es';
 
 class StringDate {
    private readonly date: string;
+   private readonly language: string | undefined = localStorage.getItem('lang')?.toString();
 
    constructor(dateString: string) {
       const dateValue = Date.parse(dateString);
-      let language = localStorage.getItem('lang')?.toString();
 
       if (isNaN(dateValue)) {
          throw new Error("Invalid date string");
       }
 
-      moment.locale(language);
+      moment.locale(this.language ? this.language : 'en');
 
       this.date = moment().format('ddd, LL');
    }

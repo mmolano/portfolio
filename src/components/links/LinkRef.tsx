@@ -27,6 +27,11 @@ export const LinkRef = ({ isOutSite, className, href, target, rel, scroll, onCli
       }
    };
 
+   const handleLinkClick = () => {
+      const cursorElement = document.getElementsByClassName('cursor')[0];
+      cursorElement.classList.remove('href-hover');
+   };
+
    if (isOutSite) {
       return (
          <>
@@ -38,7 +43,7 @@ export const LinkRef = ({ isOutSite, className, href, target, rel, scroll, onCli
    } else {
       return (
          <>
-            <Link onClick={onClick} scroll={scroll} href={href} className={className} onMouseEnter={() => handleMouseEnter()} onMouseLeave={() => handleMouseLeave()}>
+            <Link onClick={() => { onClick; handleLinkClick() }} scroll={scroll} href={href} className={className} onMouseEnter={() => handleMouseEnter()} onMouseLeave={() => handleMouseLeave()}>
                {children}
             </Link>
          </>
