@@ -11,6 +11,7 @@
 @import 'components/layoutHeader';
 @import 'components/index';
 @import 'components/loader';
+@import 'react-toastify/dist/ReactToastify.css';
 
 :root {
   --toastify-color-success: #B191FF !important;
@@ -22,7 +23,11 @@ body {
   background-color: $body-color;
   color: $default-white;
   cursor: default;
+  margin: 0;
   @include fluid-type($min-width, $max-width, $min-font, $max-font);
+
+  max-width: $max-width-body;
+  margin: auto;
 
   &.no-scroll {
     overflow: hidden;
@@ -243,12 +248,10 @@ form {
 }
 
 .widget-scroll {
-  position: absolute;
   display: flex;
   justify-content: center;
-  left: 0px;
-  right: 0px;
   margin: auto;
+  margin-bottom: 50px;
   height: 55px;
   width: 30px;
   border-radius: 200px;
@@ -314,9 +317,37 @@ button span:hover {
   animation: outer 1s forwards;
 }
 
+.scroll-reveal-text {
+  margin: 20px auto 0px;
+  width: fit-content;
+  @include fluid-type($min-width, $max-width, $min-font, 26px);
+  font-family: $ultra-light-italic-font;
+  background: linear-gradient(to left,
+      rgb(127, 126, 126),
+      $default-white,
+      $default-white);
+  animation: animate-text-color 8s linear infinite;
+  background-size: 200%;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
 @include small-mobile {
   section {
     padding: 25px;
+    margin-bottom: 50px;
+  }
+
+  .widget-scroll {
+    height: 41px;
+    width: 22px;
+  }
+
+  form button {
+    width: initial !important;
+    margin-right: 7px !important;
+    padding: 17px !important;
   }
 }
 
@@ -324,6 +355,11 @@ button span:hover {
 
 .breadcrumb {
   margin-bottom: 40px;
+
+  & ul {
+    width: 100%;
+    overflow-wrap: break-word;
+  }
 
   & li {
     font-family: $ultra-light-italic-font;

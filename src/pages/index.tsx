@@ -13,7 +13,7 @@ import { H2Stretch } from '@/components/titles/H2Stretch';
 import { WaveCube } from '@/components/three/WaveCube';
 
 export default function Home(): JSX.Element {
-  const { translation, lang, projectsRef, contactRef, aboutRef, isLoading, setIsLoading } = useStateContext();
+  const { translation, lang, projectsRef, contactRef, aboutRef } = useStateContext();
 
   const allProjects = translation.projects as ProjectIF[];
   const slideTitle = translation.slideTitle as SlideIF;
@@ -89,7 +89,7 @@ export default function Home(): JSX.Element {
   return (
     <>
       <Layout>
-        <section id="home" className="first-element animate">
+        <section id="home" className="first-element animate three-element">
           <h1 data-text={`${translation.title}`} className={glitch ? "glitch" : ''}>
             <Typewriter
               options={{ delay: 90 }}
@@ -121,6 +121,9 @@ export default function Home(): JSX.Element {
             <div className="widget-scroll-inside"></div>
           </div>
         </section>
+        <h5 className="scroll-reveal-text">
+          SCROLL TO REVEAL
+        </h5>
         <section id="projects" ref={projectsRef} className="second-element">
           <H2Stretch>{translation.projectSection.title}</H2Stretch>
           <h4>{translation.projectSection.filter} : </h4>

@@ -21,7 +21,14 @@ export const Project = ({ value, classValue }: { value: ProjectIF, classValue: s
          <LinkRef href={`/project/${value.slug}`}>
             <div className={`card ${classValue}`}>
                <div className="project">
-                  <Image className="glitch" width="230" height="230" src={`/images/projects/${getImageForValue(value.slug)}`} alt={value.title} />
+                  <Image
+                     className="glitch"
+                     width="115"
+                     height="230"
+                     src={`/images/projects/${getImageForValue(value.slug)}`}
+                     alt={value.title}
+                     priority={false}
+                  />
                </div>
                <h3>{value.title}</h3>
             </div>

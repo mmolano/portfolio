@@ -24,7 +24,7 @@ export default function Project(): JSX.Element {
          if (sectionProject) {
             sectionProject.classList.add('animate');
          }
-      }, 100);
+      }, 200);
    }, [slug]);
 
    if (!project) {

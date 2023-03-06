@@ -1,14 +1,13 @@
 import { LayoutHeader } from '@/components/layouts/LayoutHeader';
 import { StateContext } from '@/context/AppContext';
-import 'react-toastify/dist/ReactToastify.css';
+import { GoogleAnalyticsScript } from '@/lib/analytics/GoogleAnalyticsScript';
+import { initGA, logPageView } from '@/lib/analytics/GoogleTracker';
 import '@/styles/scss/global.scss';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-import { initGA, logPageView } from '@/lib/analytics/GoogleTracker';
-import { useRouter } from 'next/router';
-import { GoogleAnalyticsScript } from '@/lib/analytics/GoogleAnalyticsScript';
 
 const title: string = "Miguel.dev()";
 const url: string = process.env.NEXT_PUBLIC_URL!;
@@ -21,7 +20,6 @@ interface positionIF {
   y: number;
 }
 
-
 declare global {
   interface Window {
     GA_INITIALIZED: boolean;
@@ -30,6 +28,7 @@ declare global {
 
 export default function App({ Component, pageProps }: AppProps) {
   const cursorRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   const [position, setPosition] = useState<positionIF>({ x: 0, y: 0 });
   const [isOutside, setIsOutside] = useState<boolean>(false);
 
@@ -49,7 +48,6 @@ export default function App({ Component, pageProps }: AppProps) {
       y: e.clientY
     });
   };
-  const router = useRouter();
 
   useEffect(() => {
     if (!window.GA_INITIALIZED) {
@@ -58,6 +56,7 @@ export default function App({ Component, pageProps }: AppProps) {
     }
     logPageView();
   }, [router.asPath]);
+  
 
   return (
     <StateContext>

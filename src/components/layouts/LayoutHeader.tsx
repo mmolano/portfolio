@@ -80,13 +80,37 @@ export const LayoutHeader = (): JSX.Element => {
                   </ul>
                   <div className="nav-lang-selector">
                      <p>Lang: {`{`}</p>
-                     <div>
-                        <Button onClick={() => lang !== 'fr' ? changeLang('fr') : ''}>{translation.lang.fr}</Button>
-                     </div>
-                     <span>|</span>
-                     <div>
-                        <Button onClick={() => lang !== 'en' ? changeLang('en') : ''}>{translation.lang.en}</Button>
-                     </div>
+                     {lang === 'fr' ? (
+                        <>
+                           <div>
+                              <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
+                           </div>
+                           <span>|</span>
+                           <div>
+                              <Button onClick={() => changeLang('jp')}>Jp</Button>
+                           </div>
+                        </>
+                     ) : lang === 'en' ? (
+                        <>
+                           <div>
+                              <Button onClick={() => changeLang('fr')}>{translation.lang.fr}</Button>
+                           </div>
+                           <span>|</span>
+                           <div>
+                              <Button onClick={() => changeLang('jp')}>JP</Button>
+                           </div>
+                        </>
+                     ) : (
+                        <>
+                           <div>
+                              <Button onClick={() => changeLang('fr')}>{translation.lang.fr}</Button>
+                           </div>
+                           <span>|</span>
+                           <div>
+                              <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
+                           </div>
+                        </>
+                     )}
                      <p>{`}`}</p>
                   </div>
                </div>
@@ -109,6 +133,7 @@ export const LayoutHeader = (): JSX.Element => {
                   </div>
                </div>
             </div>
+            {/* TODO: Add JP{translation.lang.fr} */}
             {
                showNav && (
                   <div ref={mobileRef} className="mobile-nav">
@@ -120,9 +145,25 @@ export const LayoutHeader = (): JSX.Element => {
                         </ul>
                         <div className="nav-lang-selector">
                            <span>Lang: {`{`}</span>
-                           <Button onClick={() => lang !== 'fr' ? changeLang('fr') : ''}>{translation.lang.fr}</Button>
-                           <span>|</span>
-                           <Button onClick={() => lang !== 'en' ? changeLang('en') : ''}>{translation.lang.en}</Button>
+                           {lang === 'fr' ? (
+                              <>
+                                 <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
+                                 <span>|</span>
+                                 <Button onClick={() => changeLang('jp')}>Jp</Button>
+                              </>
+                           ) : lang === 'en' ? (
+                              <>
+                                 <Button onClick={() => changeLang('fr')}>{translation.lang.fr}</Button>
+                                 <span>|</span>
+                                 <Button onClick={() => changeLang('jp')}>Jp</Button>
+                              </>
+                           ) : (
+                              <>
+                                 <Button onClick={() => changeLang('fr')}>{translation.lang.fr}</Button>
+                                 <span>|</span>
+                                 <Button onClick={() => changeLang('jp')}>Jp</Button>
+                              </>
+                           )}
                            <span>{`}`}</span>
                         </div>
                      </div>
