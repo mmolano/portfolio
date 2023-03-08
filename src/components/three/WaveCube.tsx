@@ -84,10 +84,11 @@ function createLayer(y: number, material: THREE.Material) {
 function createBoxObject(layerShaderUniforms: LayerShaderUniforms) {
    const box = new THREE.Object3D();
    const layerMaterial = createLayerShaderMaterial(noiseShader, layerShaderUniforms);
-   const layerCount = 20;
+   const layerCount = 10;
 
    for (let i = 0; i < layerCount; i++) {
-      box.add(createLayer(i / layerCount, layerMaterial));
+      const layer = createLayer(i / layerCount, layerMaterial);
+      box.add(layer);
    }
 
    return box;
@@ -125,23 +126,20 @@ function Box() {
 
 
 function Ground(props: any) {
-   const [floor, normal] = useTexture([
-      "/images/reflections/surface_blur.jpg",
-      "/images/reflections/surface.jpg"
-   ]);
+   const [floorTexture, normalTexture] = useTexture(['/images/reflections/surface_blur.jpeg', '/images/reflections/surface.jpeg'])
 
    const color = new THREE.Color(0xb1 / 0xff, 0x91 / 0xff, 0xff / 0xff);
 
    return (
-      <Reflector resolution={500} args={[300, 400]} {...props}>
+      <Reflector resolution={300} args={[300, 400]} {...props}>
          {(Material: any, props: any) => (
             <Material
                color={color}
                metalness={0}
-               roughnessMap={floor}
+               roughnessMap={floorTexture}
                roughnessMapEncoding={THREE.sRGBEncoding}
                roughnessMapType={THREE.UnsignedByteType}
-               normalMap={normal}
+               normalMap={normalTexture}
                normalScale={[1, 2]}
                {...props}
             />
@@ -177,8 +175,8 @@ export const WaveCube = () => {
             <Rig>
                <Ground
                   mirror={1}
-                  blur={[450, 200]}
-                  mixBlur={10}
+                  blur={[350, 100]}
+                  mixBlur={8}
                   mixStrength={0.7}
                   rotation={[-Math.PI / 2, -0.1, Math.PI / 2]}
                   position={[0, -1.6, 0]}

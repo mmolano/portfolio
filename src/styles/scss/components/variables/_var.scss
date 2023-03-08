@@ -17,11 +17,11 @@ $max-font: 21px;
 
 // ---------------------------------------------------------------- fonts family
 
-$bold-font: 'studio-bold';
+$bold-font: 'studio-bold', 'Roboto-bold';
 $regular-font: 'studio-regular',
 'Roboto';
-$semibold-italic-font: 'studio-semi-bold-italic';
+$semibold-italic-font: 'studio-semi-bold-italic', 'Roboto-medium-italic';
 $medium-italic-font: 'studio-medium-italic',
-'Roboto';
-$light-italic-font: 'studio-light-italic';
-$ultra-light-italic-font: 'studio-ultra-light-italic';
+'Roboto-medium-italic';
+$light-italic-font: 'studio-light-italic', 'Roboto-light-italic';
+$ultra-light-italic-font: 'studio-ultra-light-italic', 'Roboto-thin-italic';

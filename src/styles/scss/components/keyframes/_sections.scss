@@ -4,6 +4,7 @@
     -webkit-transform: translate3d(0, 40px, 0);
     transform: translate3d(0, 40px, 0);
   }
+
   100% {
     opacity: 1;
     -webkit-transform: none;
@@ -11,11 +12,27 @@
   }
 }
 
+@keyframes fade-out-three {
+  0% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 40px, 0);
+    transform: translate3d(0, 40px, 0);
+  }
+}
+
+
 @keyframes outer {
   from {
     opacity: 1;
     transform: translateX(0);
   }
+
   to {
     opacity: 0;
     transform: translateX(100%);

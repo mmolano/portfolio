@@ -32,6 +32,7 @@ export interface SlideIF {
    firstName: string,
    name: string,
    type: string,
+   scroll: string,
 }
 
 export interface ProjectSectionIF {

@@ -14,7 +14,8 @@
     "title": "Hey! Bienvenue",
     "firstName": "Miguel",
     "name": "Molano",
-    "type": "Développeur web"
+    "type": "Développeur web",
+    "scroll": "Scroller pour afficher"
   },
   "projectSection": {
     "title": "Projets",

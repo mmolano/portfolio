@@ -154,7 +154,7 @@ button[type='submit'],
   }
 
   &.active-animation {
-    animation: fill-button 1s forwards;
+    animation: fill-button 1s forwards !important;
   }
 }
 
@@ -175,6 +175,9 @@ form {
 
   &.animate {
     animation: fade-in-three 1.5s forwards;
+  }
+  &.animate-out {
+    animation: fade-out-three 0.5s forwards;
   }
 }
 
@@ -320,13 +323,13 @@ button span:hover {
 .scroll-reveal-text {
   margin: 20px auto 0px;
   width: fit-content;
-  @include fluid-type($min-width, $max-width, $min-font, 26px);
+  @include fluid-type($min-width, $max-width, $min-font, 20px);
   font-family: $ultra-light-italic-font;
   background: linear-gradient(to left,
       rgb(127, 126, 126),
       $default-white,
       $default-white);
-  animation: animate-text-color 8s linear infinite;
+  animation: animate-text-color 5s linear infinite;
   background-size: 200%;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -12,7 +12,7 @@ type buttonProps = {
 export const MainButton = ({ type, className, children, disabled }: buttonProps): JSX.Element => {
    const [hoverAnimation, setHoverAnimation] = useState<boolean>(false);
    const classValue = className ? className : "";
-   const hoverClass = hoverAnimation ? " active-animation" : " out-animation"
+   const hoverClass = hoverAnimation ? "active-animation" : ""
 
    const handleMouseEnter = () => {
       document.getElementsByClassName('cursor')[0].classList.add('button-hover');
