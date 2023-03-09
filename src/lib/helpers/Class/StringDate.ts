@@ -1,6 +1,6 @@
 import moment from "moment";
 import 'moment/locale/fr';
-import 'moment/locale/es';
+import 'moment/locale/en-gb';
 
 class StringDate {
    private readonly date: string;
@@ -13,7 +13,7 @@ class StringDate {
          throw new Error("Invalid date string");
       }
 
-      moment.locale(this.language ? this.language : 'en');
+      moment.locale(this.language ? this.language : 'en-gb');
 
       this.date = moment().format('ddd, LL');
    }

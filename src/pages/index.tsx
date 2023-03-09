@@ -11,6 +11,7 @@ import { ContactFormContext } from '@/context/ContactFormContext';
 import { ProjectIF, SlideIF, ProjectSectionIF, ContactSectionIF, AboutSectionIF } from '@/lib/interface/lang';
 import { H2Stretch } from '@/components/titles/H2Stretch';
 import { WaveCube } from '@/components/three/WaveCube';
+import { Eve } from '@/components/spline/Eve';
 
 type allowedFilters = 'all' | 'wip' | 'front' | 'back';
 
@@ -23,7 +24,7 @@ export default function Home(): JSX.Element {
   const { translation, lang, projectsRef, contactRef, aboutRef } = useStateContext();
 
   const allProjects = translation.projects as ProjectIF[];
-  const slideTitle = translation.slideTitle as SlideIF;
+  const {scroll, ...slideTitle} = translation.slideTitle as SlideIF;
   const projectSection = translation.projectSection as ProjectSectionIF;
   const contactSection = translation.contactSection as ContactSectionIF;
   const aboutSection = translation.aboutSection as AboutSectionIF;
@@ -135,7 +136,7 @@ export default function Home(): JSX.Element {
           </div>
         </section>
         <h5 className="scroll-reveal-text">
-          {slideTitle.scroll.toUpperCase()}
+          {translation.slideTitle.scroll.toUpperCase()}
         </h5>
         <section id="projects" ref={projectsRef} className="second-element">
           <H2Stretch>{projectSection.title}</H2Stretch>
@@ -208,15 +209,15 @@ export default function Home(): JSX.Element {
             </div>
           </div>
         </section>
-        <section id="about" ref={aboutRef} className="fourth-element animate">
+        <section id="about" ref={aboutRef} className="fourth-element">
           <H2Stretch>{aboutSection.title}</H2Stretch>
           <div className="container">
             <div className="split-width">
               <p>{aboutSection.content}</p>
-              <p><span className="span-color">Let’s make pizzas together!</span></p>
+              <p><LinkRef scroll={false} href={'#contact'}><span className="span-color">Let’s talk!</span></LinkRef></p>
             </div>
-            <div className="three-box-container">
-              {/* TODO */}
+            <div className="three-box-container-2">
+              <Eve />
             </div>
           </div>
         </section>

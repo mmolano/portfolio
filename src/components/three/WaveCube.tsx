@@ -84,7 +84,7 @@ function createLayer(y: number, material: THREE.Material) {
 function createBoxObject(layerShaderUniforms: LayerShaderUniforms) {
    const box = new THREE.Object3D();
    const layerMaterial = createLayerShaderMaterial(noiseShader, layerShaderUniforms);
-   const layerCount = 10;
+   const layerCount = 8;
 
    for (let i = 0; i < layerCount; i++) {
       const layer = createLayer(i / layerCount, layerMaterial);

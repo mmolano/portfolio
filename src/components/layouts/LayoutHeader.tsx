@@ -11,12 +11,14 @@ export const LayoutHeader = (): JSX.Element => {
    const mobileRef = useRef<HTMLDivElement>(null);
    const closerRef = useRef<HTMLDivElement>(null);
 
-
    function changeLang(language: Lang) {
+      const body = document.querySelector('body');
+      setShowNav?.(false);
       setIsLoading?.(true);
       changeLanguage?.(language);
       setTimeout(() => {
          setIsLoading?.(false);
+         body?.classList.toggle('no-scroll');
       }, 4000)
    }
 
@@ -29,11 +31,11 @@ export const LayoutHeader = (): JSX.Element => {
          setActiveSection('projects');
          projectsRef?.current?.classList.remove('animate-out');
          projectsRef?.current?.classList.add('animate');
-      } else if (contactPosition! < 1 && aboutPosition! > 1) {
+      } else if (contactPosition! < 1 && aboutPosition! > 50) {
          setActiveSection('contact');
          contactRef?.current?.classList.remove('animate-out');
          contactRef?.current?.classList.add('animate');
-      } else if (aboutPosition! < 1) {
+      } else if (aboutPosition! < 50) {
          setActiveSection('about');
          aboutRef?.current?.classList.remove('animate-out');
          aboutRef?.current?.classList.add('animate');
@@ -69,6 +71,7 @@ export const LayoutHeader = (): JSX.Element => {
       window.addEventListener('scroll', handleScroll);
    }, [handleScroll]);
 
+   //TODO: When click from other route than /baseroute add loader when going back home
    return (
       <>
          <nav>
@@ -145,9 +148,9 @@ export const LayoutHeader = (): JSX.Element => {
                   <div ref={mobileRef} className="mobile-nav">
                      <div className="row">
                         <ul className="nav-list">
-                           <li className="nav-selector"><LinkRef onClick={() => toggleNav()} scroll={false} href="/#projects">{`//`} {translation.nav.projects}</LinkRef></li>
-                           <li className="nav-selector"><LinkRef onClick={() => toggleNav()} scroll={false} href="/#contact">{`//`} {translation.nav.contact}</LinkRef></li>
-                           <li className="nav-selector"><LinkRef onClick={() => toggleNav()} scroll={false} href="/#about">{`//`} {translation.nav.about}</LinkRef></li>
+                           <li onClick={() => toggleNav()} className="nav-selector"><LinkRef scroll={false} href="/#projects">{`//`} {translation.nav.projects}</LinkRef></li>
+                           <li onClick={() => toggleNav()} className="nav-selector"><LinkRef scroll={false} href="/#contact">{`//`} {translation.nav.contact}</LinkRef></li>
+                           <li onClick={() => toggleNav()} className="nav-selector"><LinkRef scroll={false} href="/#about">{`//`} {translation.nav.about}</LinkRef></li>
                         </ul>
                         <div className="nav-lang-selector">
                            <span>Lang: {`{`}</span>

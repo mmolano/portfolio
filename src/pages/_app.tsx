@@ -42,7 +42,9 @@ export default function App({ Component, pageProps }: AppProps) {
     }, 500);
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMouseMove = (e: React.MouseEvent) => {
+    e.stopPropagation();
+
     setPosition({
       x: e.clientX,
       y: e.clientY
@@ -56,7 +58,6 @@ export default function App({ Component, pageProps }: AppProps) {
     }
     logPageView();
   }, [router.asPath]);
-  
 
   return (
     <StateContext>
@@ -66,7 +67,6 @@ export default function App({ Component, pageProps }: AppProps) {
         onMouseMove={handleMouseMove}
         onClick={handleMouseClick}
         onMouseDown={handleMouseClick}
-        onScroll={handleMouseMove}
       >
         <Head>
           <title>{title}</title>
@@ -101,10 +101,11 @@ export default function App({ Component, pageProps }: AppProps) {
           theme="dark"
         />
       </main>
+      {/* TODO: fix mouse move create multiple logs -> hide three warns */}
       <div
         ref={cursorRef}
         style={{
-          display: `${isOutside ? 'none' : 'inherit'}`,
+          display: `${isOutside ? 'none' : 'initial'}`,
           transform: `translate(${position.x - 20}px, ${position.y - 20}px)`,
         }} className="cursor">
       </div>

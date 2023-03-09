@@ -1,5 +1,6 @@
 import { Layout } from '@/components/layouts/Layout';
 import { LinkRef } from '@/components/links/LinkRef';
+import { LanguageTag } from '@/components/tags/LanguageTag';
 import { useStateContext } from '@/context/AppContext';
 import StringDate from '@/lib/helpers/Class/StringDate';
 import { ProjectIF, ProjectPageIF } from '@/lib/interface/lang';
@@ -20,15 +21,19 @@ export default function Project(): JSX.Element {
       if (sectionProject?.classList.contains('animate')) {
          sectionProject.classList.remove('animate');
       }
-      setTimeout(() => {
+      const timeOutID = setTimeout(() => {
          if (sectionProject) {
             sectionProject.classList.add('animate');
          }
       }, 200);
+
+      return () => {
+         clearTimeout(timeOutID);
+      }
    }, [slug]);
 
    if (!project) {
-      return <Custom404></Custom404>;
+      return <Custom404 />;
    }
 
    const prevSlugHandler = () => {
@@ -56,6 +61,13 @@ export default function Project(): JSX.Element {
                   </ul>
                </div>
                <div className="container">
+                  <div className="tag-container">
+                     {
+                        project.tools.map((tool, index) => (
+                           <LanguageTag key={index}>{tool}</LanguageTag>
+                        ))
+                     }
+                  </div>
                   <article>
                      <p>{project.description}</p>
                      <p>{page.start}: {dateStart}</p>

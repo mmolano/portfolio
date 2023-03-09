@@ -70,55 +70,6 @@ ul.glitch {
   opacity: 0;
 }
 
-@include desktop-nav {
-  .first-element {
-    margin-top: 200px;
-
-    &.three-element {
-      margin-top: 15px;
-      padding-top: 200px;
-    }
-
-    & ul {
-      margin-bottom: 100px;
-    }
-
-    & h1 {
-      margin-top: 0px;
-    }
-  }
-}
-
-@include mobile {
-
-  .first-element ul,
-  .second-element ul {
-    padding: 0;
-  }
-}
-
-@include small-mobile {
-  .first-element li {
-    margin-left: 13px !important;
-  }
-
-  .row {
-    width: 100% !important;
-
-    & .card {
-      width: 280px;
-    }
-  }
-
-  form .double-input {
-    flex-direction: column;
-
-    & .flex-inputs {
-      width: 100%;
-    }
-  }
-}
-
 .three-box-container {
   z-index: -1;
   position: absolute;
@@ -130,12 +81,6 @@ ul.glitch {
   margin: auto;
   border-radius: 15px;
   overflow: hidden;
-}
-
-@media screen and (max-width: 906px) {
-  .row {
-    justify-content: center;
-  }
 }
 
 // ---------------------------------------------------------------- Slide Element 2
@@ -231,36 +176,6 @@ ul.glitch {
   }
 }
 
-@media only screen and (max-width: 580px) {
-  .projects-container .row {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 410px) {
-  .projects-container .row .card {
-    width: 250px;
-  }
-}
-
-@include ipad {
-  .projects-container .row .card img {
-    width: 100px !important;
-  }
-}
-
-@include small-mobile {
-  .projects-container .row .card img {
-    width: 90px !important;
-  }
-}
-
-@include mobile {
-  .projects-filter li {
-    padding: 20px 0px !important;
-  }
-}
-
 // ---------------------------------------------------------------- Slide Element 3
 
 .container,
@@ -319,8 +234,35 @@ form {
   }
 }
 
+// ---------------------------------------------------------------- About section
+
+.fourth-element {
+  & .container {
+    display: grid;
+    text-align: justify;
+    hyphens: auto;
+    grid-template-columns: repeat(2, minmax(50px, 1fr));
+    grid-gap: 1rem;
+    width: fit-content;
+  }
+
+  & .span-color {
+    color: $element-color;
+  }
+
+  & .three-box-container-2 {
+    height: 300px;
+  }
+}
+
 @media screen and (max-width: 1003px) {
   .container {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 906px) {
+  .row {
     justify-content: center;
   }
 }
@@ -333,10 +275,96 @@ form {
   }
 }
 
-// ---------------------------------------------------------------- About section
+@media only screen and (max-width: 580px) {
+  .projects-container .row {
+    width: 100%;
+  }
+}
 
-.fourth-element {
-  & .span-color {
-    color: $element-color;
+@media only screen and (max-width: 410px) {
+  .projects-container .row .card {
+    width: 250px;
+  }
+}
+
+@include ipad {
+  .projects-container .row .card img {
+    width: 100px !important;
+  }
+
+  .fourth-element {
+    & .container {
+      grid-template-columns: repeat(1, minmax(50px, 1fr));
+
+      & .three-box-container-2 {
+        grid-row: 1;
+      }
+    }
+  }
+}
+
+@include small-mobile {
+  .first-element li {
+    margin-left: 13px !important;
+  }
+
+  .row {
+    width: 100% !important;
+
+    & .card {
+      width: 280px;
+    }
+  }
+
+  form .double-input {
+    flex-direction: column;
+
+    & .flex-inputs {
+      width: 100%;
+    }
+  }
+
+  .projects-container .row .card img {
+    width: 90px !important;
+  }
+}
+
+@include mobile {
+  .projects-filter li {
+    padding: 20px 0px !important;
+  }
+
+  .first-element ul,
+  .second-element ul {
+    padding: 0;
+  }
+}
+
+@include mobile-nav {
+  .first-element.three-element {
+    margin-top: 10px;
+  }
+}
+
+@include desktop-nav {
+  .fourth-element {
+    min-height: 800px
+  }
+
+  .first-element {
+    margin-top: 200px;
+
+    &.three-element {
+      margin-top: 15px;
+      padding-top: 200px;
+    }
+
+    & ul {
+      margin-bottom: 100px;
+    }
+
+    & h1 {
+      margin-top: 0px;
+    }
   }
 }

@@ -6,12 +6,9 @@ interface linkIF {
    isOutSite?: boolean;
    href: string;
    scroll?: boolean;
-   target?: string;
-   rel?: string;
-   onClick?: () => void;
 }
 
-export const LinkRef = ({ isOutSite, className, href, target, rel, scroll, onClick, children }: linkIF) => {
+export const LinkRef = ({ isOutSite, className, href, scroll, children }: linkIF) => {
    const handleMouseEnter = (extraClass?: string) => {
       const cursorElement = document.getElementsByClassName('cursor')[0];
       cursorElement.classList.add('href-hover');
@@ -43,7 +40,7 @@ export const LinkRef = ({ isOutSite, className, href, target, rel, scroll, onCli
    } else {
       return (
          <>
-            <Link onClick={() => { onClick; handleLinkClick() }} scroll={scroll} href={href} className={className} onMouseEnter={() => handleMouseEnter()} onMouseLeave={() => handleMouseLeave()}>
+            <Link onClick={() => handleLinkClick()} scroll={scroll} href={href} className={className} onMouseEnter={() => handleMouseEnter()} onMouseLeave={() => handleMouseLeave()}>
                {children}
             </Link>
          </>

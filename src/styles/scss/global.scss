@@ -65,6 +65,11 @@ textarea {
   font-family: $regular-font;
 }
 
+article {
+  text-align: justify;
+  hyphens: auto;
+}
+
 b {
   font-family: $semibold-italic-font;
 }
@@ -176,6 +181,7 @@ form {
   &.animate {
     animation: fade-in-three 1.5s forwards;
   }
+
   &.animate-out {
     animation: fade-out-three 0.5s forwards;
   }
@@ -336,22 +342,21 @@ button span:hover {
   -webkit-background-clip: text;
 }
 
-@include small-mobile {
-  section {
-    padding: 25px;
-    margin-bottom: 50px;
-  }
+.tag-container {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(50px, 1fr));
+  grid-gap: 0.7rem;
+  width: fit-content;
+}
 
-  .widget-scroll {
-    height: 41px;
-    width: 22px;
-  }
-
-  form button {
-    width: initial !important;
-    margin-right: 7px !important;
-    padding: 17px !important;
-  }
+.tag-element {
+  display: grid;
+  align-items: center;
+  font-family: $ultra-light-italic-font;
+  min-width: 50px;
+  text-align: center;
+  padding: 5px 20px;
+  background-color: black;
 }
 
 // ---------------------------------------------------------------- Project pages
@@ -390,5 +395,47 @@ footer {
   & ul {
     display: flex;
     justify-content: space-between;
+  }
+}
+
+@include ipad {
+  .cursor {
+    display: none !important;
+  }
+  .tag-container {
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+  }
+}
+
+@include small-mobile {
+  section {
+    padding: 25px;
+    margin-bottom: 50px;
+  }
+
+  .tag-container {
+    grid-template-columns: repeat(2, minmax(50px, 1fr));
+  }
+
+  .widget-scroll {
+    height: 41px;
+    width: 22px;
+  }
+
+  form button {
+    width: initial !important;
+    margin-right: 7px !important;
+    padding: 17px !important;
+  }
+
+  footer {
+    padding: 25px;
+  }
+}
+
+@media (hover: none) {
+  button span:hover {
+    animation: none;
+    -webkit-text-fill-color: unset;
   }
 }

@@ -15,6 +15,7 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
 
    const { name, subject, mail, message, errors } = inputs;
+   // TODO: translate error messages
 
    function validateEmail(email: string) {
       try {
