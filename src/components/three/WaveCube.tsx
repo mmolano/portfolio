@@ -163,7 +163,7 @@ function Rig({ children }: { children: React.ReactNode }) {
    return <group ref={ref}>{children}</group>;
 }
 
-export const WaveCube = () => {
+const WaveCube = () => {
    return (
       <Canvas
          camera={{ position: [0, 2, 10], fov: 70 }}
@@ -187,3 +187,5 @@ export const WaveCube = () => {
       </Canvas>
    );
 }
+
+export default WaveCube;

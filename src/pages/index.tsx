@@ -6,12 +6,16 @@ import { ContactForm } from '@/components/forms/ContactForm';
 import { Layout } from '@/components/layouts/Layout';
 import { LinkRef } from '@/components/links/LinkRef';
 import { Project } from '@/components/Project';
+import WaveCube from '@/components/three/WaveCube';
+import { TitleStretch } from '@/components/titles/TitleStretch';
 import { useStateContext } from '@/context/AppContext';
 import { ContactFormContext } from '@/context/ContactFormContext';
-import { ProjectIF, SlideIF, ProjectSectionIF, ContactSectionIF, AboutSectionIF } from '@/lib/interface/lang';
-import { H2Stretch } from '@/components/titles/H2Stretch';
-import { WaveCube } from '@/components/three/WaveCube';
-import { Eve } from '@/components/spline/Eve';
+import { AboutSectionIF, ContactSectionIF, ProjectIF, ProjectSectionIF, SlideIF } from '@/lib/interface/lang';
+import dynamic from 'next/dynamic';
+
+const Eve = dynamic(() => import('../components/spline/Eve'),
+  { ssr: false }
+);
 
 type allowedFilters = 'all' | 'wip' | 'front' | 'back';
 
@@ -21,10 +25,10 @@ type newProjectType = {
 }
 
 export default function Home(): JSX.Element {
-  const { translation, lang, projectsRef, contactRef, aboutRef } = useStateContext();
+  const { translation, lang, projectsRef, contactRef, aboutRef, setIsLoading, isLoading } = useStateContext();
 
   const allProjects = translation.projects as ProjectIF[];
-  const {scroll, ...slideTitle} = translation.slideTitle as SlideIF;
+  const { scroll, ...slideTitle } = translation.slideTitle as SlideIF;
   const projectSection = translation.projectSection as ProjectSectionIF;
   const contactSection = translation.contactSection as ContactSectionIF;
   const aboutSection = translation.aboutSection as AboutSectionIF;
@@ -100,6 +104,18 @@ export default function Home(): JSX.Element {
     setActiveFilter('all');
   }, [translation]);
 
+  useEffect(() => {
+    if (!isLoading) {
+      const body = document.querySelector('body');
+      body?.classList.add('no-scroll');
+      setIsLoading?.(true);
+      setTimeout(() => {
+        setIsLoading?.(false);
+        body?.classList.remove('no-scroll');
+      }, 4000)
+    }
+  }, [])
+
   return (
     <>
       <Layout>
@@ -139,7 +155,7 @@ export default function Home(): JSX.Element {
           {translation.slideTitle.scroll.toUpperCase()}
         </h5>
         <section id="projects" ref={projectsRef} className="second-element">
-          <H2Stretch>{projectSection.title}</H2Stretch>
+          <TitleStretch>{projectSection.title}</TitleStretch>
           <h4>{projectSection.filter} : </h4>
           <div className="projects-container">
             <div className="projects-filter">
@@ -180,7 +196,7 @@ export default function Home(): JSX.Element {
           </div>
         </section>
         <section id="contact" ref={contactRef} className="third-element">
-          <H2Stretch>{contactSection.title}</H2Stretch>
+          <TitleStretch>{contactSection.title}</TitleStretch>
           <div className="container">
             <ContactFormContext>
               <ContactForm value={contactSection} />
@@ -199,10 +215,10 @@ export default function Home(): JSX.Element {
               <ul className="contact-ul-pizza">
                 <span>{`<ul className="pizza-li">`}</span>
                 <li>
-                  <LinkRef target="_blank" rel="noreferrer" href="https://github.com/mmolano">{`<li>`}<b>GitHub</b>{`</li>`}</LinkRef>
+                  <LinkRef isOutSite={true} target="_blank" rel="noreferrer" href="https://github.com/mmolano">{`<li>`}<b>GitHub</b>{`</li>`}</LinkRef>
                 </li>
                 <li>
-                  <LinkRef target="_blank" rel="noreferrer" href={`https://www.linkedin.com/in/mimolano${lang !== 'fr' ? '/?locale=en_US' : ''}`}>{`<li>`}<b>LinkedIn</b>{`</li>`}</LinkRef>
+                  <LinkRef isOutSite={true} target="_blank" rel="noreferrer" href={`https://www.linkedin.com/in/mimolano${lang !== 'fr' ? '/?locale=en_US' : ''}`}>{`<li>`}<b>LinkedIn</b>{`</li>`}</LinkRef>
                 </li>
                 <span>{`</ul>`}</span>
               </ul>
@@ -210,7 +226,7 @@ export default function Home(): JSX.Element {
           </div>
         </section>
         <section id="about" ref={aboutRef} className="fourth-element">
-          <H2Stretch>{aboutSection.title}</H2Stretch>
+          <TitleStretch>{aboutSection.title}</TitleStretch>
           <div className="container">
             <div className="split-width">
               <p>{aboutSection.content}</p>

@@ -1,0 +1,169 @@
+{
+   "lang": {
+      "en": "英語",
+      "fr": "フランス語",
+      "jp": "日本語"
+   },
+   "nav": {
+      "projects": "プロジェクト",
+      "contact": "ご連絡",
+      "about": "私について",
+      "resume": "履歴書"
+   },
+   "title": "こんにちは! 私のポートフォリオへようこそ",
+   "slideTitle": {
+      "title": "こんにちは! ようこそ",
+      "firstName": "ミゲル",
+      "name": "モラノ",
+      "type": "ウエブデベロッパ",
+      "scroll": "スクロールして表示する"
+   },
+   "projectSection": {
+      "title": "プロジェクト",
+      "filter": "フィルター",
+      "front": "フロントエンド",
+      "back": "バックエンド",
+      "working": "進行中",
+      "all": "全て",
+      "show": "プロジェクトを見せる"
+   },
+   "contactSection": {
+      "title": "コンタクト",
+      "links": "連接",
+      "mailMe": "ご連絡はこちらからもどうぞ!",
+      "inputName": "名前",
+      "inputMail": "メール",
+      "inputSubject": "件名",
+      "inputTextArea": "メッセージ ...",
+      "button": "送信する!",
+      "submit": "送信中..."
+   },
+   "aboutSection": {
+      "title": "私について",
+      "content": "こんにちは、ミゲルと申します。私はフランスのウエブデベロッパで、UX＆UI、フロントエンド、バックエンドに興味があります。フランスのIIMパリでウェブ開発の修士号を取得し、ユーザーエクスペリエンスに重点を置いたウェブアプリケーションの設計と開発の専門知識を習得しました。私の技術と言語への情熱が、私を日本に導きました。そこで、ウェブ開発の最新技術動向について情報を収集しながら、現地の文化と言語を探求する機会を得ました。この経験により、私は新しいスキルを習得し、知識を広げることができました。",
+      "resume": "履歴書"
+   },
+   "projectPage": {
+      "start": "開始日",
+      "end": "終了日",
+      "previous": "前のプロジェクト",
+      "next": "次のプロジェクト"
+   },
+   "projects": [
+      {
+         "id": 1,
+         "title": "E-Commerce | React.js",
+         "slug": "e-commerce-react",
+         "type": "Front | WIP",
+         "description": "このe-commerceアプリケーションは、オンライン ストアにショッピング エクスペリエンスを提供することを目的とした個人的なプロジェクトです。 これにより、ユーザーはカートから製品を簡単に追加、表示、および削除できます。 支払い処理は Stripe が処理し、ログイン システムは Auth0 によって提供されます。",
+         "tools": [
+            "github",
+            "react.js",
+            "next.js",
+            "stripe",
+            "auth0",
+            "strapi",
+            "typescript"
+         ],
+         "date": {
+            "start": "2023-01-09",
+            "end": "未整理 | データを追加するつもり"
+         }
+      },
+      {
+         "id": 2,
+         "title": "Recipe API | Laravel",
+         "slug": "recipe-api-laravel",
+         "type": "Back | WIP",
+         "description": "このプロジェクトは、レシピの作成、読み取り、変更、および削除を可能にする Laravel 9 REST API アプリケーションです。 このアプリケーションは、他のアプリケーションでレシピを表示するために使用するように設計されています。 このプロジェクトの開発は進行中であり、アプリケーションは PHPUnit テストとログを使用してアクティビティを記録し、エラーを管理して、潜在的な問題の解決を容易にします。",
+         "tools": [
+            "github",
+            "laravel 9",
+            "php",
+            "phpunit",
+            "swagger",
+            "mysql",
+            "rest api"
+         ],
+         "date": {
+            "start": "2023-01-20",
+            "end": "進行中"
+         }
+      },
+      {
+         "id": 3,
+         "type": "Front | Back",
+         "title": "Fidensio | パートナー",
+         "slug": "fidensio-partners",
+         "description": "このプロジェクトは、Fidensio チームのメンバーとして開発したアプリケーションです。 支払い処理には、Laravel 8、Vue.js、Stripe などのサーバー技術を利用しています。 このプロジェクトの目的は、同社のパートナーの 1 社が、シンプルで効果的なデスクトップおよびモバイル エクスペリエンスを提供しながら、ダッシュボードから注文を管理できるようにすることでした。",
+         "tools": [
+            "gitlab",
+            "laravel 8",
+            "php",
+            "fidensio's API",
+            "stripe",
+            "mysql",
+            "vue.js"
+         ],
+         "date": {
+            "start": "2021-07",
+            "end": "2021-08"
+         }
+      },
+      {
+         "id": 4,
+         "title": "Fidensio | データベースの移行",
+         "slug": "fidensio-migration",
+         "type": "Back",
+         "description": "次のプロジェクトは、同社の新しい API と構造を利用することを目的としていました。 このプロジェクトの目的は、会社の活動を中断させるリスクを最小限に抑えながら、古いデータベースを新しいインフラストラクチャに移行することでした。 スムーズでインシデントのない移行を確実にするために、移行中に発生する可能性のある潜在的な問題を処理するためのキュー システムが実装されています。 このプロジェクトは完全に私自身によって行われました。",
+         "tools": [
+            "gitlab",
+            "laravel 8",
+            "php",
+            "queues",
+            "mysql"
+         ],
+         "date": {
+            "start": "2021-07",
+            "end": "2021-08"
+         }
+      },
+      {
+         "id": 5,
+         "title": "Fidensio | API",
+         "slug": "fidensio-api",
+         "type": "Back",
+         "description": "この申請は、Fidensio の CTO と緊密に協力して行われました。Fidensio は、プロジェクトの成功を確実にするために彼の専門知識をもたらしました。 これは、Laravel 5 および PHP 7.4 から Laravel 8 および PHP 8 の REST API に既存のアプリケーションを移行することを目的とした、当時の会社の最大の技術プロジェクトの 1 つです。 Fidensio は、そのニーズにより適したスケーラブルなソリューションを手に入れることができました。 このプロジェクトでは、いくつかのサービスを屈折させ、TDD メソッドを使用してそれらの PHPUnit テストを作成する責任がありました。",
+         "tools": [
+            "gitlab",
+            "laravel 8",
+            "php",
+            "laravel queues",
+            "mysql",
+            "phpunit",
+            "tdd"
+         ],
+         "date": {
+            "start": "2020-09",
+            "end": "2021-08 |　進行中 (仕事を辞めたときに終わっていなかった)"
+         }
+      },
+      {
+         "id": 6,
+         "title": "Fidensio | フロントエンド",
+         "slug": "fidensio-nuxt",
+         "type": "Front",
+         "description": "この真新しいフロントエンド アプリケーションは、フリーランサーと共同で構築されました。 必要なすべての情報を取得するために、静的な情報 (フリーランサー チームによって作成された初期作業) のみが提供されたこのアプリケーションを、Fidensio の API を介して利用可能なデータに接続する必要がありました。",
+         "tools": [
+            "gitlab",
+            "vue.js",
+            "nuxt.js",
+            "axios"
+         ],
+         "date": {
+            "start": "2021-07",
+            "end": "2021-08 |　進行中 (仕事を辞めたときに終わっていなかった)"
+         }
+      }
+   ]
+}

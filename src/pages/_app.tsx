@@ -59,6 +59,7 @@ export default function App({ Component, pageProps }: AppProps) {
     logPageView();
   }, [router.asPath]);
 
+
   return (
     <StateContext>
       <main className="main-app"

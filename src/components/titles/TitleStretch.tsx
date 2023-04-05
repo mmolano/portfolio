@@ -1,10 +1,12 @@
 import { useRef } from "react"
 
+type TitleType = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 interface Props {
+   type?: TitleType;
    children: React.ReactNode;
 }
 
-export const H2Stretch: React.FC<Props> = ({ children }) => {
+export const TitleStretch: React.FC<Props> = ({ type, children }: Props) => {
    const classToAddRef = useRef<string>("--animating")
    const timeoutRef = useRef<number | undefined>(undefined);
 
@@ -40,11 +42,30 @@ export const H2Stretch: React.FC<Props> = ({ children }) => {
       return letters;
    }
 
-   return (
-      <>
-         <h2>
-            {textSeparator(children as string)}
-         </h2>
-      </>
-   )
+   switch (type) {
+      case 'h1':
+         return (
+            <h1>
+               {textSeparator(children as string)}
+            </h1>
+         )
+      case 'h2':
+         return (
+            <h2>
+               {textSeparator(children as string)}
+            </h2>
+         )
+      case 'h3':
+         return (
+            <h3>
+               {textSeparator(children as string)}
+            </h3>
+         )
+      default:
+         return (
+            <h2>
+               {textSeparator(children as string)}
+            </h2>
+         )
+   }
 }

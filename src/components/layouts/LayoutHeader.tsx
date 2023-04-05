@@ -16,9 +16,10 @@ export const LayoutHeader = (): JSX.Element => {
       setShowNav?.(false);
       setIsLoading?.(true);
       changeLanguage?.(language);
+      body?.classList.add('no-scroll');
       setTimeout(() => {
          setIsLoading?.(false);
-         body?.classList.toggle('no-scroll');
+         body?.classList.remove('no-scroll');
       }, 4000)
    }
 
@@ -96,17 +97,17 @@ export const LayoutHeader = (): JSX.Element => {
                            </div>
                            <span>|</span>
                            <div>
-                              <Button onClick={() => changeLang('jp')}>Jp</Button>
+                              <Button onClick={() => changeLang('jp')}>{translation.lang.jp}</Button>
                            </div>
                         </>
-                     ) : lang === 'en' ? (
+                     ) : lang === 'jp' ? (
                         <>
                            <div>
                               <Button onClick={() => changeLang('fr')}>{translation.lang.fr}</Button>
                            </div>
                            <span>|</span>
                            <div>
-                              <Button onClick={() => changeLang('jp')}>JP</Button>
+                                 <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
                            </div>
                         </>
                      ) : (
@@ -116,7 +117,7 @@ export const LayoutHeader = (): JSX.Element => {
                            </div>
                            <span>|</span>
                            <div>
-                              <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
+                              <Button onClick={() => changeLang('jp')}>{translation.lang.jp}</Button>
                            </div>
                         </>
                      )}
@@ -158,19 +159,19 @@ export const LayoutHeader = (): JSX.Element => {
                               <>
                                  <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
                                  <span>|</span>
-                                 <Button onClick={() => changeLang('jp')}>Jp</Button>
+                                 <Button onClick={() => changeLang('jp')}>{translation.lang.jp}</Button>
                               </>
-                           ) : lang === 'en' ? (
+                           ) : lang === 'jp' ? (
                               <>
                                  <Button onClick={() => changeLang('fr')}>{translation.lang.fr}</Button>
                                  <span>|</span>
-                                 <Button onClick={() => changeLang('jp')}>Jp</Button>
+                                    <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
                               </>
                            ) : (
                               <>
                                  <Button onClick={() => changeLang('fr')}>{translation.lang.fr}</Button>
                                  <span>|</span>
-                                 <Button onClick={() => changeLang('jp')}>Jp</Button>
+                                 <Button onClick={() => changeLang('jp')}>{translation.lang.jp}</Button>
                               </>
                            )}
                            <span>{`}`}</span>

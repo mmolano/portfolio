@@ -1,7 +1,8 @@
 {
   "lang": {
     "en": "En",
-    "fr": "Fr"
+    "fr": "Fr",
+    "jp": "日本語"
   },
   "nav": {
     "projects": "Projects",
@@ -33,13 +34,13 @@
     "inputName": "Name",
     "inputMail": "Email",
     "inputSubject": "Subject",
-    "inputTextArea": "My awesome message about pizzas...",
+    "inputTextArea": "My awesome message about ...",
     "button": "Send Message!",
     "submit": "Sending..."
   },
   "aboutSection": {
     "title": "About",
-    "content": "Hi, my name is Miguel Molano, i’m a web developer from France. I have an interest for UI & UX, front-end development, back-end development and of course pizzas because there isn't anything better than eating a delicious pizza to finish the day",
+    "content": "Hey, my name is Miguel Molano, i'm a French web developer with an interest in UX & UI, as well as front-end and back-end development. I obtained my Master's degree in web development at IIM Paris in France, where i developed an expertise in designing and developing web applications with a strong focus on users experience. My passion for technology and languages led me to Japan where i had the opportunity to explore the local culture and language while keeping-up-to-date with the latest technological advancements in web development. This experience allowed me to acquire new skills and broaden my knowledge.",
     "resume": "Resume"
   },
   "projectPage": {
@@ -54,7 +55,7 @@
       "title": "E-Commerce | React.js",
       "slug": "e-commerce-react",
       "type": "Front | WIP",
-      "description": "The react.js e-commerce app is a user-friendly e-commerce web application that allows users to add items to their cart, view items in the cart, and remove items from it through a secure checkout process utilizing Stripe for the payment. The app also features secure user authentication through Auth0 and Strapi to handle the data.",
+      "description": "This e-commerce web application is a personal project aimed at providing a shopping experience for an online store. It allows users to easily add, view, and remove products from their carts. The payment process is handled by Stripe, and the login system is provided by Auth0.",
       "tools": [
         "github",
         "react.js",
@@ -74,7 +75,7 @@
       "title": "Recipe API | Laravel",
       "slug": "recipe-api-laravel",
       "type": "Back | WIP",
-      "description": "This Laravel project is a RESTful API that allows consumers that have the correct rights to create, read, update, and delete recipes. The project includes Tests with PHPunit, error handler and logs on errors",
+      "description": "This project is a Laravel 9 REST API application that allows to: create, read, modify and delete recipes. The application is designed to be used by other applications to display recipes. The development of this project is ongoing, and the application utilizes PHPUnit tests and logs to record activites and manage errors, facilitating the resolution of any potential issues.",
       "tools": [
         "github",
         "laravel 9",
@@ -93,13 +94,13 @@
       "id": 3,
       "type": "Front | Back",
       "title": "Fidensio | for partners",
-      "slug": "fidensio-laravel-dashboard",
-      "description": "This application is one of the project i made while working at a french company named Fidensio. This project is built using Laravel, stripe and vue.js and allows one of Fidensio's partners to handle orders (dashboard), send notifications to user once the status of the order has changed and to handle payment status.",
+      "slug": "fidensio-partners",
+      "description": "This project is an application that i developed as a memeber of the Fidensio team. It utilizes serveral technologies, including Laravel 8, Vue.js and Stripe for payment processing. The aim of this project was to allow one of the company's partners to manage orders from a dashboard while providing a simple and effective desktop and mobile experience.",
       "tools": [
         "gitlab",
         "laravel 8",
         "php",
-        "fidensio's builded API",
+        "fidensio's API",
         "stripe",
         "mysql",
         "vue.js"
@@ -114,7 +115,7 @@
       "title": "Fidensio | DB migration",
       "slug": "fidensio-migration",
       "type": "Back",
-      "description": "This application is one of the project i made while working at a french company named Fidensio. This project is built using Laravel and was used to migrate the Fidensio database to be able to fully migrate to a different database used by the newly built API.",
+      "description": "The following project aimed at utilizing the company's brand new API and structure. The objective of this project was to migrate an old database to a new infrastructure while minimizing the risk of disruptigng the company's activities. To ensure a smooth and incident-free transition, a queue system has been implemented to handle any potential issues that may occure during the migration. This project was entirely done by myself.",
       "tools": ["gitlab", "laravel 8", "php", "queues", "mysql"],
       "date": {
         "start": "2021-07",
@@ -126,7 +127,7 @@
       "title": "Fidensio | API",
       "slug": "fidensio-api",
       "type": "Back",
-      "description": "This application was built with the CTO and was one of the biggest project i had to work on while working at Fidensio. This application was a migration from a Laravel 5 application to a Laravel 8 rest API. The new front application was built using Nuxt.js to make calls to this API. ",
+      "description": "This application was carried out in close collaboration with the CTO of Fidensio, who brought his expertise to ensure the success of the project. It is one of the biggest technical projects of the company at that time, which aimed to migrate an existing application from Laravel 5 and PHP 7.4 to a REST API in Laravel 8 and PHP 8. This migration to a more recent and more performant infrastructure allows Fidensio to have a solution that is more suited and scalable to its needs. For this project i was in charged to refractor some services and make the PHPUnit tests for them using the TDD method.",
       "tools": [
         "gitlab",
         "laravel 8",
@@ -146,7 +147,7 @@
       "title": "Fidensio | Front-end",
       "slug": "fidensio-nuxt",
       "type": "Front",
-      "description": "This application was built after freelancers started it. This application was using the newly built API. I had to work on error handlers, wrong typings and adding what was still missing for example modals and connection to the API",
+      "description": "This brand new front-end application was built in collaboration with freelancers. In order to obtain all the necessary information, i had to connect this application, which was only provided with static informations (initial work made by the freelancer team), to the data available through Fidensio's API.",
       "tools": ["gitlab", "vue.js", "nuxt.js", "axios"],
       "date": {
         "start": "2021-07",

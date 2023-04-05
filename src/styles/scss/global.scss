@@ -68,6 +68,14 @@ textarea {
 article {
   text-align: justify;
   hyphens: auto;
+
+  & img {
+    margin-top: 40px;
+    object-fit: contain;
+    width: 100% !important;
+    position: relative !important;
+    height: unset !important;
+  }
 }
 
 b {
@@ -347,6 +355,7 @@ button span:hover {
   grid-template-columns: repeat(5, minmax(50px, 1fr));
   grid-gap: 0.7rem;
   width: fit-content;
+  margin-bottom: 20px;
 }
 
 .tag-element {
@@ -362,11 +371,13 @@ button span:hover {
 // ---------------------------------------------------------------- Project pages
 
 .breadcrumb {
-  margin-bottom: 40px;
+  width: 100%;
 
   & ul {
     width: 100%;
     overflow-wrap: break-word;
+    margin-bottom: 40px;
+    color: $default-white;
   }
 
   & li {
@@ -398,10 +409,13 @@ footer {
   }
 }
 
-@include ipad {
+@media only screen and (pointer: coarse) {
   .cursor {
     display: none !important;
   }
+}
+
+@include ipad {
   .tag-container {
     grid-template-columns: repeat(3, minmax(50px, 1fr));
   }

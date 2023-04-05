@@ -13,15 +13,16 @@ export const StateContext = ({ children }: { children: Readonly<React.ReactNode>
    const [hasMounted, setHasMounted] = useState<boolean>(false);
    const [translation, setTranslation] = useState(require('@/lib/lang/en.json'));
 
-
    const projectsRef = useRef<HTMLDivElement>(null);
    const contactRef = useRef<HTMLDivElement>(null);
    const aboutRef = useRef<HTMLDivElement>(null);
 
    useEffect(() => {
       setHasMounted(true);
-
+      const body = document.querySelector('body');
+      body?.classList.add('no-scroll')
       const timeoutId = setTimeout(() => {
+         body?.classList.remove('no-scroll')
          setIsLoading(false);
       }, 4000);
 

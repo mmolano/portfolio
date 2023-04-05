@@ -1,7 +1,8 @@
 {
   "lang": {
     "en": "En",
-    "fr": "Fr"
+    "fr": "Fr",
+    "jp": "日本語"
   },
   "nav": {
     "projects": "Projets",
@@ -33,13 +34,13 @@
     "inputName": "Nom",
     "inputMail": "Email",
     "inputSubject": "Sujet",
-    "inputTextArea": "Mon message à propos de pizzas ...",
+    "inputTextArea": "Mon message à propos de ...",
     "button": "Envoyer un message !",
     "submit": "En cours..."
   },
   "aboutSection": {
     "title": "À propos",
-    "content": "Hey, je m'appelle Miguel Molano, je suis un développeur web français avec un intérêt pour l'UX & l'UI, le developpement front-end, le back-end et les pizzas car il n'y a rien de mieux qu'une bonne pizza pour finir une journée...",
+    "content": "Hey, je m'appelle Miguel Molano, je suis un développeur web français avec un intérêt pour l'UX & l'UI ainsi que le développement front-end et back-end. J'ai obtenu mon Master en développement web à l'IIM Paris en France, où j'ai développé une expertise en conception d'applications web et avec une forte orientation utilisateur. Mon intérêt pour la technologie et les langues m'a conduit au Japon où j'ai eu l'opportunité d'explorer la culture et la langue locale tout en poursuivant mes veilles technologiques afin d'être à jour sur les avancés technologiques. Cette experience m'a permis d'acquérir de nouvelles compétences et d'élargir mes connaissances.",
     "resume": "Curriculum"
   },
   "projectPage": {
@@ -54,7 +55,7 @@
       "title": "Application E-commerce | React.js",
       "slug": "e-commerce-react",
       "type": "Front | WIP",
-      "description": "C'est une application web e-commerce et user-friendly qui permet aux utilisateurs d'ajouter des produits à leurs paniers, de voir ces produits dans le panier et enfin de retirer ces produits. Ce processus utilise le moyen de paiement sécurisé Stripe. L'application utilise Auth0 pour authentifier les utilisateurs et Strapi pour le back-end",
+      "description": "Cette application web e-commerce est un projet personnel conçue pour offrir un parcours d'achat simple pour un site de vente en ligne. Elle permet aux utilisateurs d'ajouter, de voir et de retirer des produits à leurs paniers en toute simplicité. Le processus de paiement est assuré par Stripe et le système de connexion est quant à lui assuré par Auth0.",
       "tools": [
         "github",
         "react.js",
@@ -74,7 +75,7 @@
       "title": "API de recettes | Laravel",
       "slug": "recipe-api-laravel",
       "type": "Back | WIP",
-      "description": "Ce projet est une application API REST qui permet aux consommateurs de l'API qui ont les droits correspondent de créer, lire, modifier et supprimer des recettes de cuisine. Le projet utilise PHPunit pour les tests, un système de log et un système de gestion des erreurs",
+      "description": "Ce projet est une application API REST en Laravel 9 permettant la création la lecture, la modification et la suppression de recettes de cuisine. Cette application est conçue pour être exploités par d'autres applications pour afficher les recettes. Le développement de ce projet est toujours en cours. L'application utilise des tests PHPUnit et des Logs afin de d'enregistrer des activités et gérer les erreurs pour faciliter la résolution des problèmes éventuels.",
       "tools": [
         "github",
         "laravel 9",
@@ -92,14 +93,14 @@
     {
       "id": 3,
       "title": "Fidensio | App partenaires",
-      "slug": "fidensio-laravel-dashboard",
+      "slug": "fidensio-partners",
       "type": "Front | Back",
-      "description": "Cette application est l'un des projets que j'ai construit lorsque je travaillais pour Fidensio. Ce projet utilise Laravel, vue.js et stripe pour le paiement. Ce projet permet à l'un des partenaires de gérer les commandes depuis un dashboard et de notifié les utilisateurs lorsqu'une commande change de statut.",
+      "description": "Ce projet est une application que j'ai développés seul en tant que memebre de l'équipe de Fidensio. Elle utilise plusieurs technologies, notamment Laravel 8, Vue.js et Stripe pour le traitement des paiements. Le but de ce projet était de permettre à l'un des partenaires de l'entreprise de gérer les commandes depuis un dashboard, tout en offrant une expérience desktop et mobile simple et efficace.",
       "tools": [
         "gitlab",
         "laravel 8",
         "php",
-        "api de Fidensio",
+        "api Fidensio",
         "stripe",
         "mysql",
         "vue.js"
@@ -114,7 +115,7 @@
       "title": "Fidensio | migration DB",
       "slug": "fidensio-migration",
       "type": "Back",
-      "description": "Cette application est l'un des projet de Fidensio, il s'agit de migrer l'ancienne base de donnée vers la nouvelle en utilisant un système de queue afin de gérer d'éventuel problèmes lors de la migration.",
+      "description": "L'application suivante constitue l'un des projets de Fidensio afin de pouvoir exploiter la toute nouvelle API et structure de l'entreprise. L'objectif de ce projet est de migrer une anicenne base de données vers une nouvelle infrastructure, tout en minimisant les risques de perturbation des activités de l'entreprise. Afin de s'assurer d'une transition simple et sans incidents majeurs, un système de queue pour gérer d'éventuels problèmes pouvant survenir lors de la migration a été mis en place. Ce projet a été entièrement fait par moi-même",
       "tools": ["gitlab", "laravel 8", "php", "queues", "mysql"],
       "date": {
         "start": "2021-07",
@@ -126,7 +127,7 @@
       "title": "Fidensio | API",
       "slug": "fidensio-api",
       "type": "Back",
-      "description": "Ce projet à été fait avec le CTO de Fidensio et est l'un des plus gros projets. Cette application est une migration de Laravel 5 et php 7.4 vers une API rest en Laravel 8 et php 8. La nouvelle application front utilise Nuxt.js et fait des appels API sur cette application.",
+      "description": "Ce projet a été réalisé en étroite collaboration avec le CTO de Fidensio, qui a apporté son expertise ,pour garantir le succès du projet. Il s'agit d'un des plus gros projets technique de l'entreprise à ce moment qui visait à migrer une application existante de Laravel 5 et PHP 7.4 vers une API REST en Laravel 8 et PHP 8. Cette migration d'infrastructure plus récente et plus performante permet à Fdiensio d'avoir une solution plus adaptée et modulable en fonction de ses besoins. Pour ce projet, je me suis occupé de refractor et de créer les tests PHPUnit en utilisant la méthode TDD",
       "tools": [
         "gitlab",
         "laravel 8",
@@ -138,7 +139,7 @@
       ],
       "date": {
         "start": "2020-09",
-        "end": "2021-08 | WIP (not finished when i left)"
+        "end": "2021-08 | WIP (Pas complet lorsque je suis partis)"
       }
     },
     {
@@ -146,7 +147,7 @@
       "title": "Fidensio | Front-end",
       "slug": "fidensio-nuxt",
       "type": "Front",
-      "description": "Cette application à été conçue avec des freelancers. L'application utilise l'API de Fidensio afin d'obtenir les informations.",
+      "description": "La toute nouvelle application front de Fidensio a été conçue avec la collaboration de freelancers. Pour obtenir les informations nécessaires, j'ai mis en relation cette application qui ne donnait que des informations statique (travail des freelancers) par les données disponible avec l'API de Fidensio.",
       "tools": ["gitlab", "vue.js", "nuxt.js", "axios"],
       "date": {
         "start": "2021-07",

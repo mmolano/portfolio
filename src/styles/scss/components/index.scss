@@ -15,7 +15,7 @@
     font-family: $medium-italic-font;
     list-style: none;
     @include fluid-type($min-width, $max-width, 20px, 40px);
-
+    color: $element-color;
     & li {
       margin-left: 30px;
     }
@@ -353,7 +353,9 @@ form {
 
   .first-element {
     margin-top: 200px;
-
+    &.slug {
+      margin-top: 150px;
+    }
     &.three-element {
       margin-top: 15px;
       padding-top: 200px;

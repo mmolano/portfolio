@@ -1,6 +1,6 @@
 import { useRef } from "react"
 import { Grid } from "react-loader-spinner"
-import { H2Stretch } from "./titles/H2Stretch"
+import { TitleStretch } from "./titles/TitleStretch"
 
 export const Loader = () => {
    const loaderRef = useRef<HTMLDivElement>(null)
@@ -18,11 +18,11 @@ export const Loader = () => {
                   color="#ffff"
                   ariaLabel="grid-loading"
                   radius="12.5"
-                  wrapperStyle={{ "justify-content": "center", "margin": "30px"}}
+                  wrapperStyle={{ "justifyContent": "center", "margin": "30px" }}
                   wrapperClass=""
                   visible={true}
                />
-               <H2Stretch>Miguel.Dev_</H2Stretch>
+               <TitleStretch>Miguel.Dev_</TitleStretch>
                <h5>Loading blobs ...</h5>
             </div>
          </div>

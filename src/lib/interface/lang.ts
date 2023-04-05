@@ -8,6 +8,7 @@ interface Nav {
 interface Lang {
    en: string,
    fr: string,
+   jp: string,
 }
 
 interface ProjectDate {

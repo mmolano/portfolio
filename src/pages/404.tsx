@@ -1,6 +1,7 @@
 import { LinkRef } from "@/components/links/LinkRef";
 
 function Custom404() {
+   //TODO: better version of it
    return (
       <section className="first-element">
          <pre>
