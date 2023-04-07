@@ -72,7 +72,6 @@ export const LayoutHeader = (): JSX.Element => {
       window.addEventListener('scroll', handleScroll);
    }, [handleScroll]);
 
-   //TODO: When click from other route than /baseroute add loader when going back home
    return (
       <>
          <nav>
@@ -143,7 +142,6 @@ export const LayoutHeader = (): JSX.Element => {
                   </div>
                </div>
             </div>
-            {/* TODO: Add JP{translation.lang.fr} */}
             {
                showNav && (
                   <div ref={mobileRef} className="mobile-nav">

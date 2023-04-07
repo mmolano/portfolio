@@ -12,7 +12,7 @@ function Custom404() {
                {
                   404 not found
                }" className="glitch">&nbsp;&nbsp;return&nbsp;{"{"}
-                  <br />&nbsp;&nbsp;&nbsp;404 not Found <br />
+                  <br />&nbsp;&nbsp;&nbsp;404 NOT FOUND <br />
                   <LinkRef href="/" className="blue">&nbsp;&nbsp;&nbsp;click here to return Home</LinkRef>
                   <br/>
                   {"  }"};</span>

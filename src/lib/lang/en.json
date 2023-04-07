@@ -49,6 +49,22 @@
     "previous": "Previous project",
     "next": "Next project"
   },
+  "errors": {
+    "emailValidation": "An error occurred while validating the email address",
+    "nameRequired": "Name is required",
+    "nameLength": "Name must be at least 2 characters long",
+    "subjectRequired": "Subject is required",
+    "subjectLengthShort": "Subject is too short",
+    "subjectLengthLong": "Subject is too long",
+    "messageRequired": "Message is required",
+    "messageLength": "Your message is too short, message must be at least 10 characters",
+    "mailRequired": "Email is required",
+    "promiseToast": {
+      "pending": "Sending email ...",
+      "success": "Your message has been sent ✅",
+      "error": "An error has occurred, please send an email manually!"
+    }
+  },
   "projects": [
     {
       "id": 1,

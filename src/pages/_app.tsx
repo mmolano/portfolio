@@ -102,7 +102,6 @@ export default function App({ Component, pageProps }: AppProps) {
           theme="dark"
         />
       </main>
-      {/* TODO: fix mouse move create multiple logs -> hide three warns */}
       <div
         ref={cursorRef}
         style={{

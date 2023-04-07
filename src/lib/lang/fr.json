@@ -49,6 +49,22 @@
     "previous": "Projet précédent",
     "next": "Projet suivant"
   },
+  "errors": {
+    "emailValidation": "Une erreur est survenue lors de la validation de l'adresse mail",
+    "nameRequired": "Nom requis",
+    "nameLength": "Le nom doit faire au moins 2 caractères",
+    "subjectRequired": "Sujet requis",
+    "subjectLengthShort": "Le sujet est trop court",
+    "subjectLengthLong": "Le sujet est trop long",
+    "messageRequired": "Message requis",
+    "messageLength": "Le message est trop court, le message doit faire au moins 10 caractères",
+    "mailRequired": "Email requis",
+    "promiseToast": {
+      "pending": "Envoie du mail ...",
+      "success": "Le message a été envoyé ✅",
+      "error": "Une erreur est survenue, veuillez envoyer un mail manuellement!"
+    }
+  },
   "projects": [
     {
       "id": 1,

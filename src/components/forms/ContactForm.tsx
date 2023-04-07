@@ -9,13 +9,15 @@ import { InputBase } from "../inputs/InputBase";
 import { InputTextArea } from "../inputs/InputTextArea";
 import { toast } from 'react-toastify';
 import cleanedMessage from "@/lib/helpers/Html/sanitize";
+import { useStateContext } from "@/context/AppContext";
 
 export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
    const { inputs, dispatch } = useContactContext();
+   const { translation } = useStateContext();
    const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+   const errorTranslated = translation.errors;
 
    const { name, subject, mail, message, errors } = inputs;
-   // TODO: translate error messages
 
    function validateEmail(email: string) {
       try {
@@ -26,19 +28,18 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
          if (error instanceof Error) {
             return dispatch({
                type: 'set-error',
-               value: error.message,
+               value: errorTranslated.emailValidation,
                which: 'mail'
             });
          } else {
             return dispatch({
                type: 'set-error',
-               value: 'An error occurred while validating the email address',
+               value: errorTranslated.emailValidation,
                which: 'mail'
             });
          }
       }
    };
-
 
    function handleSubmit(e: FormEvent<HTMLFormElement>) {
       e.preventDefault();
@@ -47,46 +48,46 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
       if (!name) {
          errorCount++;
          dispatch({
-            type: 'set-error', value: 'Name is required', which: 'name'
+            type: 'set-error', value: errorTranslated.nameRequired, which: 'name'
          });
       } else if (name.length <= 2 || name.trim().length <= 2) {
          errorCount++;
          dispatch({
-            type: 'set-error', value: 'Name must be at least 2 letters', which: 'name'
+            type: 'set-error', value: errorTranslated.nameLength, which: 'name'
          });
       }
       if (!subject) {
          errorCount++;
          dispatch({
-            type: 'set-error', value: 'Subject is required', which: 'subject'
+            type: 'set-error', value: errorTranslated.subjectRequired, which: 'subject'
          });
       } else if (subject.length <= 5 || subject.trim().length <= 5) {
          errorCount++;
          dispatch({
-            type: 'set-error', value: 'Subject is too short', which: 'subject'
+            type: 'set-error', value: errorTranslated.subjectLengthShort, which: 'subject'
          });
       }
       else if (subject.length > 70 || subject.trim().length > 70) {
          errorCount++;
          dispatch({
-            type: 'set-error', value: 'Subject is too long', which: 'subject'
+            type: 'set-error', value: errorTranslated.subjectLengthLong, which: 'subject'
          });
       }
       if (!message) {
          errorCount++;
          dispatch({
-            type: 'set-error', value: 'Message is required', which: 'message'
+            type: 'set-error', value: errorTranslated.messageRequired, which: 'message'
          });
       } else if (message.length <= 10 || message.trim().length <= 10) {
          errorCount++;
          dispatch({
-            type: 'set-error', value: 'Your message is too short, message must be at least 10 letters', which: 'message'
+            type: 'set-error', value: errorTranslated.messageLength, which: 'message'
          });
       }
       if (!mail) {
          errorCount++;
          dispatch({
-            type: 'set-error', value: 'Email is required', which: 'mail'
+            type: 'set-error', value: errorTranslated.mailRequired, which: 'mail'
          });
       }
 
@@ -115,9 +116,9 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
          toast.promise(
             sendMail,
             {
-               pending: 'Sending email ...',
-               success: 'Your message has been sent ✅',
-               error: 'An error has occurred, please send an email manually!'
+               pending: errorTranslated.promiseToast.pending,
+               success: errorTranslated.promiseToast.success,
+               error: errorTranslated.promiseToast.error
             }
          )
 

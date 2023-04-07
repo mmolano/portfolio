@@ -69,6 +69,26 @@ export interface ProjectPageIF {
    previous: string,
    next: string,
 }
+
+export interface Errors {
+   emailValidation: string
+   nameRequired: string
+   nameLength: string
+   subjectRequired: string
+   subjectLengthShort: string
+   subjectLengthLong: string
+   messageRequired: string
+   messageLength: string
+   mailRequired: string
+   promiseToast: PromiseToast
+}
+
+export interface PromiseToast {
+   pending: string
+   success: string
+   error: string
+}
+
 export interface LanguageIF {
    lang: Lang,
    nav: Nav,
@@ -78,6 +98,7 @@ export interface LanguageIF {
    aboutSection: AboutSectionIF,
    projectPage: ProjectPageIF,
    slideTitle: SlideIF,
+   errors: Errors,
    projects: ProjectIF[],
 }
 

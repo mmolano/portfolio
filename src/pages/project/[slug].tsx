@@ -9,7 +9,7 @@ import StringDate from '@/lib/helpers/Class/StringDate';
 import { ProjectIF, ProjectPageIF } from '@/lib/interface/lang';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Custom404 from '../404';
 
 export default function Project(): JSX.Element {
@@ -18,7 +18,7 @@ export default function Project(): JSX.Element {
    const { slug } = router.query;
    const page = translation.projectPage as ProjectPageIF;
    const projects = translation.projects as ProjectIF[];
-   const project = translation.projects.find(project => project.slug === slug);
+   const project = projects.find((project) => project.slug === slug);
 
    const urlImage = `/images/projects/${slug}/home.png`;
 
@@ -38,11 +38,11 @@ export default function Project(): JSX.Element {
       }
    }, [slug]);
 
-   //TODO: on reload fix error 404 displaying loader should display first
-   if (!project) {
+  if (!project) {
       return <Custom404 />;
    }
 
+   //TODO: on reload fix error 404 displaying loader should display first
    const prevSlugHandler = () => {
       const prevProject = projects.find(prevProject => prevProject.id === project.id - 1);
       return prevProject ? prevProject.slug : null;
@@ -79,7 +79,6 @@ export default function Project(): JSX.Element {
                      <Paragraphe>{project.description}</Paragraphe>
                      <Paragraphe>{page.start + ': ' + dateStart}</Paragraphe>
                      <Paragraphe>{page.end + ': ' + project.date.end}</Paragraphe>
-                     {/* TODO: add loader when slug change to hide weird transition between images */}
                      <Image
                         className="project-image"
                         src={urlImage}
