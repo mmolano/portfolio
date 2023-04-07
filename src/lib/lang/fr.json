@@ -63,7 +63,8 @@
       "pending": "Envoie du mail ...",
       "success": "Le message a été envoyé ✅",
       "error": "Une erreur est survenue, veuillez envoyer un mail manuellement!"
-    }
+    },
+    "wrongUrl": "Il semblerait que l'url n'existe pas, l'url est-il correct?"
   },
   "projects": [
     {

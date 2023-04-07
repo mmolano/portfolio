@@ -51,7 +51,17 @@ h3 {
 
 code {
   display: grid;
-  @include fluid-type($min-width, $max-width, $min-font, 26px);
+  @include fluid-type($min-width, $max-width, $min-font, 20px);
+  text-align: center;
+  grid-gap: 12px;
+
+  & a {
+    border: 1px solid $classic-yellow-white;
+    color: $classic-yellow-white;
+    width: 200px;
+    padding: 10px;
+    margin: 10px auto;
+  }
 }
 
 h2 {
@@ -425,6 +435,10 @@ footer {
   section {
     padding: 25px;
     margin-bottom: 50px;
+  }
+
+  code {
+    margin-top: 20px;
   }
 
   .tag-container {

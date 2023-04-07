@@ -63,7 +63,8 @@
       "pending": "Sending email ...",
       "success": "Your message has been sent ✅",
       "error": "An error has occurred, please send an email manually!"
-    }
+    },
+    "wrongUrl": "You seem lost, are you looking at the correct url?"
   },
   "projects": [
     {

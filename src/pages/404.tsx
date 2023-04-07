@@ -1,24 +1,16 @@
 import { LinkRef } from "@/components/links/LinkRef";
+import { useStateContext } from "@/context/AppContext";
 
 function Custom404() {
-   //TODO: better version of it
+   const { translation } = useStateContext();
+
    return (
       <section className="first-element">
-         <pre>
-            <code>
-               <span className="blue">export default const isAvailable: () {"=> "} {"{"}</span>
-               <span className="blue">&nbsp;if&nbsp;( !isAvailable )&nbsp;{"{"}</span>
-               <span data-text="return
-               {
-                  404 not found
-               }" className="glitch">&nbsp;&nbsp;return&nbsp;{"{"}
-                  <br />&nbsp;&nbsp;&nbsp;404 NOT FOUND <br />
-                  <LinkRef href="/" className="blue">&nbsp;&nbsp;&nbsp;click here to return Home</LinkRef>
-                  <br/>
-                  {"  }"};</span>
-               {" }"}
-            </code>
-         </pre>
+         <code>
+            <b>404 NOT FOUND</b>
+            <span>{translation.errors.wrongUrl}</span>
+            <LinkRef href="/">return Home</LinkRef>
+         </code>    
       </section>
    );
 }

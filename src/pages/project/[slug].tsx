@@ -10,6 +10,7 @@ import { ProjectIF, ProjectPageIF } from '@/lib/interface/lang';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { TailSpin } from 'react-loader-spinner';
 import Custom404 from '../404';
 
 export default function Project(): JSX.Element {
@@ -19,11 +20,13 @@ export default function Project(): JSX.Element {
    const page = translation.projectPage as ProjectPageIF;
    const projects = translation.projects as ProjectIF[];
    const project = projects.find((project) => project.slug === slug);
+   const [isLoading, setIsLoading] = useState<boolean>();
 
    const urlImage = `/images/projects/${slug}/home.png`;
 
    useEffect(() => {
       const sectionProject = document.querySelector('section#project');
+      setIsLoading(true);
       if (sectionProject?.classList.contains('animate')) {
          sectionProject.classList.remove('animate');
       }
@@ -33,16 +36,20 @@ export default function Project(): JSX.Element {
          }
       }, 200);
 
+      const timeOutImageId = setTimeout(() => {
+         setIsLoading(false);
+      }, 1500);
+
       return () => {
          clearTimeout(timeOutID);
+         clearTimeout(timeOutImageId);
       }
    }, [slug]);
 
-  if (!project) {
+   if (!project) {
       return <Custom404 />;
    }
 
-   //TODO: on reload fix error 404 displaying loader should display first
    const prevSlugHandler = () => {
       const prevProject = projects.find(prevProject => prevProject.id === project.id - 1);
       return prevProject ? prevProject.slug : null;
@@ -79,12 +86,23 @@ export default function Project(): JSX.Element {
                      <Paragraphe>{project.description}</Paragraphe>
                      <Paragraphe>{page.start + ': ' + dateStart}</Paragraphe>
                      <Paragraphe>{page.end + ': ' + project.date.end}</Paragraphe>
-                     <Image
+                     {isLoading ? (
+                        <TailSpin
+                           height="80"
+                           width="80"
+                           color="#B191FF"
+                           ariaLabel="tail-spin-loading"
+                           radius="1"
+                           wrapperStyle={{}}
+                           wrapperClass=""
+                           visible={true}
+                        />
+                     ) : <Image
                         className="project-image"
                         src={urlImage}
                         alt="project image"
                         layout="fill"
-                     />
+                     />}
                   </article>
                </div>
             </section>

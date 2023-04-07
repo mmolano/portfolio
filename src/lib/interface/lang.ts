@@ -81,6 +81,7 @@ export interface Errors {
    messageLength: string
    mailRequired: string
    promiseToast: PromiseToast
+   wrongUrl: string
 }
 
 export interface PromiseToast {
