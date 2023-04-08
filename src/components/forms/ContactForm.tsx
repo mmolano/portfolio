@@ -10,6 +10,7 @@ import { InputTextArea } from "../inputs/InputTextArea";
 import { toast } from 'react-toastify';
 import cleanedMessage from "@/lib/helpers/Html/sanitize";
 import { useStateContext } from "@/context/AppContext";
+import { Paragraphe } from "../article/Paragraphe";
 
 export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
    const { inputs, dispatch } = useContactContext();
@@ -148,6 +149,7 @@ export const ContactForm = ({ value }: { value: ContactSectionIF }) => {
       <form onSubmit={(e) => {
          handleSubmit(e);
       }}>
+         <Paragraphe className="text-call">{translation.contactSection.callText}</Paragraphe>
          <DoubleInput>
             <InputBase disabled={handleInputDisabled()} placeholder={value.inputName} type="name" />
             <InputBase disabled={handleInputDisabled()} placeholder={value.inputMail} type="mail" />

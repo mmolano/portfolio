@@ -36,7 +36,8 @@
     "inputSubject": "Sujet",
     "inputTextArea": "Mon message à propos de ...",
     "button": "Envoyer un message !",
-    "submit": "En cours..."
+    "submit": "En cours...",
+    "callText": "Besoin d'une refonte de site, d'une nouvelle fonctionnalité ou d'assistance technique en développement web ? Contactez-moi dès maintenant ! Je répondrai aussi vite que possible à votre message. Je suis impatient de travailler avec vous !"
   },
   "aboutSection": {
     "title": "À propos",

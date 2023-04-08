@@ -2,9 +2,10 @@ import React from "react";
 
 type Props = {
    children: React.ReactNode
+   className: string
 }
 
-export const Paragraphe = ({ children }: Props) => {
+export const Paragraphe = ({ children, className }: Props) => {
 
    function highlight(text: string) {
       const numbers = text.match(/\d+/g);
@@ -26,7 +27,7 @@ export const Paragraphe = ({ children }: Props) => {
    }
    return (
       <>
-         <p>{highlight(children as string)}</p>
+         <p className={className}>{highlight(children as string)}</p>
       </>
    )
 }

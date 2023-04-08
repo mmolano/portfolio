@@ -36,7 +36,8 @@
     "inputSubject": "Subject",
     "inputTextArea": "My awesome message about ...",
     "button": "Send Message!",
-    "submit": "Sending..."
+    "submit": "Sending...",
+    "callText": "Need a website redesign, new functionality, or technical assistance in web development? Contact me now! I'll get back to you as soon as possible. Looking forward to work with you!"
   },
   "aboutSection": {
     "title": "About",
@@ -112,7 +113,7 @@
       "type": "Front | Back",
       "title": "Fidensio | for partners",
       "slug": "fidensio-partners",
-      "description": "This project is an application that i developed as a memeber of the Fidensio team. It utilizes serveral technologies, including Laravel 8, Vue.js and Stripe for payment processing. The aim of this project was to allow one of the company's partners to manage orders from a dashboard while providing a simple and effective desktop and mobile experience.",
+      "description": "This project is an application that i developed as a member of the Fidensio team. It utilizes serveral technologies, including Laravel 8, Vue.js and Stripe for payment processing. The aim of this project was to allow one of the company's partners to manage orders from a dashboard while providing a simple and effective desktop and mobile experience.",
       "tools": [
         "gitlab",
         "laravel 8",

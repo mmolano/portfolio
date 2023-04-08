@@ -16,6 +16,7 @@
     list-style: none;
     @include fluid-type($min-width, $max-width, 20px, 40px);
     color: $element-color;
+
     & li {
       margin-left: 30px;
     }
@@ -182,6 +183,13 @@ ul.glitch {
 form {
   display: flex;
   justify-content: space-between;
+
+  & p.text-call {
+    margin: 0px 11px 32px;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
 }
 
 .container {
@@ -353,9 +361,11 @@ form {
 
   .first-element {
     margin-top: 200px;
+
     &.slug {
       margin-top: 150px;
     }
+
     &.three-element {
       margin-top: 15px;
       padding-top: 200px;
