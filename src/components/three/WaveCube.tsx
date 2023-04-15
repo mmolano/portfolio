@@ -98,6 +98,11 @@ function Box() {
    const [box, setBox] = useState<THREE.Object3D>();
 
    useEffect(() => {
+      if (process.env.NEXT_PUBLIC_NODE === 'production') {
+         // disable warn on mouse movement caused by texture
+         console.warn = () => { };
+      }
+      
       const boxObject = createBoxObject(layerShaderUniforms);
       setBox(boxObject);
 

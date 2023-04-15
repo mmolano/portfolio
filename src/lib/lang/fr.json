@@ -86,14 +86,15 @@
       "date": {
         "start": "2023-01-09",
         "end": "En cours | Ajout de données"
-      }
+      },
+      "link": "https://github.com/mmolano/next-react-shop"
     },
     {
       "id": 2,
       "title": "API de recettes | Laravel",
       "slug": "recipe-api-laravel",
       "type": "Back | WIP",
-      "description": "Ce projet est une application API REST en Laravel 9 permettant la création la lecture, la modification et la suppression de recettes de cuisine. Cette application est conçue pour être exploités par d'autres applications pour afficher les recettes. Le développement de ce projet est toujours en cours. L'application utilise des tests PHPUnit et des Logs afin de d'enregistrer des activités et gérer les erreurs pour faciliter la résolution des problèmes éventuels.",
+      "description": "Ce projet est une application API REST en Laravel 9 permettant la création, la lecture, la modification et la suppression de recettes de cuisine. Cette application est conçue pour être exploités par d'autres applications pour afficher les recettes. Le développement de ce projet est toujours en cours. L'application utilise des tests PHPUnit et des Logs afin d'enregistrer des activités et gérer les erreurs pour faciliter la résolution des problèmes éventuels.",
       "tools": [
         "github",
         "laravel 9",
@@ -106,14 +107,15 @@
       "date": {
         "start": "2023-01-20",
         "end": "En cours"
-      }
+      },
+      "link": "https://github.com/mmolano/Laravel-Recipe-small-api"
     },
     {
       "id": 3,
       "title": "Fidensio | App partenaires",
       "slug": "fidensio-partners",
       "type": "Front | Back",
-      "description": "Ce projet est une application que j'ai développés seul en tant que memebre de l'équipe de Fidensio. Elle utilise plusieurs technologies, notamment Laravel 8, Vue.js et Stripe pour le traitement des paiements. Le but de ce projet était de permettre à l'un des partenaires de l'entreprise de gérer les commandes depuis un dashboard, tout en offrant une expérience desktop et mobile simple et efficace.",
+      "description": "Ce projet est une application que j'ai développés seul en tant que membre de l'équipe de Fidensio. Elle utilise plusieurs technologies, notamment Laravel 8, Vue.js et Stripe pour le traitement des paiements. Le but de ce projet était de permettre à l'un des partenaires de l'entreprise de gérer les commandes depuis un dashboard, tout en offrant une expérience desktop et mobile simple et efficace.",
       "tools": [
         "gitlab",
         "laravel 8",
@@ -124,7 +126,7 @@
         "vue.js"
       ],
       "date": {
-        "start": "2021-07",
+        "start": "2021-04-13",
         "end": "2021-08"
       }
     },
@@ -133,8 +135,14 @@
       "title": "Fidensio | migration DB",
       "slug": "fidensio-migration",
       "type": "Back",
-      "description": "L'application suivante constitue l'un des projets de Fidensio afin de pouvoir exploiter la toute nouvelle API et structure de l'entreprise. L'objectif de ce projet est de migrer une anicenne base de données vers une nouvelle infrastructure, tout en minimisant les risques de perturbation des activités de l'entreprise. Afin de s'assurer d'une transition simple et sans incidents majeurs, un système de queue pour gérer d'éventuels problèmes pouvant survenir lors de la migration a été mis en place. Ce projet a été entièrement fait par moi-même",
-      "tools": ["gitlab", "laravel 8", "php", "queues", "mysql"],
+      "description": "L'application suivante constitue l'un des projets de Fidensio afin de pouvoir exploiter la toute nouvelle API et structure de l'entreprise. L'objectif de ce projet est de migrer une ancienne base de données vers une nouvelle infrastructure, tout en minimisant les risques de perturbation des activités de l'entreprise. Afin de s'assurer d'une transition simple et sans incidents majeurs, un système de queue pour gérer d'éventuels problèmes pouvant survenir lors de la migration a été mis en place. Ce projet a été entièrement fait par moi-même.",
+      "tools": [
+        "gitlab",
+        "laravel 8",
+        "php",
+        "queues",
+        "mysql"
+      ],
       "date": {
         "start": "2021-07",
         "end": "2021-08"
@@ -145,7 +153,7 @@
       "title": "Fidensio | API",
       "slug": "fidensio-api",
       "type": "Back",
-      "description": "Ce projet a été réalisé en étroite collaboration avec le CTO de Fidensio, qui a apporté son expertise ,pour garantir le succès du projet. Il s'agit d'un des plus gros projets technique de l'entreprise à ce moment qui visait à migrer une application existante de Laravel 5 et PHP 7.4 vers une API REST en Laravel 8 et PHP 8. Cette migration d'infrastructure plus récente et plus performante permet à Fdiensio d'avoir une solution plus adaptée et modulable en fonction de ses besoins. Pour ce projet, je me suis occupé de refractor et de créer les tests PHPUnit en utilisant la méthode TDD",
+      "description": "Ce projet a été réalisé en étroite collaboration avec le CTO de Fidensio, qui a apporté son expertise afin de garantir le succès du projet. Il s'agit d'un des plus gros projets technique de l'entreprise à ce moment et qui visait à migrer une application existante de Laravel 5 et PHP 7.4 vers une API REST en Laravel 8 et PHP 8. Cette migration d'infrastructure plus récente et plus performante permet à Fidensio d'avoir une solution plus adaptée et modulable en fonction de ses besoins. Pour ce projet, je me suis occupé de refactor certains service et de créer les tests PHPUnit en utilisant la méthode TDD",
       "tools": [
         "gitlab",
         "laravel 8",
@@ -166,7 +174,12 @@
       "slug": "fidensio-nuxt",
       "type": "Front",
       "description": "La toute nouvelle application front de Fidensio a été conçue avec la collaboration de freelancers. Pour obtenir les informations nécessaires, j'ai mis en relation cette application qui ne donnait que des informations statique (travail des freelancers) par les données disponible avec l'API de Fidensio.",
-      "tools": ["gitlab", "vue.js", "nuxt.js", "axios"],
+      "tools": [
+        "gitlab",
+        "vue.js",
+        "nuxt.js",
+        "axios"
+      ],
       "date": {
         "start": "2021-07",
         "end": "2021-08 | Inconnue"

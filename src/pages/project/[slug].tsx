@@ -21,10 +21,17 @@ export default function Project(): JSX.Element {
    const projects = translation.projects as ProjectIF[];
    const project = projects.find((project) => project.slug === slug);
    const [isLoading, setIsLoading] = useState<boolean>();
+   const [date, setDate] = useState<string>("");
 
    const urlImage = `/images/projects/${slug}/home.png`;
 
    useEffect(() => {
+
+      if (project) {
+         const dateStart = new StringDate(project.date.start).fullDate;
+         setDate(dateStart);
+      }
+
       const sectionProject = document.querySelector('section#project');
       setIsLoading(true);
       if (sectionProject?.classList.contains('animate')) {
@@ -60,8 +67,6 @@ export default function Project(): JSX.Element {
       return nextProject ? nextProject.slug : null;
    };
 
-   const dateStart = new StringDate(project.date.start).fullDate;
-
    return (
       <>
          <Layout>
@@ -84,7 +89,10 @@ export default function Project(): JSX.Element {
                   </div>
                   <article>
                      <Paragraphe>{project.description}</Paragraphe>
-                     <Paragraphe>{page.start + ': ' + dateStart}</Paragraphe>
+                     {
+                        project.link ? <LinkRef isOutSite={true} target="_blank" rel="noreferrer" href={project.link}>Github: <span className="external-link">{project.link}</span></LinkRef> : null
+                     }
+                     <Paragraphe>{page.start + ': ' + date}</Paragraphe>
                      <Paragraphe>{page.end + ': ' + project.date.end}</Paragraphe>
                      {isLoading ? (
                         <TailSpin

@@ -26,6 +26,7 @@ export interface ProjectIF {
    description: string
    tools: string[]
    date: ProjectDate
+   link?: string
 }
 
 export interface SlideIF {

@@ -6,7 +6,7 @@
     background-color: $element-color;
   }
   100% {
-    top: 75%;
+    transform: translateY(31px);
     opacity: 0;
   }
 }

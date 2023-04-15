@@ -28,23 +28,35 @@ export const LayoutHeader = (): JSX.Element => {
       const contactPosition = contactRef?.current?.getBoundingClientRect().top;
       const aboutPosition = aboutRef?.current?.getBoundingClientRect().top;
 
-      if (projectsPosition! < 100 && contactPosition! > 1) {
-         setActiveSection('projects');
+      const windowHeight = window.innerHeight;
+
+      if (windowHeight > 1870) {
+         setActiveSection('');
          projectsRef?.current?.classList.remove('animate-out');
          projectsRef?.current?.classList.add('animate');
-      } else if (contactPosition! < 1 && aboutPosition! > 50) {
-         setActiveSection('contact');
          contactRef?.current?.classList.remove('animate-out');
          contactRef?.current?.classList.add('animate');
-      } else if (aboutPosition! < 50) {
-         setActiveSection('about');
          aboutRef?.current?.classList.remove('animate-out');
          aboutRef?.current?.classList.add('animate');
       } else {
-         projectsRef?.current?.classList.replace('animate', 'animate-out');
-         contactRef?.current?.classList.replace('animate', 'animate-out');
-         aboutRef?.current?.classList.replace('animate', 'animate-out');
-         setActiveSection('');
+         if (aboutPosition! < windowHeight / 2 && aboutPosition! > -windowHeight / 2) {
+            setActiveSection('about');
+            aboutRef?.current?.classList.remove('animate-out');
+            aboutRef?.current?.classList.add('animate');
+         } else if (projectsPosition! < 100 && contactPosition! > 1) {
+            setActiveSection('projects');
+            projectsRef?.current?.classList.remove('animate-out');
+            projectsRef?.current?.classList.add('animate');
+         } else if (contactPosition! < 1 && aboutPosition! > 50) {
+            setActiveSection('contact');
+            contactRef?.current?.classList.remove('animate-out');
+            contactRef?.current?.classList.add('animate');
+         } else if (projectsPosition! > 100) {
+            projectsRef?.current?.classList.replace('animate', 'animate-out');
+            contactRef?.current?.classList.replace('animate', 'animate-out');
+            aboutRef?.current?.classList.replace('animate', 'animate-out');
+            setActiveSection('');
+         }
       }
    }, [projectsRef, contactRef, aboutRef]);
 
@@ -106,7 +118,7 @@ export const LayoutHeader = (): JSX.Element => {
                            </div>
                            <span>|</span>
                            <div>
-                                 <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
+                              <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
                            </div>
                         </>
                      ) : (
@@ -163,7 +175,7 @@ export const LayoutHeader = (): JSX.Element => {
                               <>
                                  <Button onClick={() => changeLang('fr')}>{translation.lang.fr}</Button>
                                  <span>|</span>
-                                    <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
+                                 <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
                               </>
                            ) : (
                               <>

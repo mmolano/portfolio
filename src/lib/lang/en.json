@@ -73,7 +73,7 @@
       "title": "E-Commerce | React.js",
       "slug": "e-commerce-react",
       "type": "Front | WIP",
-      "description": "This e-commerce web application is a personal project aimed at providing a shopping experience for an online store. It allows users to easily add, view, and remove products from their carts. The payment process is handled by Stripe, and the login system is provided by Auth0.",
+      "description": "This e-commerce web application is a personal project aimed at providing a good shopping experience. It allows users to easily add, view, and remove products from their carts. The payment process is handled by Stripe, and the login system is provided by Auth0.",
       "tools": [
         "github",
         "react.js",
@@ -86,14 +86,15 @@
       "date": {
         "start": "2023-01-09",
         "end": "Pending | Will add more data"
-      }
+      },
+      "link": "https://github.com/mmolano/next-react-shop"
     },
     {
       "id": 2,
       "title": "Recipe API | Laravel",
       "slug": "recipe-api-laravel",
       "type": "Back | WIP",
-      "description": "This project is a Laravel 9 REST API application that allows to: create, read, modify and delete recipes. The application is designed to be used by other applications to display recipes. The development of this project is ongoing, and the application utilizes PHPUnit tests and logs to record activites and manage errors, facilitating the resolution of any potential issues.",
+      "description": "This project is a Laravel 9 REST API application that allows to: create, read, modify and delete recipes. The application is designed to be used by other applications to display recipes and his development is ongoing. The application utilizes PHPUnit tests and logs to record activites and manage errors to facilitate the resolution of any potential issues.",
       "tools": [
         "github",
         "laravel 9",
@@ -106,7 +107,8 @@
       "date": {
         "start": "2023-01-20",
         "end": "WIP"
-      }
+      },
+      "link": "https://github.com/mmolano/Laravel-Recipe-small-api"
     },
     {
       "id": 3,
@@ -124,7 +126,7 @@
         "vue.js"
       ],
       "date": {
-        "start": "2021-07",
+        "start": "2021-04-13",
         "end": "2021-08"
       }
     },
@@ -133,8 +135,14 @@
       "title": "Fidensio | DB migration",
       "slug": "fidensio-migration",
       "type": "Back",
-      "description": "The following project aimed at utilizing the company's brand new API and structure. The objective of this project was to migrate an old database to a new infrastructure while minimizing the risk of disruptigng the company's activities. To ensure a smooth and incident-free transition, a queue system has been implemented to handle any potential issues that may occure during the migration. This project was entirely done by myself.",
-      "tools": ["gitlab", "laravel 8", "php", "queues", "mysql"],
+      "description": "The following project aimed at utilizing the company's brand new API and structure. The objective of this project was to migrate an old database to a new infrastructure while minimizing the risk of disruptigng the company's activities. To ensure a smooth and incident-free transition, a queue system was implemented to handle any potential issues that may occure during the migration. This project was entirely done by myself.",
+      "tools": [
+        "gitlab",
+        "laravel 8",
+        "php",
+        "queues",
+        "mysql"
+      ],
       "date": {
         "start": "2021-07",
         "end": "2021-08"
@@ -145,7 +153,7 @@
       "title": "Fidensio | API",
       "slug": "fidensio-api",
       "type": "Back",
-      "description": "This application was carried out in close collaboration with the CTO of Fidensio, who brought his expertise to ensure the success of the project. It is one of the biggest technical projects of the company at that time, which aimed to migrate an existing application from Laravel 5 and PHP 7.4 to a REST API in Laravel 8 and PHP 8. This migration to a more recent and more performant infrastructure allows Fidensio to have a solution that is more suited and scalable to its needs. For this project i was in charged to refractor some services and make the PHPUnit tests for them using the TDD method.",
+      "description": "This application was carried out in close collaboration with the CTO of Fidensio, who brought his expertise to ensure the success of the project. It is one of the biggest technical projects of the company at that time, which aimed to migrate an existing application from Laravel 5 and PHP 7.4 to a REST API in Laravel 8 and PHP 8. This migration to a more recent and more performant infrastructure allows Fidensio to have a solution that is more suited and scalable to its needs. For this project i was in charge to refactor some services and make the PHPUnit tests for them using the TDD method.",
       "tools": [
         "gitlab",
         "laravel 8",
@@ -165,8 +173,13 @@
       "title": "Fidensio | Front-end",
       "slug": "fidensio-nuxt",
       "type": "Front",
-      "description": "This brand new front-end application was built in collaboration with freelancers. In order to obtain all the necessary information, i had to connect this application, which was only provided with static informations (initial work made by the freelancer team), to the data available through Fidensio's API.",
-      "tools": ["gitlab", "vue.js", "nuxt.js", "axios"],
+      "description": "This brand new front-end application was built in collaboration with freelancers. In order to obtain all the necessary information, i had to connect this application, which was only provided with static informations (initial work made by the freelancer team) to the data available through Fidensio's API.",
+      "tools": [
+        "gitlab",
+        "vue.js",
+        "nuxt.js",
+        "axios"
+      ],
       "date": {
         "start": "2021-07",
         "end": "2021-08 | WIP (not finished when i left)"

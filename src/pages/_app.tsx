@@ -8,6 +8,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
+import { Analytics } from '@vercel/analytics/react';
 
 const title: string = "Miguel.dev()";
 const url: string = process.env.NEXT_PUBLIC_URL!;
@@ -101,6 +102,7 @@ export default function App({ Component, pageProps }: AppProps) {
           newestOnTop={false}
           theme="dark"
         />
+        <Analytics />
       </main>
       <div
         ref={cursorRef}

@@ -300,6 +300,10 @@ form {
     width: 100px !important;
   }
 
+  .three-box-container {
+    opacity: 0.4;
+  }
+
   .fourth-element {
     & .container {
       grid-template-columns: repeat(1, minmax(50px, 1fr));
@@ -346,6 +350,7 @@ form {
   .second-element ul {
     padding: 0;
   }
+
 }
 
 @include mobile-nav {

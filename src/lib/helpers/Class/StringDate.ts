@@ -1,6 +1,7 @@
 import moment from "moment";
 import 'moment/locale/fr';
 import 'moment/locale/en-gb';
+import 'moment/locale/ja';
 
 class StringDate {
    private readonly date: string;
@@ -15,7 +16,7 @@ class StringDate {
 
       moment.locale(this.language ? this.language : 'en-gb');
 
-      this.date = moment().format('ddd, LL');
+      this.date = moment(dateValue).format('ddd, LL');
    }
 
    public get fullDate() {
