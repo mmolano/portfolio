@@ -14,7 +14,7 @@ class StringDate {
          throw new Error("Invalid date string");
       }
 
-      moment.locale(this.language ? this.language : 'en-gb');
+      moment.locale(this.language !== null ? this.language : 'en-gb');
 
       this.date = moment(dateValue).format('ddd, LL');
    }

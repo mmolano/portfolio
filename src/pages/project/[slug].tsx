@@ -26,12 +26,13 @@ export default function Project(): JSX.Element {
    const urlImage = `/images/projects/${slug}/home.png`;
 
    useEffect(() => {
-
       if (project) {
          const dateStart = new StringDate(project.date.start).fullDate;
          setDate(dateStart);
       }
+   }, [slug, translation])
 
+   useEffect(() => {
       const sectionProject = document.querySelector('section#project');
       setIsLoading(true);
       if (sectionProject?.classList.contains('animate')) {

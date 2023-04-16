@@ -108,10 +108,10 @@ export const LayoutHeader = (): JSX.Element => {
                            </div>
                            <span>|</span>
                            <div>
-                              <Button onClick={() => changeLang('jp')}>{translation.lang.jp}</Button>
+                              <Button onClick={() => changeLang('ja')}>{translation.lang.ja}</Button>
                            </div>
                         </>
-                     ) : lang === 'jp' ? (
+                     ) : lang === 'ja' ? (
                         <>
                            <div>
                               <Button onClick={() => changeLang('fr')}>{translation.lang.fr}</Button>
@@ -128,7 +128,7 @@ export const LayoutHeader = (): JSX.Element => {
                            </div>
                            <span>|</span>
                            <div>
-                              <Button onClick={() => changeLang('jp')}>{translation.lang.jp}</Button>
+                              <Button onClick={() => changeLang('ja')}>{translation.lang.ja}</Button>
                            </div>
                         </>
                      )}
@@ -169,9 +169,9 @@ export const LayoutHeader = (): JSX.Element => {
                               <>
                                  <Button onClick={() => changeLang('en')}>{translation.lang.en}</Button>
                                  <span>|</span>
-                                 <Button onClick={() => changeLang('jp')}>{translation.lang.jp}</Button>
+                                 <Button onClick={() => changeLang('ja')}>{translation.lang.ja}</Button>
                               </>
-                           ) : lang === 'jp' ? (
+                           ) : lang === 'ja' ? (
                               <>
                                  <Button onClick={() => changeLang('fr')}>{translation.lang.fr}</Button>
                                  <span>|</span>
@@ -181,7 +181,7 @@ export const LayoutHeader = (): JSX.Element => {
                               <>
                                  <Button onClick={() => changeLang('fr')}>{translation.lang.fr}</Button>
                                  <span>|</span>
-                                 <Button onClick={() => changeLang('jp')}>{translation.lang.jp}</Button>
+                                 <Button onClick={() => changeLang('ja')}>{translation.lang.ja}</Button>
                               </>
                            )}
                            <span>{`}`}</span>

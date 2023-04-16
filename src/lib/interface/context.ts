@@ -1,7 +1,7 @@
 import { LanguageIF } from "./lang";
 import { RefObject } from "react";
 
-export type Lang = "en" | "fr" | "jp";
+export type Lang = "en" | "fr" | "ja";
 
 export interface ContextType {
    lang: Lang,
