@@ -132,24 +132,6 @@
     },
     {
       "id": 4,
-      "title": "Fidensio | DB migration",
-      "slug": "fidensio-migration",
-      "type": "Back",
-      "description": "The following project aimed at utilizing the company's brand new API and structure. The objective of this project was to migrate an old database to a new infrastructure while minimizing the risk of disruptigng the company's activities. To ensure a smooth and incident-free transition, a queue system was implemented to handle any potential issues that may occure during the migration. This project was entirely done by myself.",
-      "tools": [
-        "gitlab",
-        "laravel 8",
-        "php",
-        "queues",
-        "mysql"
-      ],
-      "date": {
-        "start": "2021-07",
-        "end": "2021-08"
-      }
-    },
-    {
-      "id": 5,
       "title": "Fidensio | API",
       "slug": "fidensio-api",
       "type": "Back",
@@ -166,6 +148,24 @@
       "date": {
         "start": "2020-09",
         "end": "2021-08 | WIP (not finished when i left)"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Fidensio | DB migration",
+      "slug": "fidensio-migration",
+      "type": "Back",
+      "description": "The following project aimed at utilizing the company's brand new API previously made with the CTO and the new database structure. The objective of this project was to migrate an old database to a new infrastructure while minimizing the risk of disruptigng the company's activities. To ensure a smooth and incident-free transition, a queue system was implemented to handle any potential issues that may occure during the migration. This project was entirely done by myself.",
+      "tools": [
+        "gitlab",
+        "laravel 8",
+        "php",
+        "queues",
+        "mysql"
+      ],
+      "date": {
+        "start": "2021-07",
+        "end": "2021-08"
       }
     },
     {
