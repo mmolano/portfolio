@@ -1,0 +1,32 @@
+.section-title {
+   margin: 60px auto;
+   width: fit-content;
+   position: relative;
+
+   &::before,
+   &::after {
+      content: "";
+      display: block;
+      width: 150px;
+      height: 3px;
+      background: $default-white;
+      top: 50%;
+      position: absolute;
+   }
+
+   &::before {
+      left: 120%;
+   }
+
+   &::after {
+      right: 120%;
+   }
+
+   @include mobile-nav {
+
+      &::before,
+      &::after {
+         width: 65px;
+      }
+   }
+}

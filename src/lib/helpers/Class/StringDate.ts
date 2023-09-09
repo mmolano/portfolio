@@ -5,6 +5,7 @@ import 'moment/locale/ja';
 
 class StringDate {
    private readonly date: string;
+   private readonly formatDate: string;
    private readonly language: string | undefined = localStorage.getItem('lang')?.toString();
 
    constructor(dateString: string) {
@@ -17,10 +18,15 @@ class StringDate {
       moment.locale(this.language !== null ? this.language : 'en-gb');
 
       this.date = moment(dateValue).format('ddd, LL');
+      this.formatDate = moment(dateValue).format('L');
    }
 
    public get fullDate() {
       return this.date;
+   }
+
+   public get normalDate() {
+      return this.formatDate;
    }
 
    public set newDateLL(date: Date) {

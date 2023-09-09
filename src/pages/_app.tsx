@@ -76,12 +76,15 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta data-n-head="ssr" name="robots" content="index, follow" />
           <meta data-n-head="ssr" name="description" content="Welcome to my online portfolio. I am a web developer using PHP, Laravel, ReactJS, and VueJS. I am passionate about creating modern, high-performing, and user-friendly websites and applications. My expertise in PHP, Laravel, ReactJS, and VueJS enables me to deliver reliable and efficient solutions for my clients. On this site, you will find examples of my most recent projects and details on my skills and web development experiences. Don't hesitate to contact me if you need my web development services!" />
           <meta data-n-head="ssr" name="keywords" content="web developer, PHP, Laravel, ReactJS, VueJS, portfolio" />
-          <meta data-n-head="ssr" property="og:description" content="Welcome to my online portfolio. I am a web developer using PHP, Laravel, ReactJS, and VueJS. I am passionate about creating modern, high-performing, and user-friendly websites and applications. My expertise in PHP, Laravel, ReactJS, and VueJS enables me to deliver reliable and efficient solutions for my clients. On this site, you will find examples of my most recent projects and details on my skills and web development experiences. Don't hesitate to contact me if you need my web development services!" />
 
-          <meta data-n-head="ssr" property="og:image" content={url + '/website/dev.png'} />
-          <meta data-n-head="ssr" name="twitter:image:src" content={url + '/website/dev.png'} />
-          <meta data-n-head="ssr" name="twitter:card" content="summary_large_image" />
+          <meta data-n-head="ssr" property="og:description" content="Welcome to my online portfolio! This website was made with React and ThreeJS" />
+          <meta data-n-head="ssr" property="og:image" content='/images/website/dev.png' />
+          <meta data-n-head="ssr" property="og:title" content="Miguel.dev" />
+          <meta data-n-head="ssr" property="og:type" content="website" />
           <meta data-n-head="ssr" property="og:url" content={url} />
+          <meta data-n-head="ssr" property="twitter:description" content="Welcome to my online portfolio!" />
+          <meta data-n-head="ssr" property="twitter:image" content='https://miguel-dev.vercel.app/images/website/dev.png' />
+          <meta data-n-head="ssr" name="twitter:card" content="summary_large_image" />
 
           <link data-n-head="ssr" rel="manifest" href="/site.webmanifest" />
           <link data-n-head="ssr" rel="icon" sizes="48x48" href="/icons/favicon.ico" />

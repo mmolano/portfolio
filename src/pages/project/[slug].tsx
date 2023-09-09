@@ -76,8 +76,8 @@ export default function Project(): JSX.Element {
                <div className="container">
                   <div className="breadcrumb">
                      <ul>
-                        <li><LinkRef href="/">Home</LinkRef></li>
-                        <li><LinkRef href={`/#projects`}>Projects</LinkRef></li>
+                        <li><LinkRef href="/">{page.breadHome}</LinkRef></li>
+                        <li><LinkRef href={`/#projects`}>{page.breadroject}</LinkRef></li>
                         <li><LinkRef href={`/project/${slug}`}>{project.title}</LinkRef></li>
                      </ul>
                   </div>
@@ -89,12 +89,26 @@ export default function Project(): JSX.Element {
                      }
                   </div>
                   <article>
+                     <div className="flex-between">
+                        <div>
+                           <Paragraphe className="bold">{page.companyName}</Paragraphe>
+                           <Paragraphe>{project.company}</Paragraphe>
+                        </div>
+                        <div>
+                           <Paragraphe className="bold">{page.dateString}</Paragraphe>
+                           <Paragraphe>{date + ' - ' + project.date.end}</Paragraphe>
+                        </div>
+                        <div>
+                           <Paragraphe className="bold">{page.linkString}</Paragraphe>
+                           {
+                              project.link ? <LinkRef isOutSite={true} target="_blank" rel="noreferrer" href={project.link}><span className="external-link">{project.link}</span></LinkRef> : <p>{page.noLink}</p>
+                           }
+                        </div>
+                     </div>
+                     <h4 className="section-title">{page.objective}</h4>
                      <Paragraphe>{project.description}</Paragraphe>
-                     {
-                        project.link ? <LinkRef isOutSite={true} target="_blank" rel="noreferrer" href={project.link}>Github: <span className="external-link">{project.link}</span></LinkRef> : null
-                     }
-                     <Paragraphe>{page.start + ': ' + date}</Paragraphe>
-                     <Paragraphe>{page.end + ': ' + project.date.end}</Paragraphe>
+                     <h4 className="section-title">{page.realization}</h4>
+                     <Paragraphe>{project.description}</Paragraphe>
                      {isLoading ? (
                         <TailSpin
                            height="80"
@@ -110,7 +124,7 @@ export default function Project(): JSX.Element {
                         className="project-image"
                         src={urlImage}
                         alt="project image"
-                        layout="fill"
+                        fill
                      />}
                   </article>
                </div>

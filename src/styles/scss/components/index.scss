@@ -125,29 +125,42 @@ ul.glitch {
     width: 75%;
 
     & .card {
-      margin: 3px;
+      margin: 12px;
       width: 300px;
-      height: 300px;
+      height: 330px;
       transition: 0.5s;
+
+      & .card-title-section {
+        background-color: #0b0b0c;
+        padding: 10px;
+
+        & h3 {
+          font-family: $ultra-light-italic-font;
+        }
+
+        & h4 {
+          font-family: $medium-italic-font;
+        }
+      }
 
       &:hover {
         scale: 1.1;
         transition: scale 0.5s;
       }
 
-      & h3 {
+      & h3,
+      h4 {
+        margin: 14px auto;
         text-align: center;
       }
 
       & .project {
-        height: 230px;
+        height: 220px;
         text-align: center;
 
         & img {
-          width: 115px;
-          aspect-ratio: 3/2;
-          object-fit: contain;
-          mix-blend-mode: color-burn;
+          height: 220px;
+          width: 100%;
         }
       }
     }
@@ -296,10 +309,6 @@ form {
 }
 
 @include ipad {
-  .projects-container .row .card img {
-    width: 100px !important;
-  }
-
   .three-box-container {
     opacity: 0.4;
   }
@@ -334,10 +343,6 @@ form {
     & .flex-inputs {
       width: 100%;
     }
-  }
-
-  .projects-container .row .card img {
-    width: 90px !important;
   }
 }
 

@@ -48,8 +48,9 @@ export default function Home(): JSX.Element {
 
   const calculateWidth = useCallback(() => {
     const rowWidth = rowRef.current!.offsetWidth;
-    let elementWidth = 303;
-    let elementHeight = 303;
+    let elementWidth = 312;
+    // count padding and maring in css file for better results (can also be changed by getting the size with JS)
+    let elementHeight = 360;
 
     if (rowWidth < elementWidth) {
       elementWidth = 250;

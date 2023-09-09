@@ -48,7 +48,15 @@
     "start": "Date de début",
     "end": "Date de fin",
     "previous": "Projet précédent",
-    "next": "Projet suivant"
+    "next": "Projet suivant",
+    "nolink": "Pas de lien",
+    "breadHome": "Accueil",
+    "breadroject": "Projets",
+    "companyName": "Company",
+    "dateString": "Date",
+    "linkString": "Liens",
+    "objective": "Objectif",
+    "realization": "Réalisation"
   },
   "errors": {
     "emailValidation": "Une erreur est survenue lors de la validation de l'adresse mail",
@@ -70,7 +78,7 @@
   "projects": [
     {
       "id": 1,
-      "title": "Application E-commerce | React.js",
+      "title": "React.js | E-commerce",
       "slug": "e-commerce-react",
       "type": "Front | WIP",
       "description": "Cette application web e-commerce est un projet personnel conçue pour offrir un parcours d'achat simple pour un site de vente en ligne. Elle permet aux utilisateurs d'ajouter, de voir et de retirer des produits à leurs paniers en toute simplicité. Le processus de paiement est assuré par Stripe et le système de connexion est quant à lui assuré par Auth0.",
@@ -87,11 +95,12 @@
         "start": "2023-01-09",
         "end": "En cours | Ajout de données"
       },
-      "link": "https://github.com/mmolano/next-react-shop"
+      "link": "https://github.com/mmolano/next-react-shop",
+      "company": "Aucune - Projet personnel"
     },
     {
       "id": 2,
-      "title": "API de recettes | Laravel",
+      "title": "Laravel | API Recettes",
       "slug": "recipe-api-laravel",
       "type": "Back | WIP",
       "description": "Ce projet est une application API REST en Laravel 9 permettant la création, la lecture, la modification et la suppression de recettes de cuisine. Cette application est conçue pour être exploités par d'autres applications pour afficher les recettes. Le développement de ce projet est toujours en cours. L'application utilise des tests PHPUnit et des Logs afin d'enregistrer des activités et gérer les erreurs pour faciliter la résolution des problèmes éventuels.",
@@ -108,11 +117,12 @@
         "start": "2023-01-20",
         "end": "En cours"
       },
-      "link": "https://github.com/mmolano/Laravel-Recipe-small-api"
+      "link": "https://github.com/mmolano/Laravel-Recipe-small-api",
+      "company": "Aucune - Projet personnel"
     },
     {
       "id": 3,
-      "title": "Fidensio | App partenaires",
+      "title": "Fidensio | Partenaires",
       "slug": "fidensio-partners",
       "type": "Front | Back",
       "description": "Ce projet est une application que j'ai développés seul en tant que membre de l'équipe de Fidensio. Elle utilise plusieurs technologies, notamment Laravel 8, Vue.js et Stripe pour le traitement des paiements. Le but de ce projet était de permettre à l'un des partenaires de l'entreprise de gérer les commandes depuis un dashboard, tout en offrant une expérience desktop et mobile simple et efficace.",
@@ -128,7 +138,8 @@
       "date": {
         "start": "2021-04-13",
         "end": "2021-08"
-      }
+      },
+      "company": "Fidensio"
     },
     {
       "id": 4,
@@ -148,7 +159,8 @@
       "date": {
         "start": "2020-09",
         "end": "2021-08 | WIP (Pas complet lorsque je suis partis)"
-      }
+      },
+      "company": "Fidensio"
     },
     {
       "id": 5,
@@ -166,7 +178,8 @@
       "date": {
         "start": "2021-07",
         "end": "2021-08"
-      }
+      },
+      "company": "Fidensio"
     },
     {
       "id": 6,
@@ -183,7 +196,8 @@
       "date": {
         "start": "2021-07",
         "end": "2021-08 | Inconnue"
-      }
+      },
+      "company": "Fidensio"
     }
   ]
 }

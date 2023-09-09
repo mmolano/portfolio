@@ -27,6 +27,7 @@ export interface ProjectIF {
    tools: string[]
    date: ProjectDate
    link?: string
+   company: string
 }
 
 export interface SlideIF {
@@ -70,6 +71,14 @@ export interface ProjectPageIF {
    end: string
    previous: string
    next: string
+   noLink: string
+   breadHome: string
+   breadroject: string
+   companyName: string
+   dateString: string
+   linkString: string
+   objective: string
+   realization: string
 }
 
 export interface Errors {
