@@ -78,24 +78,23 @@
    "projects": [
       {
          "id": 1,
-         "title": "React.js | オンラインショップ",
-         "slug": "e-commerce-react",
-         "type": "Front | WIP",
-         "description": "このe-commerceアプリケーションは、オンライン ストアにショッピング エクスペリエンスを提供することを目的とした個人的なプロジェクトです。 これにより、ユーザーはカートから製品を簡単に追加、表示、および削除できます。 支払い処理は Stripe が処理し、ログイン システムは Auth0 によって提供されます。",
+         "title": "Nuxt.js | ジブリ",
+         "slug": "ghibli-nuxt",
+         "type": "Front",
+         "description": "This application was carried out in close collaboration with the CTO of Fidensio, who brought his expertise to ensure the success of the project. It is one of the biggest technical projects of the company at that time, which aimed to migrate an existing application from Laravel 5 and PHP 7.4 to a REST API in Laravel 8 and PHP 8. This migration to a more recent and more performant infrastructure allows Fidensio to have a solution that is more suited and scalable to its needs. For this project i was in charge to refactor some services and make the PHPUnit tests for them using the TDD method.",
          "tools": [
             "github",
-            "react.js",
-            "next.js",
-            "stripe",
-            "auth0",
-            "strapi",
-            "typescript"
+            "nuxt",
+            "tailwind",
+            "cypress",
+            "sass",
+            "axios"
          ],
          "date": {
-            "start": "2023-01-09",
-            "end": "未整理 | データを追加する予定です"
+            "start": "2023-06-23",
+            "end": "2023-06-26"
          },
-         "link": "https://github.com/mmolano/next-react-shop",
+         "link": "https://github.com/mmolano/ghibli-movie",
          "company": "なし - 個人的なプロジェクト"
       },
       {
@@ -122,6 +121,65 @@
       },
       {
          "id": 3,
+         "title": "React.js | オンラインショップ",
+         "slug": "e-commerce-react",
+         "type": "Front | WIP",
+         "description": "このe-commerceアプリケーションは、オンライン ストアにショッピング エクスペリエンスを提供することを目的とした個人的なプロジェクトです。 これにより、ユーザーはカートから製品を簡単に追加、表示、および削除できます。 支払い処理は Stripe が処理し、ログイン システムは Auth0 によって提供されます。",
+         "tools": [
+            "github",
+            "react.js",
+            "next.js",
+            "stripe",
+            "auth0",
+            "strapi",
+            "typescript"
+         ],
+         "date": {
+            "start": "2023-01-09",
+            "end": "未整理 | データを追加する予定です"
+         },
+         "link": "https://github.com/mmolano/next-react-shop",
+         "company": "なし - 個人的なプロジェクト"
+      },
+      {
+         "id": 4,
+         "title": "Fidensio | データベースの移行",
+         "slug": "fidensio-migration",
+         "type": "Back",
+         "description": "このアプリケーションは、先に述べたFidensio社のCTOとの合同プロジェクトを円滑に利用するために、私が制作したものです。これを利用することにより、会社が提供するあらゆるサービスが中断されるリスクを最小限に抑え、古いデータベースを新しいインフラストラクチャーに移行させることができます。キューシステムの実装により、発生する可能性のある潜在的な問題を処理し、トラブルが起きる可能性を防ぎます。※このプロジェクトは完全に私自身によって行われました。",
+         "tools": [
+            "gitlab",
+            "laravel 8",
+            "php",
+            "queues",
+            "mysql"
+         ],
+         "date": {
+            "start": "2021-07",
+            "end": "2021-08"
+         },
+         "company": "Fidensio"
+      },
+      {
+         "id": 5,
+         "title": "Fidensio | ダッシュボード",
+         "slug": "fidensio-nuxt",
+         "type": "Front",
+         "description": "このプロジェクトは、既存のものを進化させるために行われたものです。私は、必要なすべての情報を取得するために、静的な情報 (フリーランサーチームによって作成された初期作業) のみが提供されたこのアプリケーションを、FidensioのAPI を介して利用可能なデータに接続する必要がありました。※ このプロジェクトは、私とフリーランサーが共同して行いました。",
+         "tools": [
+            "gitlab",
+            "vue.js",
+            "nuxt.js",
+            "axios"
+         ],
+         "date": {
+            "start": "2021-07",
+            "end": "2021-08 | 進行中 (退職時に未完成でした)"
+         },
+         "company": "Fidensio"
+      },
+      {
+         "id": 6,
          "type": "Front | Back",
          "title": "Fidensio | パートナー",
          "slug": "fidensio-partners",
@@ -142,7 +200,7 @@
          "company": "Fidensio"
       },
       {
-         "id": 4,
+         "id": 7,
          "title": "Fidensio | エーピーアイ",
          "slug": "fidensio-api",
          "type": "Back",
@@ -158,46 +216,30 @@
          ],
          "date": {
             "start": "2020-09",
-            "end": "2021-08 |　進行中 (退職時に未完成でした)"
+            "end": "2021-08 | 進行中 (退職時に未完成でした)"
          },
          "company": "Fidensio"
       },
       {
-         "id": 5,
-         "title": "Fidensio | データベースの移行",
-         "slug": "fidensio-migration",
-         "type": "Back",
-         "description": "このアプリケーションは、先に述べたFidensio社のCTOとの合同プロジェクトを円滑に利用するために、私が制作したものです。これを利用することにより、会社が提供するあらゆるサービスが中断されるリスクを最小限に抑え、古いデータベースを新しいインフラストラクチャーに移行させることができます。キューシステムの実装により、発生する可能性のある潜在的な問題を処理し、トラブルが起きる可能性を防ぎます。※このプロジェクトは完全に私自身によって行われました。",
-         "tools": [
-            "gitlab",
-            "laravel 8",
-            "php",
-            "queues",
-            "mysql"
-         ],
-         "date": {
-            "start": "2021-07",
-            "end": "2021-08"
-         },
-         "company": "Fidensio"
-      },
-      {
-         "id": 6,
-         "title": "Fidensio | ダッシュボード",
-         "slug": "fidensio-nuxt",
+         "id": 8,
+         "title": "Swedish Fit | ウエブサイト",
+         "slug": "swedish-fit",
          "type": "Front",
-         "description": "このプロジェクトは、既存のものを進化させるために行われたものです。私は、必要なすべての情報を取得するために、静的な情報 (フリーランサーチームによって作成された初期作業) のみが提供されたこのアプリケーションを、FidensioのAPI を介して利用可能なデータに接続する必要がありました。※ このプロジェクトは、私とフリーランサーが共同して行いました。",
+         "description": "This project is a Laravel 9 REST API application that allows to: create, read, modify and delete recipes. The application is designed to be used by other applications to display recipes and his development is ongoing. The application utilizes PHPUnit tests and logs to record activites and manage errors to facilitate the resolution of any potential issues.",
          "tools": [
-            "gitlab",
-            "vue.js",
-            "nuxt.js",
-            "axios"
+            "html",
+            "css",
+            "scss",
+            "javascript",
+            "responsive",
+            "UX&UI"
          ],
          "date": {
-            "start": "2021-07",
-            "end": "2021-08 |　進行中 (退職時に未完成でした)"
+            "start": "2019-02-01",
+            "end": "2020-01-01"
          },
-         "company": "Fidensio"
+         "link": "https://www.swedishfit.fr/",
+         "company": "Swedish Fit"
       }
    ]
 }

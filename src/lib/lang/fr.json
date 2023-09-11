@@ -78,25 +78,24 @@
   "projects": [
     {
       "id": 1,
-      "title": "React.js | E-commerce",
-      "slug": "e-commerce-react",
-      "type": "Front | WIP",
-      "description": "Cette application web e-commerce est un projet personnel conçue pour offrir un parcours d'achat simple pour un site de vente en ligne. Elle permet aux utilisateurs d'ajouter, de voir et de retirer des produits à leurs paniers en toute simplicité. Le processus de paiement est assuré par Stripe et le système de connexion est quant à lui assuré par Auth0.",
+      "title": "Nuxt.js | Ghibli",
+      "slug": "ghibli-nuxt",
+      "type": "Front",
+      "description": "This application was carried out in close collaboration with the CTO of Fidensio, who brought his expertise to ensure the success of the project. It is one of the biggest technical projects of the company at that time, which aimed to migrate an existing application from Laravel 5 and PHP 7.4 to a REST API in Laravel 8 and PHP 8. This migration to a more recent and more performant infrastructure allows Fidensio to have a solution that is more suited and scalable to its needs. For this project i was in charge to refactor some services and make the PHPUnit tests for them using the TDD method.",
       "tools": [
         "github",
-        "react.js",
-        "next.js",
-        "stripe",
-        "auth0",
-        "strapi",
-        "typescript"
+        "nuxt",
+        "tailwind",
+        "cypress",
+        "sass",
+        "axios"
       ],
       "date": {
-        "start": "2023-01-09",
-        "end": "En cours | Ajout de données"
+        "start": "2023-06-23",
+        "end": "2023-06-26"
       },
-      "link": "https://github.com/mmolano/next-react-shop",
-      "company": "Aucune - Projet personnel"
+      "link": "https://github.com/mmolano/ghibli-movie",
+      "company": "None - Personal project"
     },
     {
       "id": 2,
@@ -122,6 +121,65 @@
     },
     {
       "id": 3,
+      "title": "React.js | E-commerce",
+      "slug": "e-commerce-react",
+      "type": "Front | WIP",
+      "description": "Cette application web e-commerce est un projet personnel conçue pour offrir un parcours d'achat simple pour un site de vente en ligne. Elle permet aux utilisateurs d'ajouter, de voir et de retirer des produits à leurs paniers en toute simplicité. Le processus de paiement est assuré par Stripe et le système de connexion est quant à lui assuré par Auth0.",
+      "tools": [
+        "github",
+        "react.js",
+        "next.js",
+        "stripe",
+        "auth0",
+        "strapi",
+        "typescript"
+      ],
+      "date": {
+        "start": "2023-01-09",
+        "end": "En cours | Ajout de données"
+      },
+      "link": "https://github.com/mmolano/next-react-shop",
+      "company": "Aucune - Projet personnel"
+    },
+    {
+      "id": 4,
+      "title": "Fidensio | migration DB",
+      "slug": "fidensio-migration",
+      "type": "Back",
+      "description": "L'application suivante constitue l'un des projets de Fidensio afin de pouvoir exploiter la toute nouvelle API et structure de l'entreprise. L'objectif de ce projet est de migrer une ancienne base de données vers une nouvelle infrastructure, tout en minimisant les risques de perturbation des activités de l'entreprise. Afin de s'assurer d'une transition simple et sans incidents majeurs, un système de queue pour gérer d'éventuels problèmes pouvant survenir lors de la migration a été mis en place. Ce projet a été entièrement fait par moi-même.",
+      "tools": [
+        "gitlab",
+        "laravel 8",
+        "php",
+        "queues",
+        "mysql"
+      ],
+      "date": {
+        "start": "2021-07",
+        "end": "2021-08"
+      },
+      "company": "Fidensio"
+    },
+    {
+      "id": 5,
+      "title": "Fidensio | Front-end",
+      "slug": "fidensio-nuxt",
+      "type": "Front",
+      "description": "La toute nouvelle application front de Fidensio a été conçue avec la collaboration de freelancers. Pour obtenir les informations nécessaires, j'ai mis en relation cette application qui ne donnait que des informations statique (travail des freelancers) par les données disponible avec l'API de Fidensio.",
+      "tools": [
+        "gitlab",
+        "vue.js",
+        "nuxt.js",
+        "axios"
+      ],
+      "date": {
+        "start": "2021-07",
+        "end": "2021-08 | Inconnue"
+      },
+      "company": "Fidensio"
+    },
+    {
+      "id": 6,
       "title": "Fidensio | Partenaires",
       "slug": "fidensio-partners",
       "type": "Front | Back",
@@ -142,7 +200,7 @@
       "company": "Fidensio"
     },
     {
-      "id": 4,
+      "id": 7,
       "title": "Fidensio | API",
       "slug": "fidensio-api",
       "type": "Back",
@@ -163,41 +221,25 @@
       "company": "Fidensio"
     },
     {
-      "id": 5,
-      "title": "Fidensio | migration DB",
-      "slug": "fidensio-migration",
-      "type": "Back",
-      "description": "L'application suivante constitue l'un des projets de Fidensio afin de pouvoir exploiter la toute nouvelle API et structure de l'entreprise. L'objectif de ce projet est de migrer une ancienne base de données vers une nouvelle infrastructure, tout en minimisant les risques de perturbation des activités de l'entreprise. Afin de s'assurer d'une transition simple et sans incidents majeurs, un système de queue pour gérer d'éventuels problèmes pouvant survenir lors de la migration a été mis en place. Ce projet a été entièrement fait par moi-même.",
-      "tools": [
-        "gitlab",
-        "laravel 8",
-        "php",
-        "queues",
-        "mysql"
-      ],
-      "date": {
-        "start": "2021-07",
-        "end": "2021-08"
-      },
-      "company": "Fidensio"
-    },
-    {
-      "id": 6,
-      "title": "Fidensio | Front-end",
-      "slug": "fidensio-nuxt",
+      "id": 8,
+      "title": "Swedish Fit | Site web",
+      "slug": "swedish-fit",
       "type": "Front",
-      "description": "La toute nouvelle application front de Fidensio a été conçue avec la collaboration de freelancers. Pour obtenir les informations nécessaires, j'ai mis en relation cette application qui ne donnait que des informations statique (travail des freelancers) par les données disponible avec l'API de Fidensio.",
+      "description": "This project is a Laravel 9 REST API application that allows to: create, read, modify and delete recipes. The application is designed to be used by other applications to display recipes and his development is ongoing. The application utilizes PHPUnit tests and logs to record activites and manage errors to facilitate the resolution of any potential issues.",
       "tools": [
-        "gitlab",
-        "vue.js",
-        "nuxt.js",
-        "axios"
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "responsive",
+        "UX&UI"
       ],
       "date": {
-        "start": "2021-07",
-        "end": "2021-08 | Inconnue"
+        "start": "2019-02-01",
+        "end": "2020-01-01"
       },
-      "company": "Fidensio"
+      "link": "https://www.swedishfit.fr/",
+      "company": "Swedish Fit"
     }
   ]
 }

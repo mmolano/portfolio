@@ -78,24 +78,24 @@
   "projects": [
     {
       "id": 1,
-      "title": "React.js | E-Commerce",
-      "slug": "e-commerce-react",
-      "type": "Front | WIP",
-      "description": "This e-commerce web application is a personal project aimed at providing a good shopping experience. It allows users to easily add, view, and remove products from their carts. The payment process is handled by Stripe, and the login system is provided by Auth0.",
+      "title": "Nuxt.js | Ghibli",
+      "slug": "ghibli-nuxt",
+      "type": "Front",
+      "objective": "The main objective of this project was to create a web application to display different kind of information available on an API using the Nuxt.js framework. With Nuxt.js, I was able to develop a high-performance application that retrieves information from the Ghibli API and allows users to access the information.",
+      "description": "This application was made as a personal project using Nuxt.js, axios to retrieve the API’s information and cypress to test the components. This project is also available online and is fully responsive and functional.",
       "tools": [
         "github",
-        "react.js",
-        "next.js",
-        "stripe",
-        "auth0",
-        "strapi",
-        "typescript"
+        "nuxt",
+        "tailwind",
+        "cypress",
+        "sass",
+        "axios"
       ],
       "date": {
-        "start": "2023-01-09",
-        "end": "Pending | Will add more data"
+        "start": "2023-06-23",
+        "end": "2023-06-26"
       },
-      "link": "https://github.com/mmolano/next-react-shop",
+      "link": "https://github.com/mmolano/ghibli-movie",
       "company": "None - Personal project"
     },
     {
@@ -103,6 +103,7 @@
       "title": "Laravel | Recipe API",
       "slug": "recipe-api-laravel",
       "type": "Back | WIP",
+      "objective": "The objective for this project is to create an API that would be growing with user’s inputs. This project will also use a front application that will be built later on and will send information to the API to gain data. This project is not aimed to be used by a huge amount of people but to be used by a close circle of friends and family.",
       "description": "This project is a Laravel 9 REST API application that allows to: create, read, modify and delete recipes. The application is designed to be used by other applications to display recipes and his development is ongoing. The application utilizes PHPUnit tests and logs to record activites and manage errors to facilitate the resolution of any potential issues.",
       "tools": [
         "github",
@@ -122,6 +123,66 @@
     },
     {
       "id": 3,
+      "title": "React.js | E-Commerce",
+      "slug": "e-commerce-react",
+      "type": "Front | WIP",
+      "objective": "The main objective of this project was to create an e-commerce web application using the Next.js framework. The choice of Next.js was motivated by its flexibility, performance, and ease of use for modern web application development. Thanks to Next.js, I was able to build a high-performance, dynamic, and responsive web application that provides an optimal user experience. The goal was to implement classic features for an e-commerce website while delivering a smooth and intuitive user experience.",
+      "description": "This e-commerce web application is a personal project aimed at providing a good shopping experience. It allows users to easily add, view, and remove products from their carts. The payment process is handled by Stripe, and the login system is provided by Auth0.",
+      "tools": [
+        "github",
+        "react.js",
+        "next.js",
+        "stripe",
+        "auth0",
+        "strapi",
+        "typescript"
+      ],
+      "date": {
+        "start": "2023-01-09",
+        "end": "Pending | Will add more data"
+      },
+      "link": "https://github.com/mmolano/next-react-shop",
+      "company": "None - Personal project"
+    },
+    {
+      "id": 4,
+      "title": "Fidensio | DB migration",
+      "slug": "fidensio-migration",
+      "type": "Back",
+      "description": "The following project aimed at utilizing the company's brand new API previously made with the CTO and the new database structure. The objective of this project was to migrate an old database to a new infrastructure while minimizing the risk of disruptigng the company's activities. To ensure a smooth and incident-free transition, a queue system was implemented to handle any potential issues that may occure during the migration. This project was entirely done by myself.",
+      "tools": [
+        "gitlab",
+        "laravel 8",
+        "php",
+        "queues",
+        "mysql"
+      ],
+      "date": {
+        "start": "2021-07",
+        "end": "2021-08"
+      },
+      "company": "Fidensio"
+    },
+    {
+      "id": 5,
+      "title": "Fidensio | Front-end",
+      "slug": "fidensio-nuxt",
+      "type": "Front",
+      "description": "This brand new front-end application was built in collaboration with freelancers. In order to obtain all the necessary information, i had to connect this application, which was only provided with static informations (initial work made by the freelancer team) to the data available through Fidensio's API.",
+      "tools": [
+        "gitlab",
+        "vue.js",
+        "nuxt.js",
+        "axios"
+      ],
+      "date": {
+        "start": "2021-07",
+        "end": "2021-08 | WIP (not finished when i left)"
+      },
+      "company": "Fidensio"
+    },
+    {
+      "id": 6,
       "type": "Front | Back",
       "title": "Fidensio | Partners",
       "slug": "fidensio-partners",
@@ -142,7 +203,7 @@
       "company": "Fidensio"
     },
     {
-      "id": 4,
+      "id": 7,
       "title": "Fidensio | API",
       "slug": "fidensio-api",
       "type": "Back",
@@ -158,46 +219,30 @@
       ],
       "date": {
         "start": "2020-09",
-        "end": "2021-08 | WIP (not finished when i left)"
+        "end": "2021-08 | WIP (not finished when i left)"
       },
       "company": "Fidensio"
     },
     {
-      "id": 5,
-      "title": "Fidensio | DB migration",
-      "slug": "fidensio-migration",
-      "type": "Back",
-      "description": "The following project aimed at utilizing the company's brand new API previously made with the CTO and the new database structure. The objective of this project was to migrate an old database to a new infrastructure while minimizing the risk of disruptigng the company's activities. To ensure a smooth and incident-free transition, a queue system was implemented to handle any potential issues that may occure during the migration. This project was entirely done by myself.",
-      "tools": [
-        "gitlab",
-        "laravel 8",
-        "php",
-        "queues",
-        "mysql"
-      ],
-      "date": {
-        "start": "2021-07",
-        "end": "2021-08"
-      },
-      "company": "Fidensio"
-    },
-    {
-      "id": 6,
-      "title": "Fidensio | Front-end",
-      "slug": "fidensio-nuxt",
+      "id": 8,
+      "title": "Swedish Fit | Website",
+      "slug": "swedish-fit",
       "type": "Front",
-      "description": "This brand new front-end application was built in collaboration with freelancers. In order to obtain all the necessary information, i had to connect this application, which was only provided with static informations (initial work made by the freelancer team) to the data available through Fidensio's API.",
+      "description": "This project is a Laravel 9 REST API application that allows to: create, read, modify and delete recipes. The application is designed to be used by other applications to display recipes and his development is ongoing. The application utilizes PHPUnit tests and logs to record activites and manage errors to facilitate the resolution of any potential issues.",
       "tools": [
-        "gitlab",
-        "vue.js",
-        "nuxt.js",
-        "axios"
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "responsive",
+        "UX&UI"
       ],
       "date": {
-        "start": "2021-07",
-        "end": "2021-08 | WIP (not finished when i left)"
+        "start": "2019-02-01",
+        "end": "2020-01-01"
       },
-      "company": "Fidensio"
+      "link": "https://www.swedishfit.fr/",
+      "company": "Swedish Fit"
     }
   ]
 }

@@ -23,7 +23,8 @@ export default function Project(): JSX.Element {
    const [isLoading, setIsLoading] = useState<boolean>();
    const [date, setDate] = useState<string>("");
 
-   const urlImage = `/images/projects/${slug}/home.png`;
+   // TODO: change the way we get the image and show a gallery instead of a single image
+   const urlImage = `/images/projects/${slug}/home.jpg`;
 
    useEffect(() => {
       if (project) {
@@ -106,7 +107,8 @@ export default function Project(): JSX.Element {
                         </div>
                      </div>
                      <h4 className="section-title">{page.objective}</h4>
-                     <Paragraphe>{project.description}</Paragraphe>
+                     {/* TODO: paragraphe instead of p & add every text in json */}
+                     <p>{project.objective}</p>
                      <h4 className="section-title">{page.realization}</h4>
                      <Paragraphe>{project.description}</Paragraphe>
                      {isLoading ? (

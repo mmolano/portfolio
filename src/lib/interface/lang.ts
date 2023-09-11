@@ -23,6 +23,7 @@ export interface ProjectIF {
    title: string
    slug: string
    type: DevType
+   objective?: string
    description: string
    tools: string[]
    date: ProjectDate

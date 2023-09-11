@@ -9,12 +9,22 @@ export const Project = ({ value, classValue }: { value: ProjectIF, classValue: s
 
    function getImageForValue(slug: string): string {
       switch (true) {
-         case slug.includes('fidensio'):
-            return 'fidensio.jpg';
-         case slug.includes('laravel'):
-            return 'laravel.jpg';
-         case slug.includes('react'):
+         case slug.includes('fidensio-partners'):
+            return 'fidensioPartner.jpg';
+         case slug.includes('fidensio-api'):
+            return 'fidensioApi.jpg';
+         case slug.includes('fidensio-nuxt'):
+            return 'fidensioDashboard.jpg';
+         case slug.includes('fidensio-migration'):
+            return 'fidensioMigrate.jpg';
+         case slug.includes('recipe-api-laravel'):
+            return 'recipe.jpg';
+         case slug.includes('e-commerce-react'):
             return 'react.jpg';
+         case slug.includes('swedish-fit'):
+            return 'swedish.jpg';
+         case slug.includes('ghibli-nuxt'):
+            return 'ghibli.jpg';
          default:
             return 'default.jpg';
       }
@@ -32,7 +42,7 @@ export const Project = ({ value, classValue }: { value: ProjectIF, classValue: s
             <div className={`card ${classValue}`}>
                <div className="project">
                   <Image
-                     width="300"
+                     width="360"
                      height="220"
                      src={`/images/projects/${getImageForValue(value.slug)}`}
                      alt={value.title}
