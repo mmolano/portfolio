@@ -97,7 +97,7 @@ export default function Project(): JSX.Element {
                         </div>
                         <div>
                            <Paragraphe className="bold">{page.dateString}</Paragraphe>
-                           <Paragraphe>{date + ' - ' + project.date.end}</Paragraphe>
+                           <Paragraphe>{date + ' - ' + project.date.end.replace(/-/g, '/')}</Paragraphe>
                         </div>
                         <div>
                            <Paragraphe className="bold">{page.linkString}</Paragraphe>
