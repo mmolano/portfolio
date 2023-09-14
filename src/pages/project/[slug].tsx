@@ -78,7 +78,7 @@ export default function Project(): JSX.Element {
                   <div className="breadcrumb">
                      <ul>
                         <li><LinkRef href="/">{page.breadHome}</LinkRef></li>
-                        <li><LinkRef href={`/#projects`}>{page.breadroject}</LinkRef></li>
+                        <li><LinkRef href={`/#projects`}>{page.breadProject}</LinkRef></li>
                         <li><LinkRef href={`/project/${slug}`}>{project.title}</LinkRef></li>
                      </ul>
                   </div>
@@ -106,9 +106,13 @@ export default function Project(): JSX.Element {
                            }
                         </div>
                      </div>
-                     <h4 className="section-title">{page.objective}</h4>
-                     {/* TODO: paragraphe instead of p & add every text in json */}
-                     <p>{project.objective}</p>
+                     {/* TODO: add every text in json */}
+                     {project.objective ?
+                        <>
+                           <h4 className="section-title">{page.objective}</h4>
+                           <Paragraphe>{project.objective}</Paragraphe>
+                        </>
+                        : ''}
                      <h4 className="section-title">{page.realization}</h4>
                      <Paragraphe>{project.description}</Paragraphe>
                      {isLoading ? (

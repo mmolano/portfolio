@@ -74,7 +74,7 @@ export interface ProjectPageIF {
    next: string
    noLink: string
    breadHome: string
-   breadroject: string
+   breadProject: string
    companyName: string
    dateString: string
    linkString: string
