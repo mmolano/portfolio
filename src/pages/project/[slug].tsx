@@ -159,7 +159,7 @@ export default function Project(): JSX.Element {
                         />
                      ) :
                         <Swiper
-                           direction="vertical"
+                           direction={'vertical'}
                            slidesPerView={1}
                            spaceBetween={30}
                            pagination={{
