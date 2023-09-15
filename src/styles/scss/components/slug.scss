@@ -30,3 +30,32 @@
       }
    }
 }
+
+.swiper {
+   margin-top: 80px;
+   aspect-ratio: 7 / 4;
+   width: 85%;
+}
+
+.swiper-slide {
+   text-align: center;
+   font-size: 18px;
+   background: #fff;
+
+   /* Center slide text vertically */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.swiper-button-prev,
+.swiper-slide-next,
+.swiper-button-next {
+   bottom: 3%;
+   top: initial !important;
+   color: $element-color !important;
+}
+
+.swiper-pagination-bullet-active {
+   background: $element-color !important;
+}

@@ -12,6 +12,12 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 import Custom404 from '../404';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation} from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 export default function Project(): JSX.Element {
    const { translation } = useStateContext();
@@ -22,9 +28,30 @@ export default function Project(): JSX.Element {
    const project = projects.find((project) => project.slug === slug);
    const [isLoading, setIsLoading] = useState<boolean>();
    const [date, setDate] = useState<string>("");
+   const [images, setImages] = useState<Array<string>>([]);
 
-   // TODO: change the way we get the image and show a gallery instead of a single image
-   const urlImage = `/images/projects/${slug}/home.jpg`;
+   function getImageForValue(slug: string | string[]): string[] {
+      switch (true) {
+         case slug.includes('fidensio-partners'):
+            return ['1.jpg'];
+         case slug.includes('fidensio-api'):
+            return ['1.jpg', '2.jpg'];
+         case slug.includes('fidensio-nuxt'):
+            return ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+         case slug.includes('fidensio-migration'):
+            return ['1.jpg', '2.jpg', '3.jpg'];
+         case slug.includes('recipe-api-laravel'):
+            return ['1.jpg'];
+         case slug.includes('e-commerce-react'):
+            return ['1.jpg', '2.jpg', '3.jpg'];
+         case slug.includes('swedish-fit'):
+            return ['1.jpg', '2.jpg'];
+         case slug.includes('ghibli-nuxt'):
+            return ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+         default:
+            return ['1.jpg'];
+      }
+   }
 
    useEffect(() => {
       if (project) {
@@ -48,6 +75,10 @@ export default function Project(): JSX.Element {
       const timeOutImageId = setTimeout(() => {
          setIsLoading(false);
       }, 1500);
+
+      if (slug) {
+         setImages(getImageForValue(slug));
+      }
 
       return () => {
          clearTimeout(timeOutID);
@@ -126,12 +157,33 @@ export default function Project(): JSX.Element {
                            wrapperClass=""
                            visible={true}
                         />
-                     ) : <Image
-                        className="project-image"
-                        src={urlImage}
-                        alt="project image"
-                        fill
-                     />}
+                     ) :
+                        <Swiper
+                           direction={'vertical'}
+                           slidesPerView={1}
+                           spaceBetween={30}
+                           pagination={{
+                              clickable: true,
+                           }}
+                           navigation={true}
+                           modules={[Pagination, Navigation]}
+                           className="mySwiper"
+                        >
+                           {images.filter(Boolean).map((imageName, index) => (
+                              <SwiperSlide
+                                 key={index}
+                              >
+                                 <Image
+                                    key={index}
+                                    className="project-image"
+                                    src={`/images/projects/${slug}/${imageName}`}
+                                    alt="project image"
+                                    fill
+                                 />
+                              </SwiperSlide>
+                           ))}
+                        </Swiper>
+                     }
                   </article>
                </div>
             </section>

@@ -33,6 +33,7 @@
     "sanitize-html": "^2.10.0",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
+    "swiper": "^10.2.0",
     "three-reflector": "^1.0.2",
     "typescript": "4.9.4",
     "typewriter-effect": "^2.19.0"
