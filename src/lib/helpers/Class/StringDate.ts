@@ -6,24 +6,26 @@ import 'moment/locale/ja';
 class StringDate {
    private readonly date: string | undefined;
    private readonly formatDate: string;
-   private readonly language: string;
+   private readonly language: string | undefined;
 
-   constructor(dateString: string, lang: string) {
+   constructor(dateString: string, lang?: string) {
       const dateValue = Date.parse(dateString);
 
       if (isNaN(dateValue)) {
          throw new Error("Invalid date string");
       }
 
-      if (lang === "en") {
-         lang = 'en-gb'
+      if (lang) {
+         if (lang === "en") {
+            lang = 'en-gb'
+         }
+   
+         this.language = lang; 
+   
+         moment.locale(this.language);
+   
+         this.date = moment(dateValue).format('ddd, LL');
       }
-
-      this.language = lang; 
-
-      moment.locale(this.language);
-
-      this.date = moment().format('ddd, LL');
       this.formatDate = moment(dateValue).format('L');
    }
 
