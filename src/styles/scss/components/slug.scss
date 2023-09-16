@@ -59,3 +59,11 @@
 .swiper-pagination-bullet-active {
    background: $element-color !important;
 }
+
+@include ipad {
+   .swiper {
+      width: 100%;
+   }
+
+  
+}

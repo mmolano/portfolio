@@ -14,7 +14,7 @@ import { TailSpin } from 'react-loader-spinner';
 import Custom404 from '../404';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation} from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -55,8 +55,8 @@ export default function Project(): JSX.Element {
 
    useEffect(() => {
       if (project) {
-         const dateStart = new StringDate(project.date.start).fullDate;
-         setDate(dateStart);
+         const dateStart = new StringDate(project.date.start, translation.actualLang.lang).fullDate;
+         setDate(dateStart!);
       }
    }, [slug, translation])
 

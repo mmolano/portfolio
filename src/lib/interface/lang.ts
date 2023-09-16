@@ -102,9 +102,13 @@ export interface PromiseToast {
    error: string
 }
 
+export interface ActualLang {
+   lang: "fr" | "en" | "ja";
+}
 export interface LanguageIF {
    lang: Lang
    nav: Nav
+   actualLang: ActualLang
    title: string
    projectSection: ProjectSectionIF
    contactSection: ContactSectionIF

@@ -4,6 +4,9 @@
     "fr": "Fr",
     "ja": "日本語"
   },
+  "actualLang": {
+    "lang": "en"
+  },
   "nav": {
     "projects": "Projects",
     "contact": "Contact",
@@ -149,7 +152,7 @@
       "title": "Fidensio | DB migration",
       "slug": "fidensio-migration",
       "type": "Back",
-      "objective": "At Fidensio, we had a global objective to change the entire structure of all existing applications, to make them more friendly to use and give them more performances. It was decided that we needed to change the structure of the entire database as it was outdated and not easy to use. ",
+      "objective": "At Fidensio, we had a global objective to change the entire structure of all existing applications, to make them more friendly to use and give them more performances. It was decided that we needed to change the structure of the entire database as it was outdated and not easy to use.",
       "description": "The following project aimed at utilizing the company's brand new API previously made with the CTO and the new database structure. The objective of this project was to migrate an old database to a new infrastructure while minimizing the risk of disruptigng the company's activities. To ensure a smooth and incident-free transition, multiple tests, jobs, and a queue system were implemented to handle any potential issues that may occure during the migration. This project was entirely done by myself.",
       "tools": [
         "gitlab",

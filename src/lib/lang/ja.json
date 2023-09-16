@@ -4,6 +4,9 @@
       "fr": "フランス語",
       "ja": "日本語"
    },
+   "actualLang": {
+      "lang": "ja"
+   },
    "nav": {
       "projects": "プロジェクト",
       "contact": "連絡先",
