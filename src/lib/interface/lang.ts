@@ -80,6 +80,7 @@ export interface ProjectPageIF {
    linkString: string
    objective: string
    realization: string
+   translate: string
 }
 
 export interface Errors {

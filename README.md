@@ -24,3 +24,23 @@ There is a working live demo available for this project at the Environments sect
 - Moment: https://momentjs.com/
 - Sass: https://sass-lang.com/
 - Typewriter: https://www.npmjs.com/package/typewriter-effect
+
+## Dev setup
+
+```bash
+# Install dependencies
+$ npm i
+
+# cp .env and change values
+$ cp .env.example .env
+
+# Serve with hot reload at localhost:3000
+$ npm run dev
+```
+
+## Prod setup
+
+```bash
+# Build the application before merging and push
+$ npm run build
+```

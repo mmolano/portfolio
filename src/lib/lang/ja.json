@@ -59,7 +59,8 @@
       "dateString": "日付",
       "linkString": "リンク",
       "objective": "目的",
-      "realization": "実現"
+      "realization": "実現",
+      "translate": "翻訳中。他の言語を使ってください。"
    },
    "errors": {
       "emailValidation": "メールアドレスの検証中にエラーが発生しました。",
@@ -84,7 +85,7 @@
          "title": "Nuxt.js | ジブリ",
          "slug": "ghibli-nuxt",
          "type": "Front",
-         "description": "This application was made as a personal project using the framework Nuxt.js, axios to retrieve the Ghibili’s API information available here: https://ghibliapi.vercel.app/#tag/Films and cypress to test the components. This project is also available online from the github link and is fully responsive and functional.",
+         "description": "",
          "tools": [
             "github",
             "nuxt",
@@ -228,7 +229,7 @@
          "title": "Swedish Fit | ウエブサイト",
          "slug": "swedish-fit",
          "type": "Front",
-         "description": "At Swedish fit, i had to work in pairs with the UX&UI designer to bring to life each modification, propose changes and create responsive versions of the designs. I was then in charge of changing their admin and user website to the new designs and making a fully working responsive version of it. Previously, Swedish Fit coaches manually confirmed the identity of each attendee before a class would start, a process that was time-consuming. To fix this, I decided to build a barcode reader using javascript, that allows them to use their smartphone to scan a member's card and automatically validate someone’s identity and presence at the class.",
+         "description": "",
          "tools": [
             "html",
             "css",

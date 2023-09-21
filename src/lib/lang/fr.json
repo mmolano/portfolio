@@ -59,7 +59,8 @@
     "dateString": "Date",
     "linkString": "Liens",
     "objective": "Objectif",
-    "realization": "Réalisation"
+    "realization": "Réalisation",
+    "translate": "En cours de traduction. Veuillez utiliser une autre langue."
   },
   "errors": {
     "emailValidation": "Une erreur est survenue lors de la validation de l'adresse mail",

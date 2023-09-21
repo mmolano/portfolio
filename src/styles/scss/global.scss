@@ -83,14 +83,8 @@ textarea {
 article {
   text-align: justify;
   hyphens: auto;
-
-  // & img {
-  //   margin-top: 40px;
-  //   object-fit: contain;
-  //   width: 100% !important;
-  //   position: relative !important;
-  //   height: unset !important;
-  // }
+  -webkit-hyphens: auto;
+  width: 100%;
 }
 
 b {

@@ -138,14 +138,16 @@ export default function Project(): JSX.Element {
                         </div>
                      </div>
                      {/* TODO: add every text in json */}
+                     <h4 className="section-title">{page.objective}</h4>
                      {project.objective ?
                         <>
-                           <h4 className="section-title">{page.objective}</h4>
                            <Paragraphe>{project.objective}</Paragraphe>
                         </>
-                        : ''}
+                        : page.translate}
                      <h4 className="section-title">{page.realization}</h4>
-                     <Paragraphe>{project.description}</Paragraphe>
+                     {project.description ?
+                        <Paragraphe>{project.description}</Paragraphe>
+                        : page.translate}
                      {isLoading ? (
                         <TailSpin
                            height="80"
