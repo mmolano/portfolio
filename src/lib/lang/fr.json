@@ -4,6 +4,9 @@
     "fr": "Fr",
     "ja": "日本語"
   },
+  "actualLang": {
+    "lang": "fr"
+  },
   "nav": {
     "projects": "Projets",
     "contact": "Contact",
@@ -56,7 +59,8 @@
     "dateString": "Date",
     "linkString": "Liens",
     "objective": "Objectif",
-    "realization": "Réalisation"
+    "realization": "Réalisation",
+    "translate": "En cours de traduction. Veuillez utiliser une autre langue."
   },
   "errors": {
     "emailValidation": "Une erreur est survenue lors de la validation de l'adresse mail",
@@ -150,7 +154,7 @@
       "slug": "fidensio-migration",
       "type": "Back",
       "objective": "Chez Fidensio, nous avions un objectif principal qui était de changer l’intégralité de la structure des applications existantes, de les rendre plus faciles à utiliser et plus performantes. Il a été décidé pour ce faire de modifier la structure de la base de données qui n’était pas à jour et difficile à exploiter.",
-      "description": "L'application suivante constitue l'un des projets de Fidensio afin de pouvoir exploiter la toute nouvelle API et structure de l'entreprise. L'objectif de ce projet est de migrer une ancienne base de données vers une nouvelle infrastructure, tout en minimisant les risques de perturbation des activités de l'entreprise. Afin de s'assurer d'une transition simple et sans incidents majeurs, un système de queue pour gérer d'éventuels problèmes pouvant survenir lors de la migration a été mis en place. Ce projet a été entièrement fait par moi-même.",
+      "description": "L'application suivante constitue l'un des projets de Fidensio afin de pouvoir exploiter la toute nouvelle API et structure de l'entreprise. L'objectif de ce projet est de migrer une ancienne base de données vers une nouvelle infrastructure, tout en minimisant les risques de perturbation des activités de l'entreprise. Afin de s'assurer d'une transition simple et sans incidents majeurs, de nombreux tests, jobs et un système de queue pour gérer d'éventuels problèmes pouvant survenir lors de la migration ont été mis en place. Ce projet a été entièrement fait par moi-même.",
       "tools": [
         "gitlab",
         "laravel 8",

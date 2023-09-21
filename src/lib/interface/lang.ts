@@ -80,6 +80,7 @@ export interface ProjectPageIF {
    linkString: string
    objective: string
    realization: string
+   translate: string
 }
 
 export interface Errors {
@@ -102,9 +103,13 @@ export interface PromiseToast {
    error: string
 }
 
+export interface ActualLang {
+   lang: "fr" | "en" | "ja";
+}
 export interface LanguageIF {
    lang: Lang
    nav: Nav
+   actualLang: ActualLang
    title: string
    projectSection: ProjectSectionIF
    contactSection: ContactSectionIF
