@@ -4,6 +4,9 @@
       "fr": "フランス語",
       "ja": "日本語"
    },
+   "actualLang": {
+      "lang": "ja"
+   },
    "nav": {
       "projects": "プロジェクト",
       "contact": "連絡先",
@@ -48,7 +51,16 @@
       "start": "開始日",
       "end": "終了日",
       "previous": "前のプロジェクト",
-      "next": "次のプロジェクト"
+      "next": "次のプロジェクト",
+      "noLink": "ありません",
+      "breadHome": "ホーム",
+      "breadProject": "プロジェクト",
+      "companyName": "社名",
+      "dateString": "日付",
+      "linkString": "リンク",
+      "objective": "目的",
+      "realization": "実現",
+      "translate": "翻訳中。他の言語を使ってください。"
    },
    "errors": {
       "emailValidation": "メールアドレスの検証中にエラーが発生しました。",
@@ -70,28 +82,28 @@
    "projects": [
       {
          "id": 1,
-         "title": "E-Commerce | React.js",
-         "slug": "e-commerce-react",
-         "type": "Front | WIP",
-         "description": "このe-commerceアプリケーションは、オンライン ストアにショッピング エクスペリエンスを提供することを目的とした個人的なプロジェクトです。 これにより、ユーザーはカートから製品を簡単に追加、表示、および削除できます。 支払い処理は Stripe が処理し、ログイン システムは Auth0 によって提供されます。",
+         "title": "Nuxt.js | ジブリ",
+         "slug": "ghibli-nuxt",
+         "type": "Front",
+         "description": "",
          "tools": [
             "github",
-            "react.js",
-            "next.js",
-            "stripe",
-            "auth0",
-            "strapi",
-            "typescript"
+            "nuxt",
+            "tailwind",
+            "cypress",
+            "sass",
+            "axios"
          ],
          "date": {
-            "start": "2023-01-09",
-            "end": "未整理 | データを追加する予定です"
+            "start": "2023-06-23",
+            "end": "2023-06-26"
          },
-         "link": "https://github.com/mmolano/next-react-shop"
+         "link": "https://github.com/mmolano/ghibli-movie",
+         "company": "なし - 個人的なプロジェクト"
       },
       {
          "id": 2,
-         "title": "Recipe API | Laravel",
+         "title": "Laravel | レシピエーピーアイ",
          "slug": "recipe-api-laravel",
          "type": "Back | WIP",
          "description": "レシピの作成、読み取り、変更、および削除を可能にする、Laravel 9 REST API アプリケーションです。 他のアプリケーションでレシピを表示するために、使用するよう設計されています。 PHPUnit テストとログの使用により、アクティビティを記録します。そして、エラーを管理することで、潜在的な問題の解決を促します。※開発は進行中です。",
@@ -108,50 +120,33 @@
             "start": "2023-01-20",
             "end": "進行中"
          },
-         "link": "https://github.com/mmolano/Laravel-Recipe-small-api"
+         "link": "https://github.com/mmolano/Laravel-Recipe-small-api",
+         "company": "なし - 個人的なプロジェクト"
       },
       {
          "id": 3,
-         "type": "Front | Back",
-         "title": "Fidensio | パートナー",
-         "slug": "fidensio-partners",
-         "description": "このアプリケーションは、Fidensioという会社のパートナーである一社のために、開発されたものです。シンプルで効果的なデスクトップ、およびモバイルエクスペリエンスを提供しながら、ダッシュボードから注文を管理することを可能にします。支払い処理には、Laravel 8、Vue.js、Stripe などのサーバー技術を利用しています。 ※このプロジェクトは、私がFidensioチームメンバーとして開発したものです。",
+         "title": "React.js | オンラインショップ",
+         "slug": "e-commerce-react",
+         "type": "Front | WIP",
+         "description": "このe-commerceアプリケーションは、オンライン ストアにショッピング エクスペリエンスを提供することを目的とした個人的なプロジェクトです。 これにより、ユーザーはカートから製品を簡単に追加、表示、および削除できます。 支払い処理は Stripe が処理し、ログイン システムは Auth0 によって提供されます。",
          "tools": [
-            "gitlab",
-            "laravel 8",
-            "php",
-            "fidensio's API",
+            "github",
+            "react.js",
+            "next.js",
             "stripe",
-            "mysql",
-            "vue.js"
+            "auth0",
+            "strapi",
+            "typescript"
          ],
          "date": {
-            "start": "2021-04-13",
-            "end": "2021-08"
-         }
+            "start": "2023-01-09",
+            "end": "未整理 | データを追加する予定です"
+         },
+         "link": "https://github.com/mmolano/next-react-shop",
+         "company": "なし - 個人的なプロジェクト"
       },
       {
          "id": 4,
-         "title": "Fidensio | API",
-         "slug": "fidensio-api",
-         "type": "Back",
-         "description": "このアプリケーションは、Laravel 5およびPHP 7.4から、Laravel 8およびPHP 8のREST APIに、既存のアプリケーションを移行することを目的としています。結果的に、Fidensioはよりニーズに適したスケーラブルな解決策を手に入れることができました。 私はTDDメゾットの使用により、いくつかのサービスをリファクタリングさせ、PHPUnitテストを作成しました。※FidensioのCTOが先導をして行われた企画であり、彼と協力し完成させることができました。当時、会社で最大の技術プロジェクトとして行われていたものの1 つです。",
-         "tools": [
-            "gitlab",
-            "laravel 8",
-            "php",
-            "laravel queues",
-            "mysql",
-            "phpunit",
-            "tdd"
-         ],
-         "date": {
-            "start": "2020-09",
-            "end": "2021-08 |　進行中 (退職時に未完成でした)"
-         }
-      },
-      {
-         "id": 5,
          "title": "Fidensio | データベースの移行",
          "slug": "fidensio-migration",
          "type": "Back",
@@ -166,11 +161,12 @@
          "date": {
             "start": "2021-07",
             "end": "2021-08"
-         }
+         },
+         "company": "Fidensio"
       },
       {
-         "id": 6,
-         "title": "Fidensio | フロントエンド",
+         "id": 5,
+         "title": "Fidensio | ダッシュボード",
          "slug": "fidensio-nuxt",
          "type": "Front",
          "description": "このプロジェクトは、既存のものを進化させるために行われたものです。私は、必要なすべての情報を取得するために、静的な情報 (フリーランサーチームによって作成された初期作業) のみが提供されたこのアプリケーションを、FidensioのAPI を介して利用可能なデータに接続する必要がありました。※ このプロジェクトは、私とフリーランサーが共同して行いました。",
@@ -182,8 +178,72 @@
          ],
          "date": {
             "start": "2021-07",
-            "end": "2021-08 |　進行中 (退職時に未完成でした)"
-         }
+            "end": "2021-08 | 進行中 (退職時に未完成でした)"
+         },
+         "company": "Fidensio"
+      },
+      {
+         "id": 6,
+         "type": "Front | Back",
+         "title": "Fidensio | パートナー",
+         "slug": "fidensio-partners",
+         "description": "このアプリケーションは、Fidensioという会社のパートナーである一社のために、開発されたものです。シンプルで効果的なデスクトップ、およびモバイルエクスペリエンスを提供しながら、ダッシュボードから注文を管理することを可能にします。支払い処理には、Laravel 8、Vue.js、Stripe などのサーバー技術を利用しています。 ※このプロジェクトは、私がFidensioチームメンバーとして開発したものです。",
+         "tools": [
+            "gitlab",
+            "laravel 8",
+            "php",
+            "fidensio API",
+            "stripe",
+            "mysql",
+            "vue.js"
+         ],
+         "date": {
+            "start": "2021-04-13",
+            "end": "2021-08"
+         },
+         "company": "Fidensio"
+      },
+      {
+         "id": 7,
+         "title": "Fidensio | エーピーアイ",
+         "slug": "fidensio-api",
+         "type": "Back",
+         "description": "このアプリケーションは、Laravel 5およびPHP 7.4から、Laravel 8およびPHP 8のREST APIに、既存のアプリケーションを移行することを目的としています。結果的に、Fidensioはよりニーズに適したスケーラブルな解決策を手に入れることができました。 私はTDDメゾットの使用により、いくつかのサービスをリファクタリングさせ、PHPUnitテストを作成しました。※FidensioのCTOが先導をして行われた企画であり、彼と協力し完成させることができました。当時、会社で最大の技術プロジェクトとして行われていたものの1 つです。",
+         "tools": [
+            "gitlab",
+            "laravel 8",
+            "php",
+            "laravel queues",
+            "mysql",
+            "phpunit",
+            "tdd"
+         ],
+         "date": {
+            "start": "2020-09",
+            "end": "2021-08 | 進行中 (退職時に未完成でした)"
+         },
+         "company": "Fidensio"
+      },
+      {
+         "id": 8,
+         "title": "Swedish Fit | ウエブサイト",
+         "slug": "swedish-fit",
+         "type": "Front",
+         "description": "",
+         "tools": [
+            "html",
+            "css",
+            "scss",
+            "javascript",
+            "responsive",
+            "UX&UI"
+         ],
+         "date": {
+            "start": "2019-02-01",
+            "end": "2020-01-01"
+         },
+         "link": "https://www.swedishfit.fr/",
+         "company": "Swedish Fit"
       }
    ]
 }

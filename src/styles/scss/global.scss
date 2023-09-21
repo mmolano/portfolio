@@ -10,6 +10,7 @@
 @import 'components/mixins/_mixins';
 @import 'components/layoutHeader';
 @import 'components/index';
+@import 'components/slug';
 @import 'components/loader';
 @import 'react-toastify/dist/ReactToastify.css';
 
@@ -37,6 +38,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+
   & span.external-link {
     color: $element-color
   }
@@ -81,14 +83,8 @@ textarea {
 article {
   text-align: justify;
   hyphens: auto;
-
-  & img {
-    margin-top: 40px;
-    object-fit: contain;
-    width: 100% !important;
-    position: relative !important;
-    height: unset !important;
-  }
+  -webkit-hyphens: auto;
+  width: 100%;
 }
 
 b {
@@ -380,6 +376,20 @@ button span:hover {
   text-align: center;
   padding: 5px 20px;
   background-color: black;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.flex-between {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.bold {
+  font-weight: bold;
+  font-family: "studio-bold", "roboto-bold";
 }
 
 // ---------------------------------------------------------------- Project pages

@@ -23,10 +23,12 @@ export interface ProjectIF {
    title: string
    slug: string
    type: DevType
+   objective?: string
    description: string
    tools: string[]
    date: ProjectDate
    link?: string
+   company: string
 }
 
 export interface SlideIF {
@@ -70,6 +72,15 @@ export interface ProjectPageIF {
    end: string
    previous: string
    next: string
+   noLink: string
+   breadHome: string
+   breadProject: string
+   companyName: string
+   dateString: string
+   linkString: string
+   objective: string
+   realization: string
+   translate: string
 }
 
 export interface Errors {
@@ -92,9 +103,13 @@ export interface PromiseToast {
    error: string
 }
 
+export interface ActualLang {
+   lang: "fr" | "en" | "ja";
+}
 export interface LanguageIF {
    lang: Lang
    nav: Nav
+   actualLang: ActualLang
    title: string
    projectSection: ProjectSectionIF
    contactSection: ContactSectionIF

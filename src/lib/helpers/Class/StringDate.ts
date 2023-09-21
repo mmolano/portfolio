@@ -4,23 +4,37 @@ import 'moment/locale/en-gb';
 import 'moment/locale/ja';
 
 class StringDate {
-   private readonly date: string;
-   private readonly language: string | undefined = localStorage.getItem('lang')?.toString();
+   private readonly date: string | undefined;
+   private readonly formatDate: string;
+   private readonly language: string | undefined;
 
-   constructor(dateString: string) {
+   constructor(dateString: string, lang?: string) {
       const dateValue = Date.parse(dateString);
 
       if (isNaN(dateValue)) {
          throw new Error("Invalid date string");
       }
 
-      moment.locale(this.language !== null ? this.language : 'en-gb');
-
-      this.date = moment(dateValue).format('ddd, LL');
+      if (lang) {
+         if (lang === "en") {
+            lang = 'en-gb'
+         }
+   
+         this.language = lang; 
+   
+         moment.locale(this.language);
+   
+         this.date = moment(dateValue).format('ddd, LL');
+      }
+      this.formatDate = moment(dateValue).format('L');
    }
 
    public get fullDate() {
       return this.date;
+   }
+
+   public get normalDate() {
+      return this.formatDate;
    }
 
    public set newDateLL(date: Date) {

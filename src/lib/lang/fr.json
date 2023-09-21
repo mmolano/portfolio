@@ -4,6 +4,9 @@
     "fr": "Fr",
     "ja": "日本語"
   },
+  "actualLang": {
+    "lang": "fr"
+  },
   "nav": {
     "projects": "Projets",
     "contact": "Contact",
@@ -48,7 +51,16 @@
     "start": "Date de début",
     "end": "Date de fin",
     "previous": "Projet précédent",
-    "next": "Projet suivant"
+    "next": "Projet suivant",
+    "noLink": "Pas de lien",
+    "breadHome": "Accueil",
+    "breadProject": "Projets",
+    "companyName": "Entreprise",
+    "dateString": "Date",
+    "linkString": "Liens",
+    "objective": "Objectif",
+    "realization": "Réalisation",
+    "translate": "En cours de traduction. Veuillez utiliser une autre langue."
   },
   "errors": {
     "emailValidation": "Une erreur est survenue lors de la validation de l'adresse mail",
@@ -70,9 +82,55 @@
   "projects": [
     {
       "id": 1,
-      "title": "Application E-commerce | React.js",
+      "title": "Nuxt.js | Ghibli",
+      "slug": "ghibli-nuxt",
+      "type": "Front",
+      "objective": "L’objectif principal de ce projet à été de créer une application qui permet d’afficher différents types d’informations disponible sur une API. Afin de rendre cela possible j’ai utilisé le framework Nuxt.js qui m’a permis de développer une application avec des bonnes performances et qui permet aux utilisateurs d'accéder aux informations depuis un ordinateur ou un smartphone.",
+      "description": "Cette application web est un projet personnel utilisant le framework Nuxt.js, axios afin d’obtenir les informations disponibles sur l’API suivante : https://ghibliapi.vercel.app/#tag/Films et cypress afin d’effectuer des tests sur certains composants. Ce projet est aussi disponible en ligne depuis le lien github et est complètement responsif et fonctionnel",
+      "tools": [
+        "github",
+        "nuxt",
+        "tailwind",
+        "cypress",
+        "sass",
+        "axios"
+      ],
+      "date": {
+        "start": "2023-06-23",
+        "end": "2023-06-26"
+      },
+      "link": "https://github.com/mmolano/ghibli-movie",
+      "company": "Aucune - Projet personnel"
+    },
+    {
+      "id": 2,
+      "title": "Laravel | API Recettes",
+      "slug": "recipe-api-laravel",
+      "type": "Back | WIP",
+      "objective": "L’objectif pour ce projet est de créer une API qui grossira avec les informations envoyées par les utilisateurs. Ce projet utilisera aussi une application front qui sera développée par la suite et qui permettra aux utilisateurs d'envoyer certaines informations sur la base de données de l’API afin de gagner en data. Ce projet ne vise pas à être utilisé par un grand nombre de personnes mais plutôt par un cercle d’amis et familiale.",
+      "description": "Ce projet est une application API REST en Laravel 9 permettant la création, la lecture, la modification et la suppression de recettes de cuisine. Cette application est conçue pour être exploités par d'autres applications pour afficher des recettes de cuisine. Le développement de ce projet est toujours en cours. L'application utilise des tests PHPUnit et des Logs afin d'enregistrer des activités et gérer les erreurs pour faciliter la résolution des problèmes éventuels.",
+      "tools": [
+        "github",
+        "laravel 9",
+        "php",
+        "phpunit",
+        "swagger",
+        "mysql",
+        "api rest"
+      ],
+      "date": {
+        "start": "2023-01-20",
+        "end": "En cours"
+      },
+      "link": "https://github.com/mmolano/Laravel-Recipe-small-api",
+      "company": "Aucune - Projet personnel"
+    },
+    {
+      "id": 3,
+      "title": "React.js | E-commerce",
       "slug": "e-commerce-react",
       "type": "Front | WIP",
+      "objective": "L’objectif principal de ce projet était de créer un site e-commerce en utilisant react.js et sont framework Next.js. Le choix de Next.js a été motivé par sa flexibilité, sa performance et sa facilité d'utilisation pour le développement d'applications web modernes. Grâce à Next.js, j’ai pu développer une application web performante, dynamique et réactive qui offre une expérience utilisateur optimale. Le but était de mettre en place des fonctionnalités classiques pour un site internet e-commerce, tout en offrant une expérience utilisateur fluide et intuitive.",
       "description": "Cette application web e-commerce est un projet personnel conçue pour offrir un parcours d'achat simple pour un site de vente en ligne. Elle permet aux utilisateurs d'ajouter, de voir et de retirer des produits à leurs paniers en toute simplicité. Le processus de paiement est assuré par Stripe et le système de connexion est quant à lui assuré par Auth0.",
       "tools": [
         "github",
@@ -87,34 +145,54 @@
         "start": "2023-01-09",
         "end": "En cours | Ajout de données"
       },
-      "link": "https://github.com/mmolano/next-react-shop"
+      "link": "https://github.com/mmolano/next-react-shop",
+      "company": "Aucune - Projet personnel"
     },
     {
-      "id": 2,
-      "title": "API de recettes | Laravel",
-      "slug": "recipe-api-laravel",
-      "type": "Back | WIP",
-      "description": "Ce projet est une application API REST en Laravel 9 permettant la création, la lecture, la modification et la suppression de recettes de cuisine. Cette application est conçue pour être exploités par d'autres applications pour afficher les recettes. Le développement de ce projet est toujours en cours. L'application utilise des tests PHPUnit et des Logs afin d'enregistrer des activités et gérer les erreurs pour faciliter la résolution des problèmes éventuels.",
+      "id": 4,
+      "title": "Fidensio | migration DB",
+      "slug": "fidensio-migration",
+      "type": "Back",
+      "objective": "Chez Fidensio, nous avions un objectif principal qui était de changer l’intégralité de la structure des applications existantes, de les rendre plus faciles à utiliser et plus performantes. Il a été décidé pour ce faire de modifier la structure de la base de données qui n’était pas à jour et difficile à exploiter.",
+      "description": "L'application suivante constitue l'un des projets de Fidensio afin de pouvoir exploiter la toute nouvelle API et structure de l'entreprise. L'objectif de ce projet est de migrer une ancienne base de données vers une nouvelle infrastructure, tout en minimisant les risques de perturbation des activités de l'entreprise. Afin de s'assurer d'une transition simple et sans incidents majeurs, de nombreux tests, jobs et un système de queue pour gérer d'éventuels problèmes pouvant survenir lors de la migration ont été mis en place. Ce projet a été entièrement fait par moi-même.",
       "tools": [
-        "github",
-        "laravel 9",
+        "gitlab",
+        "laravel 8",
         "php",
-        "phpunit",
-        "swagger",
-        "mysql",
-        "api rest"
+        "queues",
+        "mysql"
       ],
       "date": {
-        "start": "2023-01-20",
-        "end": "En cours"
+        "start": "2021-07",
+        "end": "2021-08"
       },
-      "link": "https://github.com/mmolano/Laravel-Recipe-small-api"
+      "company": "Fidensio"
     },
     {
-      "id": 3,
-      "title": "Fidensio | App partenaires",
+      "id": 5,
+      "title": "Fidensio | Front-end",
+      "slug": "fidensio-nuxt",
+      "type": "Front",
+      "objective": "Chez Fidensio, nous avions un objectif principal qui était de changer l’intégralité de la structure des applications existantes, de les rendre plus faciles à utiliser et plus performantes. Puisqu’il a été décidé de créer une API afin que celle-ci puisse être utilisée par nous et par nos partenaires, nous avons dû créer une application web qui ne dépendrait plus d’une base de données fixe mais à la place récupère les données avec notre API. Nous avons décidé d’utiliser Nuxt.js puisqu’il nous permet de créer une SPA et se lie facilement avec notre API Laravel.",
+      "description": "La toute nouvelle application front de Fidensio a été conçue avec la collaboration de freelancers (mise en place de la structure de base). Je me suis aussi occupé des versions mobiles IOS et android suite au changement d'infrastructure car nous utilisions des webviews et avec un changement en SPA il a fallut faire des modifications, de la correction de plusieurs erreurs ainsi que de l’ajout de nombreuses fonctionnalités manquantes telle que: la gestion des erreurs, les popups et les notifications.",
+      "tools": [
+        "gitlab",
+        "vue.js",
+        "nuxt.js",
+        "axios"
+      ],
+      "date": {
+        "start": "2021-07",
+        "end": "2021-08 | Inconnue"
+      },
+      "company": "Fidensio"
+    },
+    {
+      "id": 6,
+      "title": "Fidensio | Partenaires",
       "slug": "fidensio-partners",
       "type": "Front | Back",
+      "objective": "Fidensio est une entreprise qui permet aux utilisateurs d’utiliser différents types de services en ligne, allant de la location de voiture et de la livraison de nourriture à la réservation d’une nourrice. Pour certains de ses services, Fidensio a des partenaires et j’étais de ce fait chargé de développer une application déjà existante avec des outils plus modernes et en prenant en compte les changements ayant été fait lorsque l’API a été construite. L’objectif était donc de permettre à notre partenaire de gérer les commandes des clients directement sur l’application web.",
       "description": "Ce projet est une application que j'ai développés seul en tant que membre de l'équipe de Fidensio. Elle utilise plusieurs technologies, notamment Laravel 8, Vue.js et Stripe pour le traitement des paiements. Le but de ce projet était de permettre à l'un des partenaires de l'entreprise de gérer les commandes depuis un dashboard, tout en offrant une expérience desktop et mobile simple et efficace.",
       "tools": [
         "gitlab",
@@ -128,13 +206,15 @@
       "date": {
         "start": "2021-04-13",
         "end": "2021-08"
-      }
+      },
+      "company": "Fidensio"
     },
     {
-      "id": 4,
+      "id": 7,
       "title": "Fidensio | API",
       "slug": "fidensio-api",
       "type": "Back",
+      "objective": "Chez Fidensio, nous avions un objectif principal qui était de changer l’intégralité de la structure des applications existantes, de les rendre plus faciles à utiliser et plus performantes. Puisque nous avions aussi le besoin d'intégrer des partenaires pour qu’ils puissent avoir accès à certaines de nos données, il a été décidé de remplacer l’application principale par une API qui sera utilisée par chacune des applications qui ont été par la suite modifiées. Ce projet nous a fait re-désigner chacune des applications ainsi que notre base de données.",
       "description": "Ce projet a été réalisé en étroite collaboration avec le CTO de Fidensio, qui a apporté son expertise afin de garantir le succès du projet. Il s'agit d'un des plus gros projets technique de l'entreprise à ce moment et qui visait à migrer une application existante de Laravel 5 et PHP 7.4 vers une API REST en Laravel 8 et PHP 8. Cette migration d'infrastructure plus récente et plus performante permet à Fidensio d'avoir une solution plus adaptée et modulable en fonction de ses besoins. Pour ce projet, je me suis occupé de refactor certains service et de créer les tests PHPUnit en utilisant la méthode TDD",
       "tools": [
         "gitlab",
@@ -147,43 +227,31 @@
       ],
       "date": {
         "start": "2020-09",
-        "end": "2021-08 | WIP (Pas complet lorsque je suis partis)"
-      }
+        "end": "2021-08 | WIP (Pas complet lorsque je suis partie)"
+      },
+      "company": "Fidensio"
     },
     {
-      "id": 5,
-      "title": "Fidensio | migration DB",
-      "slug": "fidensio-migration",
-      "type": "Back",
-      "description": "L'application suivante constitue l'un des projets de Fidensio afin de pouvoir exploiter la toute nouvelle API et structure de l'entreprise. L'objectif de ce projet est de migrer une ancienne base de données vers une nouvelle infrastructure, tout en minimisant les risques de perturbation des activités de l'entreprise. Afin de s'assurer d'une transition simple et sans incidents majeurs, un système de queue pour gérer d'éventuels problèmes pouvant survenir lors de la migration a été mis en place. Ce projet a été entièrement fait par moi-même.",
-      "tools": [
-        "gitlab",
-        "laravel 8",
-        "php",
-        "queues",
-        "mysql"
-      ],
-      "date": {
-        "start": "2021-07",
-        "end": "2021-08"
-      }
-    },
-    {
-      "id": 6,
-      "title": "Fidensio | Front-end",
-      "slug": "fidensio-nuxt",
+      "id": 8,
+      "title": "Swedish Fit | Site web",
+      "slug": "swedish-fit",
       "type": "Front",
-      "description": "La toute nouvelle application front de Fidensio a été conçue avec la collaboration de freelancers. Pour obtenir les informations nécessaires, j'ai mis en relation cette application qui ne donnait que des informations statique (travail des freelancers) par les données disponible avec l'API de Fidensio.",
+      "objective": "Swedish fit est un club de sport qui offre des cours collectifs et de ce fait doit valider l’identité ainsi que la présence de chaque personne avant un cours. Auparavant, Swedish fit n’avait pas de version responsive du site admin et utilisateur. C’est devenu nécessaire et par conséquent l’objectif principale de créer une version mobile ainsi que d’ajouter des fonctionnalités pour que les coachs sportifs puissent faire des choses plus facilement comme par exemple scanner une carte d’un membre pour valider une présence.",
+      "description": "À Swedish fit, il m’a fallu collaborer avec l’UX&UI designer, donner vie à chaque modification, être force de proposition et créer les versions responsives des designs. J’ai eu la responsabilité de modifier les plateformes admin et utilisateur en les adaptant avec les nouveaux design ainsi que de créer puis de coder les versions mobiles de ces designs. Auparavant, les coachs de Swedish fit devaient valider l’identité de chaque participant avant le début d’un cours et cela prenait du temps. C’est pour cela et afin de répondre à ce problème que j’ai décidé de créer un lecteur de code bar en utilisant javascript qui permet d’utiliser la caméra du téléphone pour valider automatiquement la présence et l’identité d’une personne en scannant la carte de l'adhérent.",
       "tools": [
-        "gitlab",
-        "vue.js",
-        "nuxt.js",
-        "axios"
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "responsive",
+        "UX&UI"
       ],
       "date": {
-        "start": "2021-07",
-        "end": "2021-08 | Inconnue"
-      }
+        "start": "2019-02-01",
+        "end": "2020-01-01"
+      },
+      "link": "https://www.swedishfit.fr/",
+      "company": "Swedish Fit"
     }
   ]
 }

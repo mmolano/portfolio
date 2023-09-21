@@ -12,6 +12,12 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { TailSpin } from 'react-loader-spinner';
 import Custom404 from '../404';
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 export default function Project(): JSX.Element {
    const { translation } = useStateContext();
@@ -22,13 +28,35 @@ export default function Project(): JSX.Element {
    const project = projects.find((project) => project.slug === slug);
    const [isLoading, setIsLoading] = useState<boolean>();
    const [date, setDate] = useState<string>("");
+   const [images, setImages] = useState<Array<string>>([]);
 
-   const urlImage = `/images/projects/${slug}/home.png`;
+   function getImageForValue(slug: string | string[]): string[] {
+      switch (true) {
+         case slug.includes('fidensio-partners'):
+            return ['1.jpg'];
+         case slug.includes('fidensio-api'):
+            return ['1.jpg', '2.jpg'];
+         case slug.includes('fidensio-nuxt'):
+            return ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+         case slug.includes('fidensio-migration'):
+            return ['1.jpg', '2.jpg', '3.jpg'];
+         case slug.includes('recipe-api-laravel'):
+            return ['1.jpg'];
+         case slug.includes('e-commerce-react'):
+            return ['1.jpg', '2.jpg', '3.jpg'];
+         case slug.includes('swedish-fit'):
+            return ['1.jpg', '2.jpg'];
+         case slug.includes('ghibli-nuxt'):
+            return ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+         default:
+            return ['1.jpg'];
+      }
+   }
 
    useEffect(() => {
       if (project) {
-         const dateStart = new StringDate(project.date.start).fullDate;
-         setDate(dateStart);
+         const dateStart = new StringDate(project.date.start, translation.actualLang.lang).fullDate;
+         setDate(dateStart!);
       }
    }, [slug, translation])
 
@@ -47,6 +75,10 @@ export default function Project(): JSX.Element {
       const timeOutImageId = setTimeout(() => {
          setIsLoading(false);
       }, 1500);
+
+      if (slug) {
+         setImages(getImageForValue(slug));
+      }
 
       return () => {
          clearTimeout(timeOutID);
@@ -76,8 +108,8 @@ export default function Project(): JSX.Element {
                <div className="container">
                   <div className="breadcrumb">
                      <ul>
-                        <li><LinkRef href="/">Home</LinkRef></li>
-                        <li><LinkRef href={`/#projects`}>Projects</LinkRef></li>
+                        <li><LinkRef href="/">{page.breadHome}</LinkRef></li>
+                        <li><LinkRef href={`/#projects`}>{page.breadProject}</LinkRef></li>
                         <li><LinkRef href={`/project/${slug}`}>{project.title}</LinkRef></li>
                      </ul>
                   </div>
@@ -89,12 +121,33 @@ export default function Project(): JSX.Element {
                      }
                   </div>
                   <article>
-                     <Paragraphe>{project.description}</Paragraphe>
-                     {
-                        project.link ? <LinkRef isOutSite={true} target="_blank" rel="noreferrer" href={project.link}>Github: <span className="external-link">{project.link}</span></LinkRef> : null
-                     }
-                     <Paragraphe>{page.start + ': ' + date}</Paragraphe>
-                     <Paragraphe>{page.end + ': ' + project.date.end}</Paragraphe>
+                     <div className="flex-between">
+                        <div>
+                           <Paragraphe className="bold">{page.companyName}</Paragraphe>
+                           <Paragraphe>{project.company}</Paragraphe>
+                        </div>
+                        <div>
+                           <Paragraphe className="bold">{page.dateString}</Paragraphe>
+                           <Paragraphe>{date + ' - ' + project.date.end.replace(/-/g, '/')}</Paragraphe>
+                        </div>
+                        <div>
+                           <Paragraphe className="bold">{page.linkString}</Paragraphe>
+                           {
+                              project.link ? <LinkRef isOutSite={true} target="_blank" rel="noreferrer" href={project.link}><span className="external-link">{project.link}</span></LinkRef> : <p>{page.noLink}</p>
+                           }
+                        </div>
+                     </div>
+                     {/* TODO: add every text in json */}
+                     <h4 className="section-title">{page.objective}</h4>
+                     {project.objective ?
+                        <>
+                           <Paragraphe>{project.objective}</Paragraphe>
+                        </>
+                        : page.translate}
+                     <h4 className="section-title">{page.realization}</h4>
+                     {project.description ?
+                        <Paragraphe>{project.description}</Paragraphe>
+                        : page.translate}
                      {isLoading ? (
                         <TailSpin
                            height="80"
@@ -106,12 +159,33 @@ export default function Project(): JSX.Element {
                            wrapperClass=""
                            visible={true}
                         />
-                     ) : <Image
-                        className="project-image"
-                        src={urlImage}
-                        alt="project image"
-                        layout="fill"
-                     />}
+                     ) :
+                        <Swiper
+                           direction={'vertical'}
+                           slidesPerView={1}
+                           spaceBetween={30}
+                           pagination={{
+                              clickable: true,
+                           }}
+                           navigation={true}
+                           modules={[Pagination, Navigation]}
+                           className="mySwiper"
+                        >
+                           {images.filter(Boolean).map((imageName, index) => (
+                              <SwiperSlide
+                                 key={index}
+                              >
+                                 <Image
+                                    key={index}
+                                    className="project-image"
+                                    src={`/images/projects/${slug}/${imageName}`}
+                                    alt="project image"
+                                    fill
+                                 />
+                              </SwiperSlide>
+                           ))}
+                        </Swiper>
+                     }
                   </article>
                </div>
             </section>

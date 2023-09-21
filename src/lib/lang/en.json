@@ -4,6 +4,9 @@
     "fr": "Fr",
     "ja": "日本語"
   },
+  "actualLang": {
+    "lang": "en"
+  },
   "nav": {
     "projects": "Projects",
     "contact": "Contact",
@@ -48,7 +51,16 @@
     "start": "Starting date",
     "end": "Ending date",
     "previous": "Previous project",
-    "next": "Next project"
+    "next": "Next project",
+    "noLink": "No link",
+    "breadHome": "Home",
+    "breadProject": "Projects",
+    "companyName": "Company",
+    "dateString": "Date",
+    "linkString": "Link",
+    "objective": "Objective",
+    "realization": "Realization",
+    "translate": "Not yet translated. Please use another language."
   },
   "errors": {
     "emailValidation": "An error occurred while validating the email address",
@@ -70,9 +82,55 @@
   "projects": [
     {
       "id": 1,
-      "title": "E-Commerce | React.js",
+      "title": "Nuxt.js | Ghibli",
+      "slug": "ghibli-nuxt",
+      "type": "Front",
+      "objective": "The main objective of this project was to create a web application to display different kinds of information available on an API. In order to achieve that, I used the Nuxt.js framework which allowed me to develop an application with great performance that allows users to access the information from their computer or their smartphone.",
+      "description": "This application was made as a personal project using the framework Nuxt.js, axios to retrieve the Ghibili’s API information available here: https://ghibliapi.vercel.app/#tag/Films and cypress to test the components. This project is also available online from the github link and is fully responsive and functional.",
+      "tools": [
+        "github",
+        "nuxt",
+        "tailwind",
+        "cypress",
+        "sass",
+        "axios"
+      ],
+      "date": {
+        "start": "2023-06-23",
+        "end": "2023-06-26"
+      },
+      "link": "https://github.com/mmolano/ghibli-movie",
+      "company": "None - Personal project"
+    },
+    {
+      "id": 2,
+      "title": "Laravel | Recipe API",
+      "slug": "recipe-api-laravel",
+      "type": "Back | WIP",
+      "objective": "The objective for this project is to create an API that would be growing with user’s inputs. This project will also use a front application that will be built later on and will send informations to the API’s database to gain data. This project is not aimed to be used by a huge amount of people but to be used by a close circle of friends and family.",
+      "description": "This project is a Laravel 9 REST API application that allows to: create, read, modify and delete recipes. The application is designed to be used by other applications to display cooking recipes and his development is ongoing. The application utilizes PHPUnit tests and logs to record activites and manage errors to facilitate the resolution of any potential issues.",
+      "tools": [
+        "github",
+        "laravel 9",
+        "php",
+        "phpunit",
+        "swagger",
+        "mysql",
+        "rest api"
+      ],
+      "date": {
+        "start": "2023-01-20",
+        "end": "WIP"
+      },
+      "link": "https://github.com/mmolano/Laravel-Recipe-small-api",
+      "company": "None - Personal project"
+    },
+    {
+      "id": 3,
+      "title": "React.js | E-Commerce",
       "slug": "e-commerce-react",
       "type": "Front | WIP",
+      "objective": "The main objective of this project was to create an e-commerce web application using react.js and his framework Next.js. The choice of Next.js was motivated by its flexibility, performance, and ease of use for modern web application development. Thanks to Next.js, I was able to build a high-performance, dynamic, and responsive web application that provides an optimal user experience. The goal was to implement classic features for an e-commerce website while delivering a smooth and intuitive user experience.",
       "description": "This e-commerce web application is a personal project aimed at providing a good shopping experience. It allows users to easily add, view, and remove products from their carts. The payment process is handled by Stripe, and the login system is provided by Auth0.",
       "tools": [
         "github",
@@ -87,34 +145,54 @@
         "start": "2023-01-09",
         "end": "Pending | Will add more data"
       },
-      "link": "https://github.com/mmolano/next-react-shop"
+      "link": "https://github.com/mmolano/next-react-shop",
+      "company": "None - Personal project"
     },
     {
-      "id": 2,
-      "title": "Recipe API | Laravel",
-      "slug": "recipe-api-laravel",
-      "type": "Back | WIP",
-      "description": "This project is a Laravel 9 REST API application that allows to: create, read, modify and delete recipes. The application is designed to be used by other applications to display recipes and his development is ongoing. The application utilizes PHPUnit tests and logs to record activites and manage errors to facilitate the resolution of any potential issues.",
+      "id": 4,
+      "title": "Fidensio | DB migration",
+      "slug": "fidensio-migration",
+      "type": "Back",
+      "objective": "At Fidensio, we had a global objective to change the entire structure of all existing applications, to make them more friendly to use and give them more performances. It was decided that we needed to change the structure of the entire database as it was outdated and not easy to use.",
+      "description": "The following project aimed at utilizing the company's brand new API previously made with the CTO and the new database structure. The objective of this project was to migrate an old database to a new infrastructure while minimizing the risk of disruptigng the company's activities. To ensure a smooth and incident-free transition, multiple tests, jobs, and a queue system were implemented to handle any potential issues that may occure during the migration. This project was entirely done by myself.",
       "tools": [
-        "github",
-        "laravel 9",
+        "gitlab",
+        "laravel 8",
         "php",
-        "phpunit",
-        "swagger",
-        "mysql",
-        "rest api"
+        "queues",
+        "mysql"
       ],
       "date": {
-        "start": "2023-01-20",
-        "end": "WIP"
+        "start": "2021-07",
+        "end": "2021-08"
       },
-      "link": "https://github.com/mmolano/Laravel-Recipe-small-api"
+      "company": "Fidensio"
     },
     {
-      "id": 3,
+      "id": 5,
+      "title": "Fidensio | Front-end",
+      "slug": "fidensio-nuxt",
+      "type": "Front",
+      "objective": "At Fidensio, we had a global objective to change the entire structure of all existing applications, to make them more friendly to use and give them more performances. As it was decided to create an API for Fidensio’s and our partners use, we had to recreate a web application that would no longer depend on a database but would instead retrieve data from our API. We decided to use Nuxt.js as it allows us to build SPA and can connect well with our Laravel API.",
+      "description": "This brand new front-end application was built in collaboration with freelancers (setting up the structure of the application). I fixed a few errors and added many missing functionalities such as: error handling, popups and notifications.  I also took care of the IOS and Android applications after our change of infrastructure because we were using webviews and with a change to an SPA, we needed to make a few changes.",
+      "tools": [
+        "gitlab",
+        "vue.js",
+        "nuxt.js",
+        "axios"
+      ],
+      "date": {
+        "start": "2021-07",
+        "end": "2021-08 | WIP (not finished when i left)"
+      },
+      "company": "Fidensio"
+    },
+    {
+      "id": 6,
       "type": "Front | Back",
-      "title": "Fidensio | for partners",
+      "title": "Fidensio | Partners",
       "slug": "fidensio-partners",
+      "objective": "Fidensio is a company that allows customers to use different types of online services, ranging from car rentals and food delivery to locating qualified nurses and beyond. For some of their services, Fidensio has partners and I was in charge of creating an already existing web application with more modern tools and based on the changes after the API was built. The objective was to allow our partner to manage customers' orders on the web application.",
       "description": "This project is an application that i developed as a member of the Fidensio team. It utilizes serveral technologies, including Laravel 8, Vue.js and Stripe for payment processing. The aim of this project was to allow one of the company's partners to manage orders from a dashboard while providing a simple and effective desktop and mobile experience.",
       "tools": [
         "gitlab",
@@ -128,13 +206,15 @@
       "date": {
         "start": "2021-04-13",
         "end": "2021-08"
-      }
+      },
+      "company": "Fidensio"
     },
     {
-      "id": 4,
+      "id": 7,
       "title": "Fidensio | API",
       "slug": "fidensio-api",
       "type": "Back",
+      "objective": "At Fidensio, we had a global objective to change the entire structure of all existing applications, to make them more friendly to use and give them more performances. As we also needed to integrate partners so they could access some of our data, it was decided to replace the existing application by an API that would be used by each of our new-to-build applications. This project made us redesign each applications and our database.",
       "description": "This application was carried out in close collaboration with the CTO of Fidensio, who brought his expertise to ensure the success of the project. It is one of the biggest technical projects of the company at that time, which aimed to migrate an existing application from Laravel 5 and PHP 7.4 to a REST API in Laravel 8 and PHP 8. This migration to a more recent and more performant infrastructure allows Fidensio to have a solution that is more suited and scalable to its needs. For this project i was in charge to refactor some services and make the PHPUnit tests for them using the TDD method.",
       "tools": [
         "gitlab",
@@ -147,43 +227,31 @@
       ],
       "date": {
         "start": "2020-09",
-        "end": "2021-08 | WIP (not finished when i left)"
-      }
+        "end": "2021-08 | WIP (not finished when i left)"
+      },
+      "company": "Fidensio"
     },
     {
-      "id": 5,
-      "title": "Fidensio | DB migration",
-      "slug": "fidensio-migration",
-      "type": "Back",
-      "description": "The following project aimed at utilizing the company's brand new API previously made with the CTO and the new database structure. The objective of this project was to migrate an old database to a new infrastructure while minimizing the risk of disruptigng the company's activities. To ensure a smooth and incident-free transition, a queue system was implemented to handle any potential issues that may occure during the migration. This project was entirely done by myself.",
-      "tools": [
-        "gitlab",
-        "laravel 8",
-        "php",
-        "queues",
-        "mysql"
-      ],
-      "date": {
-        "start": "2021-07",
-        "end": "2021-08"
-      }
-    },
-    {
-      "id": 6,
-      "title": "Fidensio | Front-end",
-      "slug": "fidensio-nuxt",
+      "id": 8,
+      "title": "Swedish Fit | Website",
+      "slug": "swedish-fit",
       "type": "Front",
-      "description": "This brand new front-end application was built in collaboration with freelancers. In order to obtain all the necessary information, i had to connect this application, which was only provided with static informations (initial work made by the freelancer team) to the data available through Fidensio's API.",
+      "objective": "Swedish fit is a sports club that offers group classes and therefore must validate the identity and presence of each person before a class. Previously, Swedish fit had no responsive version of their user and admin web application. It became necessary and the main objective to make a responsive version and add extra features so our coaches could do things more easily such as scanning a member’s card to validate his attendance.",
+      "description": "At Swedish fit, i had to work in pairs with the UX&UI designer to bring to life each modification, propose changes and create responsive versions of the designs. I was then in charge of changing their admin and user website to the new designs and making a fully working responsive version of it. Previously, Swedish Fit coaches manually confirmed the identity of each attendee before a class would start, a process that was time-consuming. To fix this, I decided to build a barcode reader using javascript, that allows them to use their smartphone to scan a member's card and automatically validate someone’s identity and presence at the class.",
       "tools": [
-        "gitlab",
-        "vue.js",
-        "nuxt.js",
-        "axios"
+        "html",
+        "css",
+        "scss",
+        "javascript",
+        "responsive",
+        "UX&UI"
       ],
       "date": {
-        "start": "2021-07",
-        "end": "2021-08 | WIP (not finished when i left)"
-      }
+        "start": "2019-02-01",
+        "end": "2020-01-01"
+      },
+      "link": "https://www.swedishfit.fr/",
+      "company": "Swedish Fit"
     }
   ]
 }
