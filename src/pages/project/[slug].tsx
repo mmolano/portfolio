@@ -86,127 +86,131 @@ export default function Project(): JSX.Element {
       }
    }, [slug]);
 
-   if (!project) {
-      return <Custom404 />;
-   }
-
    const prevSlugHandler = () => {
-      const prevProject = projects.find(prevProject => prevProject.id === project.id - 1);
+      const prevProject = projects.find(prevProject => prevProject.id === project!.id - 1);
       return prevProject ? prevProject.slug : null;
    };
 
    const nextSlugHandler = () => {
-      const nextProject = projects.find(nextProject => nextProject.id === project.id + 1);
+      const nextProject = projects.find(nextProject => nextProject.id === project!.id + 1);
       return nextProject ? nextProject.slug : null;
    };
 
    return (
       <>
+
          <Layout>
-            <section id="project" className="first-element slug">
-               <TitleStretch type="h1">{project.title}</TitleStretch>
-               <div className="container">
-                  <div className="breadcrumb">
-                     <ul>
-                        <li><LinkRef href="/">{page.breadHome}</LinkRef></li>
-                        <li><LinkRef href={`/#projects`}>{page.breadProject}</LinkRef></li>
-                        <li><LinkRef href={`/project/${slug}`}>{project.title}</LinkRef></li>
-                     </ul>
-                  </div>
-                  <div className="tag-container">
-                     {
-                        project.tools.map((tool, index) => (
-                           <LanguageTag key={index}>{capitalize(tool)}</LanguageTag>
-                        ))
-                     }
-                  </div>
-                  <article>
-                     <div className="flex-between">
-                        <div>
-                           <Paragraphe className="bold">{page.companyName}</Paragraphe>
-                           <Paragraphe>{project.company}</Paragraphe>
-                        </div>
-                        <div>
-                           <Paragraphe className="bold">{page.dateString}</Paragraphe>
-                           <Paragraphe>{date + ' - ' + project.date.end.replace(/-/g, '/')}</Paragraphe>
-                        </div>
-                        <div>
-                           <Paragraphe className="bold">{page.linkString}</Paragraphe>
-                           {
-                              project.link ? <LinkRef isOutSite={true} target="_blank" rel="noreferrer" href={project.link}><span className="external-link">{project.link}</span></LinkRef> : <p>{page.noLink}</p>
-                           }
-                        </div>
-                     </div>
-                     {/* TODO: add every text in json */}
-                     <h4 className="section-title">{page.objective}</h4>
-                     {project.objective ?
-                        <>
-                           <Paragraphe>{project.objective}</Paragraphe>
-                        </>
-                        : page.translate}
-                     <h4 className="section-title">{page.realization}</h4>
-                     {project.description ?
-                        <Paragraphe>{project.description}</Paragraphe>
-                        : page.translate}
-                     {isLoading ? (
-                        <TailSpin
-                           height="80"
-                           width="80"
-                           color="#B191FF"
-                           ariaLabel="tail-spin-loading"
-                           radius="1"
-                           wrapperStyle={{}}
-                           wrapperClass=""
-                           visible={true}
-                        />
-                     ) :
-                        <Swiper
-                           direction={'vertical'}
-                           slidesPerView={1}
-                           spaceBetween={30}
-                           pagination={{
-                              clickable: true,
-                           }}
-                           navigation={true}
-                           modules={[Pagination, Navigation]}
-                           className="mySwiper"
-                        >
-                           {images.filter(Boolean).map((imageName, index) => (
-                              <SwiperSlide
-                                 key={index}
-                              >
-                                 <Image
-                                    key={index}
-                                    className="project-image"
-                                    src={`/images/projects/${slug}/${imageName}`}
-                                    alt="project image"
-                                    fill
+            {
+               !project ? <Custom404 />
+                  :
+                  <>
+                     <section id="project" className="first-element slug">
+                        <TitleStretch type="h1">{project.title}</TitleStretch>
+                        <div className="container">
+                           <div className="breadcrumb">
+                              <ul>
+                                 <li><LinkRef href="/">{page.breadHome}</LinkRef></li>
+                                 <li><LinkRef href={`/#projects`}>{page.breadProject}</LinkRef></li>
+                                 <li><LinkRef href={`/project/${slug}`}>{project.title}</LinkRef></li>
+                              </ul>
+                           </div>
+                           <div className="tag-container">
+                              {
+                                 project.tools.map((tool, index) => (
+                                    <LanguageTag key={index}>{capitalize(tool)}</LanguageTag>
+                                 ))
+                              }
+                           </div>
+                           <article>
+                              <div className="flex-between">
+                                 <div>
+                                    <Paragraphe className="bold">{page.companyName}</Paragraphe>
+                                    <Paragraphe>{project.company}</Paragraphe>
+                                 </div>
+                                 <div>
+                                    <Paragraphe className="bold">{page.dateString}</Paragraphe>
+                                    <Paragraphe>{date + ' - ' + project.date.end.replace(/-/g, '/')}</Paragraphe>
+                                 </div>
+                                 <div>
+                                    <Paragraphe className="bold">{page.linkString}</Paragraphe>
+                                    {
+                                       project.link ? <LinkRef isOutSite={true} target="_blank" rel="noreferrer" href={project.link}><span className="external-link">{project.link}</span></LinkRef> : <p>{page.noLink}</p>
+                                    }
+                                 </div>
+                              </div>
+                              {/* TODO: add every text in json */}
+                              <h4 className="section-title">{page.objective}</h4>
+                              {project.objective ?
+                                 <>
+                                    <Paragraphe>{project.objective}</Paragraphe>
+                                 </>
+                                 : page.translate}
+                              <h4 className="section-title">{page.realization}</h4>
+                              {project.description ?
+                                 <Paragraphe>{project.description}</Paragraphe>
+                                 : page.translate}
+                              {isLoading ? (
+                                 <TailSpin
+                                    height="80"
+                                    width="80"
+                                    color="#B191FF"
+                                    ariaLabel="tail-spin-loading"
+                                    radius="1"
+                                    wrapperStyle={{}}
+                                    wrapperClass=""
+                                    visible={true}
                                  />
-                              </SwiperSlide>
-                           ))}
-                        </Swiper>
-                     }
-                  </article>
-               </div>
-            </section>
-            <footer>
-               <ul>
-                  <li>
-                     {
-                        prevSlugHandler() !== null ?
-                           <LinkRef href={`/project/${prevSlugHandler()}`}>{`< `} {page.previous}</LinkRef>
-                           : ''
-                     }
-                  </li>
-                  <li>
-                     {
-                        nextSlugHandler() !== null ?
-                           <LinkRef href={`/project/${nextSlugHandler()}`}>{page.next} {` >`}</LinkRef>
-                           : ''
-                     }
-                  </li>
-               </ul>
-            </footer>
+                              ) :
+                                 <Swiper
+                                    direction={'vertical'}
+                                    slidesPerView={1}
+                                    spaceBetween={30}
+                                    pagination={{
+                                       clickable: true,
+                                    }}
+                                    navigation={true}
+                                    modules={[Pagination, Navigation]}
+                                    className="mySwiper"
+                                 >
+                                    {images.filter(Boolean).map((imageName, index) => (
+                                       <SwiperSlide
+                                          key={index}
+                                       >
+                                          <Image
+                                             key={index}
+                                             className="project-image"
+                                             src={`/images/projects/${slug}/${imageName}`}
+                                             alt="project image"
+                                             fill
+                                          />
+                                       </SwiperSlide>
+                                    ))}
+                                 </Swiper>
+                              }
+                           </article>
+                        </div>
+                     </section>
+                     <footer>
+                        <ul>
+                           <li>
+                              {
+                                 prevSlugHandler() !== null ?
+                                    <LinkRef href={`/project/${prevSlugHandler()}`}>{`< `} {page.previous}</LinkRef>
+                                    : ''
+                              }
+                           </li>
+                           <li>
+                              {
+                                 nextSlugHandler() !== null ?
+                                    <LinkRef href={`/project/${nextSlugHandler()}`}>{page.next} {` >`}</LinkRef>
+                                    : ''
+                              }
+                           </li>
+                        </ul>
+                     </footer>
+                  </>
+
+            }
          </Layout>
       </>
    )
